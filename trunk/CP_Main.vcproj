@@ -1941,6 +1941,9 @@
 						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
 			</File>
+			<File
+				RelativePath=".\webbrowser2.cpp">
+			</File>
 			<Filter
 				Name="Controls"
 				Filter="">
@@ -2831,6 +2834,9 @@
 			<File
 				RelativePath="UnicodeMacros.h">
 			</File>
+			<File
+				RelativePath=".\webbrowser2.h">
+			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"
@@ -2975,7 +2981,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="Debug\focus.dll">
+				RelativePath="Release\focus.dll">
 				<FileConfiguration
 					Name="Release|Win32"
 					ExcludedFromBuild="TRUE">
@@ -3002,7 +3008,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="Release\focus.dll">
+				RelativePath="Debug\focus.dll">
 				<FileConfiguration
 					Name="Release|Win32"
 					ExcludedFromBuild="TRUE">

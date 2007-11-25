@@ -92,6 +92,8 @@ END_MESSAGE_MAP()
 
 
 CCP_MainApp::CCP_MainApp()
+: m_bSetWebAddr(false)
+, m_strWebAddr(_T(""))
 {
 	m_bAppRunning = false;
 	m_bAppExiting = false;
@@ -1142,4 +1144,10 @@ void CCP_MainApp::PumpMessageEx()
 		::TranslateMessage(&KeyboardMsg);
 		::DispatchMessage(&KeyboardMsg);
 	}
+}
+// // 웹페이지 주소를 설정한다.
+void CCP_MainApp::SetWebAddr(bool bSetAddr, CString strWebAddr)
+{
+	m_bSetWebAddr = bSetAddr;
+	m_strWebAddr = strWebAddr;
 }

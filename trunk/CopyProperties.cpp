@@ -5,6 +5,7 @@
 #include "cp_main.h"
 #include "CopyProperties.h"
 #include ".\copyproperties.h"
+#include "shellapi.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -47,6 +48,8 @@ void CCopyProperties::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_COPY_DATA, m_lCopyData);
 	DDX_Text(pDX, IDC_DATE, m_eDate);
 	DDX_Check(pDX, IDC_NEVER_AUTO_DELETE, m_bNeverAutoDelete);
+
+	DDX_Control(pDX, IDC_EDIT_WEBPAGE, m_WebPage);
 	//}}AFX_DATA_MAP
 }
 
@@ -56,6 +59,7 @@ BEGIN_MESSAGE_MAP(CCopyProperties, CDialog)
 	ON_BN_CLICKED(IDC_DELETE_COPY_DATA, OnDeleteCopyData)
 	ON_WM_ACTIVATE()
 	ON_WM_SIZE()
+	ON_BN_CLICKED(IDC_BTN_GO_WEBADDR, OnBnClickedBtnGoWebaddr)		// modified by kyo
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -118,6 +122,9 @@ void CCopyProperties::LoadDataFromCClip(CClip &Clip)
 	COleDateTime dtTime(Clip.m_Time.GetTime());
 	m_eDate = dtTime.Format();
 	m_RichEdit.SetText(Clip.m_Desc);
+	m_WebPage.SetWindowText(Clip.m_WebAddr);		// modified by kyo
+
+	MessageBox((LPCTSTR)Clip.m_WebAddr);			// for Test
 
 	if(Clip.m_lDontAutoDelete)
 	{
@@ -292,4 +299,22 @@ void CCopyProperties::OnSize(UINT nType, int cx, int cy)
 	
 
 	m_Resize.MoveControls(CSize(cx, cy));
+}
+
+void CCopyProperties::OnBnClickedBtnGoWebaddr()
+{
+	// TODO: 해당 웹사이트로 이동한다.
+	char strAddr[256];						// 스트링 길이 조절에 조금 문제 있음
+
+	int nLength = m_WebPage.GetWindowTextLength() + 1;
+
+	if( nLength <= 0 )
+	{
+		AfxMessageBox("이동할 URL이 없습니다.");
+	}
+	else
+	{
+		m_WebPage.GetWindowText(strAddr,nLength);
+		ShellExecute( NULL, "open", strAddr, NULL, NULL, SW_SHOWNORMAL); 
+	}
 }

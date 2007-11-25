@@ -184,6 +184,7 @@ void CClip::Clear()
 	m_lShortCut = 0;
 	m_bIsGroup = FALSE;
 	m_csQuickPaste = "";
+	m_WebAddr = "";						// modified by kyo
 	
 	EmptyFormats();
 }
@@ -217,6 +218,7 @@ const CClip& CClip::operator=(const CClip &clip)
 
 	//Set this after since in could get the wrong description in AddFormat
 	m_Desc = clip.m_Desc;
+	m_WebAddr = clip.m_WebAddr;						// modified by kyo
 
 	return *this;
 }
@@ -413,13 +415,14 @@ bool CClip::SetDescFromText(HGLOBAL hgData)
 	long ulBufLen = GlobalSize(hgData);
 	
 	m_Desc = text;
+//	m_WebAddr = theApp.m_strWebAddr;		// modified by kyo
 	bRet = true;
 		
 	if(ulBufLen > g_Opt.m_bDescTextSize)
 	{
 		m_Desc = m_Desc.Left(g_Opt.m_bDescTextSize);
 	}
-	
+
 	//Unlock the data
 	GlobalUnlock(hgData);
 	
@@ -592,11 +595,15 @@ bool CClip::AddToMainTable()
 {
 	try
 	{
+		m_WebAddr = theApp.m_strWebAddr;				// modified by kyo
+		theApp.SetWebAddr( false );
+
 		m_Desc.Replace(_T("'"), _T("''"));
 		m_csQuickPaste.Replace(_T("'"), _T("''"));
+		m_WebAddr.Replace(_T("'"), _T("''"));			// modified by kyo
 
 		CString cs;
-		cs.Format(_T("INSERT into Main values(NULL, %d, '%s', %d, %d, %d, %d, %d, '%s');"),
+		cs.Format(_T("INSERT into Main values(NULL, %d, '%s', %d, %d, %d, %d, %d, '%s', '%s');"),
 							(long)m_Time.GetTime(),
 							m_Desc,
 							m_lShortCut,
@@ -604,7 +611,10 @@ bool CClip::AddToMainTable()
 							m_CRC,
 							m_bIsGroup,
 							m_lParent,
-							m_csQuickPaste);
+							m_csQuickPaste,
+							m_WebAddr
+							);			// 주소 저장을 위해 추가 by kyo
+
 
 		theApp.m_db.execDML(cs);
 
@@ -625,19 +635,22 @@ bool CClip::ModifyMainTable()
 	{
 		m_Desc.Replace(_T("'"), _T("''"));
 		m_csQuickPaste.Replace(_T("'"), _T("''"));
-
+		m_WebAddr.Replace(_T("'"), _T("''"));			// modified by kyo
+		
 		theApp.m_db.execDMLEx(_T("UPDATE Main SET lShortCut = %d, ")
 			_T("mText = '%s', ")
 			_T("lParentID = %d, ")
 			_T("lDontAutoDelete = %d, ")
-			_T("QuickPasteText = '%s' ")
+			_T("QuickPasteText = '%s,' ")
+			_T("WebAddr = '%s' ")
 			_T("WHERE lID = %d;"), 
 			m_lShortCut, 
 			m_Desc, 
 			m_lParent, 
 			m_lDontAutoDelete, 
 			m_csQuickPaste,
-			m_ID);
+			m_WebAddr,
+			m_ID);				// modified by kyo
 
 		bRet = true;
 	}
@@ -716,6 +729,7 @@ BOOL CClip::LoadMainTable(long lID)
 			m_lShortCut = q.getIntField(_T("lShortCut"));
 			m_bIsGroup = q.getIntField(_T("bIsGroup"));
 			m_csQuickPaste = q.getStringField(_T("QuickPasteText"));
+			m_WebAddr = q.getStringField(_T("WebAddr"));					// modified by kyo
 
 			m_ID = lID;
 		}

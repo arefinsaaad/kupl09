@@ -74,7 +74,6 @@ public:
 	long m_ID;
 	CClipFormats m_Formats;
 	CTime m_Time;
-	CString m_Desc;
 	ULONG m_lTotalCopySize;
 	long m_lParent;
 	long m_lDontAutoDelete;
@@ -82,6 +81,8 @@ public:
 	BOOL m_bIsGroup;
 	DWORD m_CRC;
 	CString m_csQuickPaste;
+	CString m_Desc;					// 실제 ctrl+c 한 후에 복사 될 스트링
+	CString m_WebAddr;				// 스트링이 카피된 웹페이지 주소
 
 	void Clear();
 	void EmptyFormats();
