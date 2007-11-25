@@ -14,6 +14,7 @@
 #include "tinyxml.h"
 #include "Path.h"
 #include "DittoCopyBuffer.h"
+#include "shellapi.h"			// modified by kyo
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -624,6 +625,50 @@ LRESULT CMainFrame::OnClipboardCopied(WPARAM wParam, LPARAM lParam)
 {
 	// if the delay is undesirable, this could be altered to save one at a time,
 	//  allowing the processing of other messages between saving clips.
+	// 1. Ctrl + c 를 눌렀을 때 IE로 부터 온 것인지 확인하고
+	// 2. 맞다면 주소를 얻어온다, 아니면 그냥 넘어감
+	// 3. 주소를 저장함.
+	CWnd *pwnd = (CWnd*)GetForegroundWindow(); 
+
+	if (pwnd == NULL)
+	{
+		MessageBox("Null이 들어오면 Error");
+		theApp.SetWebAddr(false);
+	}
+	else
+	{
+		static char szClassName[31];
+
+		::GetClassName(pwnd->m_hWnd, szClassName, 30);
+
+		// 얻어진 핸들이 IE이면 주소를 얻어내서 저장한다.
+		if (strcmp(szClassName, "IEFrame") == 0)
+		{
+			// IEFrame안에서 WorkerW윈도우를 찾습니다..
+			HWND hWorkerW = ::FindWindowEx(pwnd->m_hWnd, NULL, "WorkerW", NULL);
+			// WorkerW윈도우에서  다시 RebarWindow를 찾습니다..
+			HWND hReBarWindow32 = ::FindWindowEx(hWorkerW, NULL, "ReBarWindow32", NULL);
+			// Rebarwindow안에서 ComboBox를 찾습니다..
+			HWND hComboBoxEx32 = ::FindWindowEx(hReBarWindow32, NULL, "ComboBoxEx32", NULL);
+
+
+			// ComboBox를 찾으면, 현재 주소창에 보이는 부분의 주소를 가져옵니다..
+			CComboBoxEx combo;
+			combo.SubclassWindow(hComboBoxEx32);
+			CString strAddress;
+			int nIndex = combo.GetCurSel();
+			int nLength = combo.GetLBTextLen( nIndex );
+			combo.GetLBText( nIndex, strAddress.GetBuffer(nLength) );
+			strAddress.ReleaseBuffer();
+			combo.UnsubclassWindow();
+
+			MessageBox("IE 핸들 들어왔음");
+
+			theApp.SetWebAddr( true, strAddress );
+		}
+
+	}
+
 	theApp.SaveCopyClips();
 	return TRUE;
 }

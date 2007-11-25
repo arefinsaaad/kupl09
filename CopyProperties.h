@@ -31,6 +31,8 @@ public:
 	CListBox	m_lCopyData;
 	CString	m_eDate;
 	BOOL	m_bNeverAutoDelete;
+
+	CEdit m_WebPage;	// 익스플로러에서 카피한 데이터에 대한 주소를 받아서 에디터에 표시
 	//}}AFX_DATA
 
 
@@ -72,8 +74,10 @@ protected:
 	virtual void OnCancel();
 	afx_msg void OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinimized);
 	afx_msg void OnSize(UINT nType, int cx, int cy);
+	afx_msg void OnBnClickedBtnGoWebaddr();				// modified by kyo
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+public:
 };
 
 //{{AFX_INSERT_LOCATION}}

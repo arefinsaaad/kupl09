@@ -219,8 +219,8 @@ BOOL ValidDB(CString csPath, BOOL bUpgrade)
 		db.open(csPath);
 
 		db.execQuery(_T("SELECT lID, lDate, mText, lShortCut, lDontAutoDelete, ")
-								_T("CRC, bIsGroup, lParentID, QuickPasteText ")
-								_T("FROM Main"));
+					 _T("CRC, bIsGroup, lParentID, QuickPasteText, WebAddr ")		
+								_T("FROM Main"));		// modified by kyo
 
 		db.execQuery(_T("SELECT lID, lParentID, strClipBoardFormat, ooData FROM Data"));
 
@@ -280,7 +280,8 @@ BOOL CreateDB(CString csPath)
 								_T("CRC INTEGER, ")
 								_T("bIsGroup INTEGER, ")
 								_T("lParentID INTEGER, ")
-								_T("QuickPasteText TEXT)"));
+								_T("QuickPasteText TEXT, ")
+								_T("WebAddr TEXT)") );			// modified by kyo
 
 		db.execDML(_T("CREATE TABLE Data(")
 							_T("lID INTEGER PRIMARY KEY AUTOINCREMENT, ")

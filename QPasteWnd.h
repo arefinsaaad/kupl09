@@ -35,6 +35,7 @@ public:
 	bool	m_bHasShortCut;	
 	bool	m_bHasParent;
 	CString m_QuickPaste;
+	CString m_WebAddr;				// added by kyo
 };
 
 

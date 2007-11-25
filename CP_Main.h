@@ -212,6 +212,11 @@ protected:
 
 protected:
 	void ShowCommandLineError(CString csTitle, CString csMessage);
+public:
+	
+	void SetWebAddr(bool bSetAddr, CString strWebAddr = "");	// 웹페이지 주소를 설정한다.
+	bool m_bSetWebAddr;		// 웹주소가 저장되어있는지 상태 설정
+	CString m_strWebAddr; 	// 페이지 URL 저장
 };
 
 

@@ -1,11 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 8.00
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AccessToSqlite", "AccessToSqlite\AccessToSqlite.vcproj", "{BCF46FA0-B6AD-4F32-B2B6-7E0695ADE067}"
-	ProjectSection(ProjectDependencies) = postProject
-	EndProjectSection
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CP_Main", "CP_Main.vcproj", "{7C663C32-BC7F-45A9-AE88-CE5A7856D32A}"
 	ProjectSection(ProjectDependencies) = postProject
-		{BCF46FA0-B6AD-4F32-B2B6-7E0695ADE067} = {BCF46FA0-B6AD-4F32-B2B6-7E0695ADE067}
 		{EDBEA6B3-DD77-41A3-8C97-66FF8684A7FD} = {EDBEA6B3-DD77-41A3-8C97-66FF8684A7FD}
 		{EDA8DBEE-92A2-4A5D-A9ED-0FC0F037C43C} = {EDA8DBEE-92A2-4A5D-A9ED-0FC0F037C43C}
 		{CD0DCFF2-51D3-4BF6-AB59-D87A204FBA79} = {CD0DCFF2-51D3-4BF6-AB59-D87A204FBA79}
@@ -31,14 +26,6 @@ Global
 		Unicode Release = Unicode Release
 	EndGlobalSection
 	GlobalSection(ProjectConfiguration) = postSolution
-		{BCF46FA0-B6AD-4F32-B2B6-7E0695ADE067}.Debug.ActiveCfg = Debug|Win32
-		{BCF46FA0-B6AD-4F32-B2B6-7E0695ADE067}.Debug.Build.0 = Debug|Win32
-		{BCF46FA0-B6AD-4F32-B2B6-7E0695ADE067}.Release.ActiveCfg = Release|Win32
-		{BCF46FA0-B6AD-4F32-B2B6-7E0695ADE067}.Release.Build.0 = Release|Win32
-		{BCF46FA0-B6AD-4F32-B2B6-7E0695ADE067}.Unicode Debug.ActiveCfg = Debug|Win32
-		{BCF46FA0-B6AD-4F32-B2B6-7E0695ADE067}.Unicode Debug.Build.0 = Debug|Win32
-		{BCF46FA0-B6AD-4F32-B2B6-7E0695ADE067}.Unicode Release.ActiveCfg = Release|Win32
-		{BCF46FA0-B6AD-4F32-B2B6-7E0695ADE067}.Unicode Release.Build.0 = Release|Win32
 		{7C663C32-BC7F-45A9-AE88-CE5A7856D32A}.Debug.ActiveCfg = Debug|Win32
 		{7C663C32-BC7F-45A9-AE88-CE5A7856D32A}.Debug.Build.0 = Debug|Win32
 		{7C663C32-BC7F-45A9-AE88-CE5A7856D32A}.Release.ActiveCfg = Release|Win32
