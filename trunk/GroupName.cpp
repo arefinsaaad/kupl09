@@ -15,6 +15,7 @@ static char THIS_FILE[] = __FILE__;
 // CGroupName dialog
 
 
+//##ModelId=474D306503D9
 CGroupName::CGroupName(CWnd* pParent /*=NULL*/)
 	: CDialog(CGroupName::IDD, pParent)
 {
@@ -24,6 +25,7 @@ CGroupName::CGroupName(CWnd* pParent /*=NULL*/)
 }
 
 
+//##ModelId=474D3066003F
 void CGroupName::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -41,6 +43,7 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CGroupName message handlers
 
+//##ModelId=474D3066006F
 void CGroupName::OnOK() 
 {
 	UpdateData(TRUE);
@@ -48,6 +51,7 @@ void CGroupName::OnOK()
 	CDialog::OnOK();
 }
 
+//##ModelId=474D3066007F
 BOOL CGroupName::OnInitDialog() 
 {
 	CDialog::OnInitDialog();

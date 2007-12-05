@@ -5,16 +5,19 @@
 #include ".\dittorulerricheditctrl.h"
 #include "CopyProperties.h"
 
+//##ModelId=474D306C036C
 CDittoRulerRichEditCtrl::CDittoRulerRichEditCtrl(void)
 {
 	m_SaveTypes = stNONE;
 	m_lID = -1;
 }
 
+//##ModelId=474D306C038B
 CDittoRulerRichEditCtrl::~CDittoRulerRichEditCtrl(void)
 {
 }
 
+//##ModelId=474D306C039B
 bool CDittoRulerRichEditCtrl::LoadItem(long lID, CString csDesc)
 {	
 	bool bSetText = false;
@@ -111,6 +114,7 @@ bool CDittoRulerRichEditCtrl::LoadItem(long lID, CString csDesc)
 	return bSetText;
 }
 
+//##ModelId=474D306D0020
 long CDittoRulerRichEditCtrl::GetTypeFlags(long lID)
 {
 	long lRet = stNONE;
@@ -143,6 +147,7 @@ long CDittoRulerRichEditCtrl::GetTypeFlags(long lID)
 	return lRet;
 }
 
+//##ModelId=474D306D006F
 void CDittoRulerRichEditCtrl::d()
 {
 	CString cs = m_rtf.GetText();
@@ -151,6 +156,7 @@ void CDittoRulerRichEditCtrl::d()
 	MessageBox(s);
 }
 
+//##ModelId=474D306D0001
 int CDittoRulerRichEditCtrl::SaveToDB(BOOL bUpdateDesc)
 {
 	int nRet = FALSE;
@@ -223,6 +229,7 @@ int CDittoRulerRichEditCtrl::SaveToDB(BOOL bUpdateDesc)
 	return nRet;
 }
 
+//##ModelId=474D306D00DB
 bool CDittoRulerRichEditCtrl::LoadRTFData(CClip &Clip)
 {
 	CString csRTFOriginal = GetRTF();
@@ -243,6 +250,7 @@ bool CDittoRulerRichEditCtrl::LoadRTFData(CClip &Clip)
 	return true;
 }
 
+//##ModelId=474D306D011A
 bool CDittoRulerRichEditCtrl::LoadTextData(CClip &Clip)
 {
 	CString csText = GetText();
@@ -285,6 +293,7 @@ bool CDittoRulerRichEditCtrl::LoadTextData(CClip &Clip)
 	return true;
 }
 
+//##ModelId=474D306D0022
 bool CDittoRulerRichEditCtrl::CloseEdit(bool bPrompt, BOOL bUpdateDesc)
 {
 	if(m_rtf.GetModify())

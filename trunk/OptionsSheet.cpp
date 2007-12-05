@@ -25,6 +25,7 @@ static char THIS_FILE[] = __FILE__;
 
 IMPLEMENT_DYNAMIC(COptionsSheet, CPropertySheet)
 
+//##ModelId=474D303D02A2
 COptionsSheet::COptionsSheet(LPCTSTR pszCaption, CWnd* pParentWnd, UINT iSelectPage)
 	:CPropertySheet(pszCaption, pParentWnd, iSelectPage)
 {
@@ -39,6 +40,7 @@ COptionsSheet::COptionsSheet(LPCTSTR pszCaption, CWnd* pParentWnd, UINT iSelectP
 	m_pCopyBuffers = NULL;
 }
 
+//##ModelId=474D303D02C2
 COptionsSheet::~COptionsSheet()
 {
 	DELETE_PTR(m_pKeyBoardOptions);
@@ -61,6 +63,7 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // COptionsSheet message handlers
 
+//##ModelId=474D303D02B2
 int COptionsSheet::DoModal() 
 {
 	EnableStackedTabs(TRUE);
@@ -90,6 +93,7 @@ int COptionsSheet::DoModal()
 	return CPropertySheet::DoModal();
 }
 
+//##ModelId=474D303D02C0
 BOOL COptionsSheet::OnInitDialog() 
 {
 	BOOL bResult = CPropertySheet::OnInitDialog();

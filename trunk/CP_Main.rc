@@ -363,6 +363,14 @@ BEGIN
         MENUITEM "Import",                      32855,MFT_STRING,MFS_ENABLED
         MENUITEM "Export",                      32853,MFT_STRING,MFS_ENABLED
         MENUITEM MFT_SEPARATOR
+        POPUP "Save As...",                     65535,MFT_STRING,MFS_ENABLED
+        BEGIN
+            MENUITEM "Text File",                   32874,MFT_STRING,
+            MFS_ENABLED
+            MENUITEM "PDF FIle",                    32875,MFT_STRING,
+            MFS_ENABLED
+        END
+        MENUITEM MFT_SEPARATOR
         MENUITEM "Options...",                  32805,MFT_STRING,MFS_ENABLED
         MENUITEM MFT_SEPARATOR
         MENUITEM "Help",                        32842,MFT_STRING,MFS_ENABLED
@@ -732,14 +740,13 @@ BEGIN
     CONTROL         "",IDC_RICHEDIT1,"RICHEDIT",TCS_HOTTRACK | TCS_VERTICAL | 
                     TCS_FOCUSONBUTTONDOWN | TCS_MULTISELECT | WS_BORDER | 
                     WS_VSCROLL | WS_TABSTOP,7,104,244,62
-    DEFPUSHBUTTON   "OK",IDOK,148,223,50,14
+    DEFPUSHBUTTON   "OK",IDOK,149,223,50,14
     PUSHBUTTON      "Cancel",IDCANCEL,201,223,50,14
     CONTROL         "&Never Auto Delete",IDC_NEVER_AUTO_DELETE,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,8,23,149,10
     LISTBOX         IDC_COPY_DATA,7,178,244,43,LBS_SORT | 
                     LBS_NOINTEGRALHEIGHT | LBS_EXTENDEDSEL | WS_VSCROLL | 
                     WS_TABSTOP
-    PUSHBUTTON      "Delete",IDC_DELETE_COPY_DATA,7,225,42,12
     LTEXT           "Item Title",IDC_STATIC_TITLE,7,93,168,8
     RTEXT           "Date",IDC_STATIC_DATE,131,7,31,13,SS_CENTERIMAGE
     LTEXT           "Hot Key",IDC_STATIC_HOT_KEY,7,7,35,13,SS_CENTERIMAGE
@@ -750,6 +757,8 @@ BEGIN
     EDITTEXT        IDC_EDIT_WEBPAGE,77,75,128,14,ES_AUTOHSCROLL | 
                     WS_DISABLED
     PUSHBUTTON      "Go to",IDC_BTN_GO_WEBADDR,207,75,44,14
+    PUSHBUTTON      "Save as TEXT",IDC_BTN_SAVEAS_TXT,7,223,50,14
+    PUSHBUTTON      "Save as PDF",IDC_BTN_SAVEAS_PDF,61,223,50,14
 END
 
 IDD_ABOUT DIALOG  0, 0, 292, 153
@@ -910,6 +919,31 @@ BEGIN
     GROUPBOX        "Copy Buffer 3",IDC_BUFFER_GROUP_3,7,139,273,61
     CONTROL         "Play Sound on Copy",IDC_PLAY_SOUND_3,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,179,148,80,14
+END
+
+IDD_TEXT2PDF_DLG DIALOGEX 0, 0, 313, 199
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
+EXSTYLE WS_EX_APPWINDOW
+CAPTION "Text2PDF - by A. Riazi"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    PUSHBUTTON      "...",IDC_FILE_SELECT,291,7,15,12
+    PUSHBUTTON      "...",IDC_FONT_SELECT,291,26,15,12
+    EDITTEXT        IDC_TEXT_FILE,7,45,299,107,ES_MULTILINE | ES_AUTOHSCROLL | 
+                    ES_WANTRETURN | NOT WS_BORDER | WS_VSCROLL,
+                    WS_EX_STATICEDGE
+    PUSHBUTTON      "&Convert",IDC_CONVERT,200,179,50,13,WS_DISABLED
+    PUSHBUTTON      "Close",IDC_CLOSE,256,179,50,13
+    PUSHBUTTON      "&Options",IDC_OPTIONS,7,179,50,13
+    LTEXT           "File Name:",IDC_STATIC,7,8,36,11
+    EDITTEXT        IDC_FILENAME,49,7,234,12,ES_AUTOHSCROLL | ES_READONLY | 
+                    NOT WS_BORDER,WS_EX_STATICEDGE
+    LTEXT           "Font:",IDC_STATIC,7,27,19,11
+    EDITTEXT        IDC_FONT,49,25,234,12,ES_AUTOHSCROLL | ES_READONLY | NOT 
+                    WS_BORDER,WS_EX_STATICEDGE
+    CONTROL         "Progress1",IDC_CONVERT_PROGRESS,"msctls_progress32",0x0,
+                    7,158,299,13
 END
 
 
@@ -1086,6 +1120,14 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 243
     END
+
+    IDD_TEXT2PDF_DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 306
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 192
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -1228,6 +1270,147 @@ BEGIN
 END
 
 #endif    // 영어(미국) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// 페르시아어 resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_FAR)
+#ifdef _WIN32
+LANGUAGE LANG_FARSI, SUBLANG_DEFAULT
+#pragma code_page(1256)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_OPTIONS_PDF DIALOGEX 0, 0, 271, 169
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Options"
+FONT 8, "MS Sans Serif", 0, 0, 0x1
+BEGIN
+    EDITTEXT        IDC_TOP,51,18,52,12,ES_AUTOHSCROLL | NOT WS_BORDER,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_BOTTOM,51,35,52,12,ES_AUTOHSCROLL | NOT WS_BORDER,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_LEFT,177,18,52,12,ES_AUTOHSCROLL | NOT WS_BORDER,
+                    WS_EX_STATICEDGE
+    EDITTEXT        IDC_RIGHT,177,35,52,12,ES_AUTOHSCROLL | NOT WS_BORDER,
+                    WS_EX_STATICEDGE
+    COMBOBOX        IDC_PAGE_SIZE,69,70,57,59,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_OPEN_ACTION,69,94,57,59,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_OPEN_MODE,69,118,57,59,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    COMBOBOX        IDC_EFFECT,197,118,57,59,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    CONTROL         "Launch PDF after conversion",IDC_LAUNCH_PDF,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,7,150,108,8
+    DEFPUSHBUTTON   "OK",IDOK,158,148,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,214,148,50,14
+    GROUPBOX        "Margin",IDC_STATIC,7,7,257,46
+    LTEXT           "Top:",IDC_STATIC,19,19,20,9
+    LTEXT           "Bottom:",IDC_STATIC,19,36,24,9
+    LTEXT           "Left:",IDC_STATIC,149,19,20,9
+    LTEXT           "Right:",IDC_STATIC,149,36,20,9
+    LTEXT           "Page Size:",IDC_STATIC,14,70,35,10
+    LTEXT           "Open Action:",IDC_STATIC,14,96,45,12
+    LTEXT           "Open Mode:",IDC_STATIC,14,120,45,12
+    LTEXT           "Size in points: 1234x1234",IDC_PAGE_SIZE_POINTS,145,70,
+                    105,12
+    GROUPBOX        "Page",IDC_STATIC,7,55,257,86
+    LTEXT           "Effects for full screen mode:",IDC_STATIC,146,117,46,18
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_OPTIONS_PDF, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 264
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 162
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_OPTIONS_PDF DLGINIT
+BEGIN
+    IDC_PAGE_SIZE, 0x403, 3, 0
+0x3041, "\000" 
+    IDC_PAGE_SIZE, 0x403, 3, 0
+0x3141, "\000" 
+    IDC_PAGE_SIZE, 0x403, 3, 0
+0x3241, "\000" 
+    IDC_PAGE_SIZE, 0x403, 3, 0
+0x3341, "\000" 
+    IDC_PAGE_SIZE, 0x403, 3, 0
+0x3441, "\000" 
+    IDC_PAGE_SIZE, 0x403, 3, 0
+0x3541, "\000" 
+    IDC_PAGE_SIZE, 0x403, 3, 0
+0x3641, "\000" 
+    IDC_PAGE_SIZE, 0x403, 3, 0
+0x3542, "\000" 
+    IDC_PAGE_SIZE, 0x403, 7, 0
+0x654c, 0x7474, 0x7265, "\000" 
+    IDC_PAGE_SIZE, 0x403, 6, 0
+0x654c, 0x6167, 0x006c, 
+    IDC_PAGE_SIZE, 0x403, 7, 0
+0x654c, 0x6764, 0x7265, "\000" 
+    IDC_OPEN_ACTION, 0x403, 7, 0
+0x6552, 0x6174, 0x6e69, "\000" 
+    IDC_OPEN_ACTION, 0x403, 9, 0
+0x6946, 0x2074, 0x6170, 0x6567, "\000" 
+    IDC_OPEN_ACTION, 0x403, 10, 0
+0x6946, 0x2074, 0x6977, 0x7464, 0x0068, 
+    IDC_OPEN_ACTION, 0x403, 11, 0
+0x6946, 0x2074, 0x6568, 0x6769, 0x7468, "\000" 
+    IDC_OPEN_ACTION, 0x403, 8, 0
+0x6946, 0x2074, 0x6f62, 0x0078, 
+    IDC_OPEN_MODE, 0x403, 5, 0
+0x6f4e, 0x656e, "\000" 
+    IDC_OPEN_MODE, 0x403, 10, 0
+0x6f42, 0x6b6f, 0x616d, 0x6b72, 0x0073, 
+    IDC_OPEN_MODE, 0x403, 11, 0
+0x6854, 0x6d75, 0x6e62, 0x6961, 0x736c, "\000" 
+    IDC_OPEN_MODE, 0x403, 12, 0
+0x7546, 0x6c6c, 0x7320, 0x7263, 0x6565, 0x006e, 
+    IDC_EFFECT, 0x403, 6, 0
+0x7053, 0x696c, 0x0074, 
+    IDC_EFFECT, 0x403, 7, 0
+0x6c42, 0x6e69, 0x7364, "\000" 
+    IDC_EFFECT, 0x403, 4, 0
+0x6f42, 0x0078, 
+    IDC_EFFECT, 0x403, 5, 0
+0x6957, 0x6570, "\000" 
+    IDC_EFFECT, 0x403, 9, 0
+0x6944, 0x7373, 0x6c6f, 0x6576, "\000" 
+    IDC_EFFECT, 0x403, 8, 0
+0x6c47, 0x7469, 0x6574, 0x0072, 
+    IDC_EFFECT, 0x403, 8, 0
+0x6552, 0x6c70, 0x6361, 0x0065, 
+    0
+END
+
+#endif    // 페르시아어 resources
 /////////////////////////////////////////////////////////////////////////////
 
 

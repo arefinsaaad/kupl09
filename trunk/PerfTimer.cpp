@@ -5,7 +5,9 @@
 #include "PerfTimer.h"
 
 // Declare and initialize static member vars that get set only once and never change
+//##ModelId=474D303801B7
 __int64 CPerfTimer::m_Freq = 0; 
+//##ModelId=474D303801D6
 __int64 CPerfTimer::m_Adjust = 0; 
 
 // All functions defined inline for speed. After all, the performance counter is 
@@ -13,22 +15,26 @@ __int64 CPerfTimer::m_Adjust = 0;
 
 
 
+//##ModelId=474D30380001
 BOOL CPerfTimer::IsSupported()
 { // Returns FALSE if performance counter not supported.
   // Call after constructing at least one CPerfTimer
   return (m_Freq > 1);
 }
 
+//##ModelId=474D30380010
 const double CPerfTimer::Resolution()   
 { // Returns timer resolution in seconds
   return 1.0/(double)m_Freq; 
 }
 
+//##ModelId=474D30380011
 const double CPerfTimer::Resolutionms() 
 { // Returns timer resolution in milliseconds
   return 1000.0/(double)m_Freq; 
 }
 
+//##ModelId=474D30380020
 const double CPerfTimer::Resolutionus() 
 { // Returns timer resolution in microseconds
   return 1000000.0/(double)m_Freq; 

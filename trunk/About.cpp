@@ -19,6 +19,7 @@ static char THIS_FILE[] = __FILE__;
 
 IMPLEMENT_DYNCREATE(CAbout, CPropertyPage)
 
+//##ModelId=474D307B0158
 CAbout::CAbout() : CPropertyPage(CAbout::IDD)
 {
 	m_csTitle = theApp.m_Language.GetString("AboutTitle", "About");
@@ -30,10 +31,12 @@ CAbout::CAbout() : CPropertyPage(CAbout::IDD)
 	//}}AFX_DATA_INIT
 }
 
+//##ModelId=474D307B0159
 CAbout::~CAbout()
 {
 }
 
+//##ModelId=474D307B0214
 void CAbout::DoDataExchange(CDataExchange* pDX)
 {
 	CPropertyPage::DoDataExchange(pDX);
@@ -53,6 +56,7 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CAbout message handlers
 
+//##ModelId=474D307B02A1
 BOOL CAbout::OnInitDialog() 
 {
 	CPropertyPage::OnInitDialog();

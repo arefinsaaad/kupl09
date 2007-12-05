@@ -4,6 +4,7 @@
 #include "Options.h"
 
 
+//##ModelId=474D306B009D
 CDittoWindow::CDittoWindow(void)
 {
 	m_lTopBorder = CAPTION_BORDER;
@@ -32,10 +33,12 @@ CDittoWindow::CDittoWindow(void)
 	m_CaptionColorRight = ::GetSysColor(COLOR_GRADIENTACTIVECAPTION);
 }
 
+//##ModelId=474D306B00AD
 CDittoWindow::~CDittoWindow(void)
 {
 }
 
+//##ModelId=474D306B0168
 void CDittoWindow::DoCreate(CWnd *pWnd)
 {
 	m_VertFont.CreateFont(14,0,-900,0,400,FALSE,FALSE,0,ANSI_CHARSET,
@@ -47,6 +50,7 @@ void CDittoWindow::DoCreate(CWnd *pWnd)
 						DEFAULT_PITCH|FF_SWISS, _T("Arial"));
 }
 
+//##ModelId=474D306B0187
 void CDittoWindow::DoNcCalcSize(BOOL bCalcValidRects, NCCALCSIZE_PARAMS FAR* lpncsp)
 {
 	//Decrease the client area
@@ -56,6 +60,7 @@ void CDittoWindow::DoNcCalcSize(BOOL bCalcValidRects, NCCALCSIZE_PARAMS FAR* lpn
 	lpncsp->rgrc[0].bottom-= m_lBottomBorder;
 }
 
+//##ModelId=474D306B01E5
 UINT CDittoWindow::DoNcHitTest(CWnd *pWnd, CPoint point) 
 {
 	CRect crWindow;
@@ -124,6 +129,7 @@ UINT CDittoWindow::DoNcHitTest(CWnd *pWnd, CPoint point)
 	return -1;
 }
 
+//##ModelId=474D306B00CC
 void CDittoWindow::DoNcPaint(CWnd *pWnd)
 {
 	CWindowDC dc(pWnd);
@@ -353,6 +359,7 @@ void CDittoWindow::DoNcPaint(CWnd *pWnd)
 	dc.SetBkMode(nOldBKMode);
 }
 
+//##ModelId=474D306B0204
 void CDittoWindow::DoSetRegion(CWnd *pWnd)
 {
 	//Create the region for drawing the rounded top edge
@@ -407,6 +414,7 @@ void CDittoWindow::DoSetRegion(CWnd *pWnd)
 	}
 }
 
+//##ModelId=474D306B00DB
 void CDittoWindow::DrawChevronBtn(CWindowDC &dc)
 {
 	if(m_bDrawChevron == false)
@@ -518,6 +526,7 @@ void CDittoWindow::DrawChevronBtn(CWindowDC &dc)
 	}
 }
 
+//##ModelId=474D306B00EC
 void CDittoWindow::DrawCloseBtn(CWindowDC &dc)
 {
 	if(m_bDrawClose == false)
@@ -560,6 +569,7 @@ void CDittoWindow::DrawCloseBtn(CWindowDC &dc)
 	}
 }
 
+//##ModelId=474D306B0149
 void CDittoWindow::DrawMinimizeBtn(CWindowDC &dc)
 {
 	if(m_bDrawMinimize == false)
@@ -602,6 +612,7 @@ void CDittoWindow::DrawMinimizeBtn(CWindowDC &dc)
 	}
 }
 
+//##ModelId=474D306B011B
 void CDittoWindow::DrawMaximizeBtn(CWindowDC &dc)
 {
 	if(m_bDrawMaximize == false)
@@ -645,6 +656,7 @@ void CDittoWindow::DrawMaximizeBtn(CWindowDC &dc)
 	}
 }
 
+//##ModelId=474D306B0253
 void CDittoWindow::DoNcLButtonDown(CWnd *pWnd, UINT nHitTest, CPoint point) 
 {
 	CPoint clPoint(point);
@@ -687,6 +699,7 @@ void CDittoWindow::DoNcLButtonDown(CWnd *pWnd, UINT nHitTest, CPoint point)
 	}
 }
 
+//##ModelId=474D306B0233
 long CDittoWindow::DoNcLButtonUp(CWnd *pWnd, UINT nHitTest, CPoint point) 
 {
 	long lRet = 0;
@@ -765,6 +778,7 @@ long CDittoWindow::DoNcLButtonUp(CWnd *pWnd, UINT nHitTest, CPoint point)
 	return lRet;
 }
 
+//##ModelId=474D306B0264
 void CDittoWindow::DoNcMouseMove(CWnd *pWnd, UINT nHitTest, CPoint point) 
 {
 	CPoint clPoint(point);
@@ -822,6 +836,7 @@ void CDittoWindow::DoNcMouseMove(CWnd *pWnd, UINT nHitTest, CPoint point)
 	}
 }
 
+//##ModelId=474D306B0275
 bool CDittoWindow::DoPreTranslateMessage(MSG* pMsg) 
 {
 	if (pMsg->message == WM_NCLBUTTONDOWN)
@@ -838,6 +853,7 @@ bool CDittoWindow::DoPreTranslateMessage(MSG* pMsg)
 	return true;
 }
 
+//##ModelId=474D306B02B0
 void CDittoWindow::SetCaptionOn(CWnd *pWnd, int nPos, bool bOnstartup)
 {
 	m_lTopBorder = BORDER;
@@ -864,6 +880,7 @@ void CDittoWindow::SetCaptionOn(CWnd *pWnd, int nPos, bool bOnstartup)
 	pWnd->RedrawWindow();
 }
 
+//##ModelId=474D306B02CF
 bool CDittoWindow::SetCaptionColors(COLORREF left, COLORREF right)
 {
 	if( left == m_CaptionColorLeft || right == m_CaptionColorRight )

@@ -3,14 +3,17 @@
 
 static BYTE kUtf8Limits[5] = { 0xC0, 0xE0, 0xF0, 0xF8, 0xFC };
 
+//##ModelId=474D301E006E
 CTextConvert::CTextConvert()
 {
 }
 
+//##ModelId=474D301E006F
 CTextConvert::~CTextConvert()
 {
 }
 
+//##ModelId=474D301E00AD
 CStringW CTextConvert::MultiByteToUnicodeString(const CStringA &srcString)
 {
 	CStringW resultString;
@@ -26,6 +29,7 @@ CStringW CTextConvert::MultiByteToUnicodeString(const CStringA &srcString)
 	return resultString;
 }
 
+//##ModelId=474D301E009D
 CStringA CTextConvert::UnicodeStringToMultiByte(const CStringW &srcString)
 {
 	CStringA resultString;
@@ -42,6 +46,7 @@ CStringA CTextConvert::UnicodeStringToMultiByte(const CStringW &srcString)
 	return resultString;
 }
 
+//##ModelId=474D301E00BC
 CStringA CTextConvert::ConvertToChar(const CString &src)
 {
 #ifdef _UNICODE
@@ -51,6 +56,7 @@ CStringA CTextConvert::ConvertToChar(const CString &src)
 #endif
 }
 
+//##ModelId=474D301E00BF
 CStringW CTextConvert::ConvertToUnicode(const CString &src)
 {
 #ifdef _UNICODE
@@ -60,6 +66,7 @@ CStringW CTextConvert::ConvertToUnicode(const CString &src)
 #endif
 }
 
+//##ModelId=474D301E007E
 bool CTextConvert::ConvertFromUTF8(const CStringA &src, CString &dest)
 {
 #ifdef _UNICODE	
@@ -123,6 +130,7 @@ bool CTextConvert::ConvertFromUTF8(const CStringA &src, CString &dest)
 	return true; 
 }
 
+//##ModelId=474D301E008D
 bool CTextConvert::ConvertToUTF8(const CString &src, CStringA &dest)
 {
 #ifdef _UNICODE

@@ -2,6 +2,7 @@
 #include ".\richtextaggregator.h"
 #include "Misc.h"
 
+//##ModelId=474D30270002
 CRichTextAggregator::CRichTextAggregator(CStringA csSeparator) :
 	m_csSeparator(csSeparator)
 {
@@ -15,10 +16,12 @@ CRichTextAggregator::CRichTextAggregator(CStringA csSeparator) :
 	m_csSeparator.Replace("\r\n", "\\par");
 }
 
+//##ModelId=474D30270010
 CRichTextAggregator::~CRichTextAggregator(void)
 {
 }
 
+//##ModelId=474D30270012
 bool CRichTextAggregator::AddClip(LPVOID lpData, int nDataSize, int nPos, int nCount)
 {
 	LPSTR pText = (LPSTR)lpData;
@@ -74,6 +77,7 @@ bool CRichTextAggregator::AddClip(LPVOID lpData, int nDataSize, int nPos, int nC
 	return true;
 }
 
+//##ModelId=474D3027003F
 HGLOBAL CRichTextAggregator::GetHGlobal()
 {
 	long lLen = m_csNewText.GetLength();

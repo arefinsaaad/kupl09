@@ -14,10 +14,12 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // CSearchEditBox
 
+//##ModelId=474D3080039B
 CSearchEditBox::CSearchEditBox()
 {
 }
 
+//##ModelId=474D308003BC
 CSearchEditBox::~CSearchEditBox()
 {
 }
@@ -32,6 +34,7 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CSearchEditBox message handlers
 
+//##ModelId=474D308003AA
 BOOL CSearchEditBox::PreTranslateMessage(MSG* pMsg) 
 {
 	switch(pMsg->message) 

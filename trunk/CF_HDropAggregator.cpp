@@ -1,14 +1,17 @@
 #include "stdafx.h"
 #include ".\cf_hdropaggregator.h"
 
+//##ModelId=474D30790204
 CCF_HDropAggregator::CCF_HDropAggregator(void)
 {
 }
 
+//##ModelId=474D30790224
 CCF_HDropAggregator::~CCF_HDropAggregator(void)
 {
 }
 
+//##ModelId=474D30790243
 bool CCF_HDropAggregator::AddClip(LPVOID lpData, int nDataSize, int nPos, int nCount)
 {
 	HDROP drop = (HDROP)GlobalLock((HDROP)lpData);
@@ -26,6 +29,7 @@ bool CCF_HDropAggregator::AddClip(LPVOID lpData, int nDataSize, int nPos, int nC
 	return true;
 }
 
+//##ModelId=474D30790262
 HGLOBAL CCF_HDropAggregator::GetHGlobal()
 {
 	return m_DropFiles.CreateCF_HDROPBuffer();

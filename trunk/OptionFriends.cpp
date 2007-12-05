@@ -19,6 +19,7 @@ static char THIS_FILE[] = __FILE__;
 
 IMPLEMENT_DYNCREATE(COptionFriends, CPropertyPage)
 
+//##ModelId=474D30570168
 COptionFriends::COptionFriends() : CPropertyPage(COptionFriends::IDD)
 {
 	m_csTitle = theApp.m_Language.GetString("FriendsTitle", "Friends");
@@ -32,10 +33,12 @@ COptionFriends::COptionFriends() : CPropertyPage(COptionFriends::IDD)
 	//}}AFX_DATA_INIT
 }
 
+//##ModelId=474D30570187
 COptionFriends::~COptionFriends()
 {
 }
 
+//##ModelId=474D3057038C
 void COptionFriends::DoDataExchange(CDataExchange* pDX)
 {
 	CPropertyPage::DoDataExchange(pDX);
@@ -62,6 +65,7 @@ END_MESSAGE_MAP()
 // COptionFriends message handlers
 
 
+//##ModelId=474D30580139
 BOOL COptionFriends::OnInitDialog() 
 {
 	CPropertyPage::OnInitDialog();
@@ -87,6 +91,7 @@ BOOL COptionFriends::OnInitDialog()
 	return FALSE;
 }
 
+//##ModelId=474D3057036C
 BOOL COptionFriends::OnApply() 
 {
 	CSendClients client;
@@ -128,6 +133,7 @@ BOOL COptionFriends::OnApply()
 }
 
 
+//##ModelId=474D30580001
 void COptionFriends::InitListCtrlCols()
 {
 	// Insert some columns
@@ -138,6 +144,7 @@ void COptionFriends::InitListCtrlCols()
 	m_List.InsertColumn(3, theApp.m_Language.GetString("Descriptions", "Descriptions"), LVCFMT_LEFT, 157);
 }
 
+//##ModelId=474D30580030
 void COptionFriends::InsertItems()
 {
 	// Delete the current contents
@@ -191,6 +198,7 @@ void COptionFriends::InsertItems()
 	}
 }
 
+//##ModelId=474D30580149
 void COptionFriends::OnDblclkList(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	POSITION pos = m_List.GetFirstSelectedItemPosition();
@@ -204,6 +212,7 @@ void COptionFriends::OnDblclkList(NMHDR* pNMHDR, LRESULT* pResult)
 	*pResult = 0;
 }
 
+//##ModelId=474D3058005E
 BOOL COptionFriends::EditItem(int nItem)
 {
 	CFriendDetails dlg;
@@ -238,6 +247,7 @@ BOOL COptionFriends::EditItem(int nItem)
 	return FALSE;
 }
 
+//##ModelId=474D305801B6
 void COptionFriends::OnKeydownList(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	LV_KEYDOWN* pLVKeyDow = (LV_KEYDOWN*)pNMHDR;
@@ -272,6 +282,7 @@ void COptionFriends::OnKeydownList(NMHDR* pNMHDR, LRESULT* pResult)
 	*pResult = 0;
 }
 
+//##ModelId=474D30580224
 void COptionFriends::OnCheckDisableFriends() 
 {
 	if(m_bDisableRecieve.GetCheck() == BST_CHECKED)

@@ -10,10 +10,12 @@
 /////////////////////////////////////////////////////////////////////////////
 // CNumberEdit window
 
+//##ModelId=474D3085031E
 class CNumberEdit : public CEdit
 {
 // Construction
 public:
+	//##ModelId=474D3085033D
 	CNumberEdit();
 
 // Attributes
@@ -28,25 +30,34 @@ public:
 	//}}AFX_VIRTUAL
 
 public:
+	//##ModelId=474D3085033E
 	double GetNumberD();
+	//##ModelId=474D3085034C
 	long GetNumber();
+	//##ModelId=474D3085037B
 	BOOL SetNumber(long lNumber);
 	
+	//##ModelId=474D308503AA
 	void SetMaxNumber(long lMax)		{ m_dMax = lMax;		}
+	//##ModelId=474D308503C9
 	long GetMaxNumber()					{ return (long)m_dMax;	}
 	
 protected:
+	//##ModelId=474D308503D9
 	BOOL ValidateNumber(double dNumber);
 
+	//##ModelId=474D30860002
 	double m_dMax;
 
 // Implementation
 public:
+	//##ModelId=474D30860010
 	virtual ~CNumberEdit();
 
 	// Generated message map functions
 protected:
 	//{{AFX_MSG(CNumberEdit)
+	//##ModelId=474D30860012
 	afx_msg void OnChar(UINT nChar, UINT nRepCnt, UINT nFlags);
 	//}}AFX_MSG
 

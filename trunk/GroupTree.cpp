@@ -14,6 +14,7 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // CGroupTree
 
+//##ModelId=474D306402C0
 CGroupTree::CGroupTree()
 {
 	m_bHide = true;
@@ -21,6 +22,7 @@ CGroupTree::CGroupTree()
 	m_bSendAllready = false;
 }
 
+//##ModelId=474D3065011A
 CGroupTree::~CGroupTree()
 {
 }
@@ -41,6 +43,7 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CGroupTree message handlers
 
+//##ModelId=474D3065008D
 BOOL CGroupTree::Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName, DWORD dwStyle, const RECT& rect, CWnd* pParentWnd, UINT nID, CCreateContext* pContext) 
 {
 	// TODO: Add your specialized code here and/or call the base class
@@ -48,6 +51,7 @@ BOOL CGroupTree::Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName, DWORD dwS
 	return CWnd::Create(lpszClassName, lpszWindowName, dwStyle, rect, pParentWnd, nID, pContext);
 }
 
+//##ModelId=474D3065012A
 int CGroupTree::OnCreate(LPCREATESTRUCT lpCreateStruct) 
 {
 	if (CTreeCtrl::OnCreate(lpCreateStruct) == -1)
@@ -69,6 +73,7 @@ int CGroupTree::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	return 0;
 }
 
+//##ModelId=474D306402C1
 void CGroupTree::FillTree()
 {	
 	DeleteAllItems();
@@ -85,6 +90,7 @@ void CGroupTree::FillTree()
 }
 
 
+//##ModelId=474D3064033D
 void CGroupTree::FillTree(long lParentID, HTREEITEM hParent)
 {	
 	try
@@ -118,6 +124,7 @@ void CGroupTree::FillTree(long lParentID, HTREEITEM hParent)
 	CATCH_SQLITE_EXCEPTION	
 }
 
+//##ModelId=474D30650168
 void CGroupTree::OnSelchanged(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	NM_TREEVIEW* pNMTreeView = (NM_TREEVIEW*)pNMHDR;
@@ -131,11 +138,13 @@ void CGroupTree::OnSelchanged(NMHDR* pNMHDR, LRESULT* pResult)
 	*pResult = 0;
 }
 
+//##ModelId=474D306501F5
 void CGroupTree::OnKillFocus(CWnd* pNewWnd) 
 {
 	CTreeCtrl::OnKillFocus(pNewWnd);
 }
 
+//##ModelId=474D30650262
 void CGroupTree::OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinimized) 
 {
 	CTreeCtrl::OnActivate(nState, pWndOther, bMinimized);
@@ -149,6 +158,7 @@ void CGroupTree::OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinimized)
 	}
 }
 
+//##ModelId=474D306502EF
 void CGroupTree::OnDblclk(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	HTREEITEM hItem =  GetNextItem(TVI_ROOT, TVGN_CARET);
@@ -158,6 +168,7 @@ void CGroupTree::OnDblclk(NMHDR* pNMHDR, LRESULT* pResult)
 	*pResult = 1;
 }
 
+//##ModelId=474D3064031E
 long CGroupTree::GetSelectedTree()
 {
 	HTREEITEM hItem =  GetNextItem(TVI_ROOT, TVGN_CARET);
@@ -167,6 +178,7 @@ long CGroupTree::GetSelectedTree()
 	return -1;
 }
 
+//##ModelId=474D3065033E
 void CGroupTree::OnKeydown(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	TV_KEYDOWN* pTVKeyDown = (TV_KEYDOWN*)pNMHDR;
@@ -192,6 +204,7 @@ void CGroupTree::OnKeydown(NMHDR* pNMHDR, LRESULT* pResult)
 }
 
 
+//##ModelId=474D3064034D
 void CGroupTree::SendToParent(long lID)
 {
 	if(m_bSendAllready == false)
@@ -201,6 +214,7 @@ void CGroupTree::SendToParent(long lID)
 	}
 }
 
+//##ModelId=474D3064031F
 bool CGroupTree::AddNode(CString csText, long lID)
 {
 	HTREEITEM hItem;

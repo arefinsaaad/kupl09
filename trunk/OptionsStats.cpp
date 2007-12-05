@@ -19,6 +19,7 @@ static char THIS_FILE[] = __FILE__;
 
 IMPLEMENT_DYNCREATE(COptionsStats, CPropertyPage)
 
+//##ModelId=474D303D01C7
 COptionsStats::COptionsStats()
 	: CPropertyPage(COptionsStats::IDD)
 {
@@ -43,6 +44,7 @@ COptionsStats::COptionsStats()
 }
 
 
+//##ModelId=474D303D0243
 void COptionsStats::DoDataExchange(CDataExchange* pDX)
 {
 	CPropertyPage::DoDataExchange(pDX);
@@ -73,6 +75,7 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // COptionsStats message handlers
 
+//##ModelId=474D303D0262
 BOOL COptionsStats::OnInitDialog() 
 {
 	CPropertyPage::OnInitDialog();
@@ -122,6 +125,7 @@ BOOL COptionsStats::OnInitDialog()
 	return TRUE;
 }
 
+//##ModelId=474D303D0264
 void COptionsStats::OnResetCounts() 
 {
 	CGetSetOptions::SetTripCopyCount(0);
@@ -135,6 +139,7 @@ void COptionsStats::OnResetCounts()
 	UpdateData(FALSE);
 }
 
+//##ModelId=474D303D0273
 void COptionsStats::OnRemoveAll() 
 {
 	if(MessageBox(theApp.m_Language.GetString("Remove_All", "This will remove all Copy Entries!\n\nContinue?"), _T("Warning"), MB_YESNO) == IDYES)

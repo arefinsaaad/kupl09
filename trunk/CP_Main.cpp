@@ -27,9 +27,11 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // The one and only CCP_MainApp object
 
+//##ModelId=474D308B011A
 class DittoCommandLineInfo : public CCommandLineInfo
 {
 public:
+	//##ModelId=474D308B0149
 	DittoCommandLineInfo()
 	{
 		m_bDisconnect = FALSE;
@@ -39,6 +41,7 @@ public:
 		m_bU3Install = FALSE;
 	}
 
+	//##ModelId=474D308B0168
  	virtual void ParseParam(const TCHAR* pszParam, BOOL bFlag, BOOL bLast)
  	{
   		if(bFlag)
@@ -68,10 +71,15 @@ public:
 		CCommandLineInfo::ParseParam(pszParam, bFlag, bLast);
  	}
 
+	//##ModelId=474D308B01B6
 	BOOL m_bDisconnect;
+	//##ModelId=474D308B01D5
 	BOOL m_bConnect;
+	//##ModelId=474D308B0204
 	BOOL m_bU3;
+	//##ModelId=474D308B0224
 	BOOL m_bU3Stop;
+	//##ModelId=474D308B0243
 	BOOL m_bU3Install;
 };
 

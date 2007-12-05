@@ -17,6 +17,7 @@ static char THIS_FILE[] = __FILE__;
 // CMoveToGroupDlg dialog
 
 
+//##ModelId=474D305B0169
 CMoveToGroupDlg::CMoveToGroupDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CMoveToGroupDlg::IDD, pParent)
 {
@@ -27,6 +28,7 @@ CMoveToGroupDlg::CMoveToGroupDlg(CWnd* pParent /*=NULL*/)
 }
 
 
+//##ModelId=474D305B01C7
 void CMoveToGroupDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -47,6 +49,7 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CMoveToGroupDlg message handlers
 
+//##ModelId=474D305B0214
 BOOL CMoveToGroupDlg::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
@@ -61,6 +64,7 @@ BOOL CMoveToGroupDlg::OnInitDialog()
 	              // EXCEPTION: OCX Property Pages should return FALSE
 }
 
+//##ModelId=474D305B0262
 LRESULT CMoveToGroupDlg::OnTreeSelect(WPARAM wParam, LPARAM lParam)
 {
 	int nID = (int)wParam;
@@ -77,6 +81,7 @@ LRESULT CMoveToGroupDlg::OnTreeSelect(WPARAM wParam, LPARAM lParam)
 	return TRUE;
 }
 
+//##ModelId=474D305B0224
 void CMoveToGroupDlg::OnOK() 
 {
 	m_nSelectedGroup = m_Tree.GetSelectedTree();
@@ -84,6 +89,7 @@ void CMoveToGroupDlg::OnOK()
 	CDialog::OnOK();
 }
 
+//##ModelId=474D305B0233
 void CMoveToGroupDlg::OnSize(UINT nType, int cx, int cy) 
 {
 	CDialog::OnSize(nType, cx, cy);
@@ -92,6 +98,7 @@ void CMoveToGroupDlg::OnSize(UINT nType, int cx, int cy)
 	
 }
 
+//##ModelId=474D305B0252
 void CMoveToGroupDlg::OnButtonNewGroup() 
 {
 	CGroupName Name;

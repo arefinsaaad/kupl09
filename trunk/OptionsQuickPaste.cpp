@@ -16,6 +16,7 @@ static char THIS_FILE[] = __FILE__;
 
 IMPLEMENT_DYNCREATE(COptionsQuickPaste, CPropertyPage)
 
+//##ModelId=474D303E0002
 COptionsQuickPaste::COptionsQuickPaste() : CPropertyPage(COptionsQuickPaste::IDD)
 {
 	m_csTitle = theApp.m_Language.GetString("QuickPasteTitle", "Quick Paste");
@@ -29,11 +30,13 @@ COptionsQuickPaste::COptionsQuickPaste() : CPropertyPage(COptionsQuickPaste::IDD
 	memset(&m_LogFont, 0, sizeof(LOGFONT));
 }
 
+//##ModelId=474D303E0003
 COptionsQuickPaste::~COptionsQuickPaste()
 {
 	m_Font.DeleteObject();
 }
 
+//##ModelId=474D303E0168
 void COptionsQuickPaste::DoDataExchange(CDataExchange* pDX)
 {
 	CPropertyPage::DoDataExchange(pDX);
@@ -67,6 +70,7 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // COptionsQuickPaste message handlers
 
+//##ModelId=474D303E01F5
 BOOL COptionsQuickPaste::OnInitDialog() 
 {
 	CPropertyPage::OnInitDialog();
@@ -119,6 +123,7 @@ BOOL COptionsQuickPaste::OnInitDialog()
 	return FALSE;
 }
 
+//##ModelId=474D303E0158
 BOOL COptionsQuickPaste::OnApply() 
 {
 	CGetSetOptions::SetEnableTransparency(m_btEnableTransparency.GetCheck());
@@ -151,6 +156,7 @@ BOOL COptionsQuickPaste::OnApply()
 	return CPropertyPage::OnApply();
 }
 
+//##ModelId=474D303E0204
 void COptionsQuickPaste::OnButtonFont() 
 {
 	CFontDialog dlg(&m_LogFont);
@@ -170,6 +176,7 @@ void COptionsQuickPaste::OnButtonFont()
 	}
 }
 
+//##ModelId=474D303E0214
 void COptionsQuickPaste::OnButtonDefaultFault() 
 {
 	CFont *ft =	m_btDefaultButton.GetFont();

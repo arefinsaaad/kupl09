@@ -174,16 +174,19 @@ UINT  SendClientThread(LPVOID pParam)
 	return TRUE;
 }
 
+//##ModelId=474D307E0224
 CClient::CClient()
 {
 	m_Connection = NULL;
 }
 
+//##ModelId=474D307E0233
 CClient::~CClient()
 {			
 	CloseConnection();
 }
 
+//##ModelId=474D307E0272
 BOOL CClient::CloseConnection()
 {
 	if(m_Connection != NULL && m_Connection != 0)
@@ -200,6 +203,7 @@ BOOL CClient::CloseConnection()
 	return TRUE;
 }
 
+//##ModelId=474D307E0253
 BOOL CClient::OpenConnection(const TCHAR* servername)
 {
 	WSADATA wsaData;
@@ -263,6 +267,7 @@ BOOL CClient::OpenConnection(const TCHAR* servername)
 	return TRUE;
 }
 
+//##ModelId=474D307E0235
 BOOL CClient::SendItem(CClip *pClip)
 {
 	CSendInfo Info;
@@ -313,6 +318,7 @@ BOOL CClient::SendItem(CClip *pClip)
 	return TRUE;
 }
 
+//##ModelId=474D307E02C0
 BOOL CClient::SendClipFormat(CClipFormat* pCF)
 {
 	CSendInfo Info;
@@ -370,6 +376,7 @@ BOOL CClient::SendClipFormat(CClipFormat* pCF)
 	return bRet;
 }
 
+//##ModelId=474D307E0273
 HGLOBAL CClient::RequestCopiedFiles(CClipFormat &HDropFormat, CString csIP, CString csComputerName)
 {
 	CSendInfo Info;

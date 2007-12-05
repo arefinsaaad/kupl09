@@ -14,11 +14,13 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // CGroupCombo
 
+//##ModelId=474D306600AE
 CGroupCombo::CGroupCombo()
 {
 	m_lSkipGroupID = -1;
 }
 
+//##ModelId=474D306600AF
 CGroupCombo::~CGroupCombo()
 {
 }
@@ -33,6 +35,7 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CGroupCombo message handlers
 
+//##ModelId=474D306600BD
 void CGroupCombo::FillCombo()
 {
 	ResetContent();
@@ -43,6 +46,7 @@ void CGroupCombo::FillCombo()
 	FillCombo(-1, 1);
 }
 
+//##ModelId=474D306600CC
 void CGroupCombo::FillCombo(long lParentID, long lSpaces)
 {
 	try
@@ -85,6 +89,7 @@ void CGroupCombo::FillCombo(long lParentID, long lSpaces)
 	CATCH_SQLITE_EXCEPTION	
 }
 
+//##ModelId=474D306600DD
 BOOL CGroupCombo::SetCurSelOnItemData(long lItemData)
 {
 	long lCount = GetCount();
@@ -103,6 +108,7 @@ BOOL CGroupCombo::SetCurSelOnItemData(long lItemData)
 	return FALSE;
 }
 
+//##ModelId=474D306600EC
 int CGroupCombo::GetItemDataFromCursel()
 {
 	int nCursel = GetCurSel();

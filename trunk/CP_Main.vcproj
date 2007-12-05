@@ -110,7 +110,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="ws2_32.lib riched20.lib kernel32.lib user32.lib gdi32.lib winspool.lib Winmm.lib Version.Lib Pdh.lib EncryptDecryptD.lib sqlite\sqlite3.lib"
+				AdditionalDependencies="ws2_32.lib riched20.lib kernel32.lib user32.lib gdi32.lib winspool.lib Winmm.lib Version.Lib Pdh.lib EncryptDecryptD.lib sqlite\sqlite3.lib pdflib.lib"
 				OutputFile="Debug/Ditto.exe"
 				LinkIncremental="2"
 				SuppressStartupBanner="TRUE"
@@ -1365,6 +1365,9 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\OptionPDF.cpp">
+			</File>
+			<File
 				RelativePath="Options.cpp">
 				<FileConfiguration
 					Name="Release|Win32">
@@ -1662,6 +1665,9 @@
 						PreprocessorDefinitions=""
 						BasicRuntimeChecks="3"/>
 				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\pdflib.cpp">
 			</File>
 			<File
 				RelativePath=".\PerfTimer.cpp">
@@ -2673,6 +2679,9 @@
 				RelativePath="ClipIds.h">
 			</File>
 			<File
+				RelativePath=".\CommonDef.h">
+			</File>
+			<File
 				RelativePath="CopyProperties.h">
 			</File>
 			<File
@@ -2760,6 +2769,9 @@
 				RelativePath="OptionFriends.h">
 			</File>
 			<File
+				RelativePath=".\OptionPDF.h">
+			</File>
+			<File
 				RelativePath="Options.h">
 			</File>
 			<File
@@ -2785,6 +2797,12 @@
 			</File>
 			<File
 				RelativePath="Path.h">
+			</File>
+			<File
+				RelativePath=".\pdflib.h">
+			</File>
+			<File
+				RelativePath=".\pdflib.hpp">
 			</File>
 			<File
 				RelativePath=".\PerfTimer.h">
@@ -2827,6 +2845,9 @@
 			</File>
 			<File
 				RelativePath=".\TabCtrl.h">
+			</File>
+			<File
+				RelativePath=".\Text2PDF.h">
 			</File>
 			<File
 				RelativePath="TextConvert.h">
@@ -2981,7 +3002,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="Release\focus.dll">
+				RelativePath="Debug\focus.dll">
 				<FileConfiguration
 					Name="Release|Win32"
 					ExcludedFromBuild="TRUE">
@@ -3008,7 +3029,7 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="Debug\focus.dll">
+				RelativePath="Release\focus.dll">
 				<FileConfiguration
 					Name="Release|Win32"
 					ExcludedFromBuild="TRUE">
@@ -3357,6 +3378,9 @@
 		</File>
 		<File
 			RelativePath="focusdll\Release\focus.lib">
+		</File>
+		<File
+			RelativePath=".\pdflib.lib">
 		</File>
 		<File
 			RelativePath="ReadMe.txt">

@@ -10,17 +10,22 @@
 /////////////////////////////////////////////////////////////////////////////
 // CFriendDetails dialog
 
+//##ModelId=474D3066011A
 class CFriendDetails : public CDialog
 {
 // Construction
 public:
+	//##ModelId=474D30660149
 	CFriendDetails(CWnd* pParent = NULL);   // standard constructor
 
 // Dialog Data
 	//{{AFX_DATA(CFriendDetails)
 	enum { IDD = IDD_FRIEND_DETAILS };
+	//##ModelId=474D3066014B
 	BOOL	m_checkSendAll;
+	//##ModelId=474D30660158
 	CString	m_csDescription;
+	//##ModelId=474D30660168
 	CString	m_csIP;
 	//}}AFX_DATA
 
@@ -29,6 +34,7 @@ public:
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CFriendDetails)
 	protected:
+	//##ModelId=474D30660169
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	//}}AFX_VIRTUAL
 
@@ -37,7 +43,9 @@ protected:
 
 	// Generated message map functions
 	//{{AFX_MSG(CFriendDetails)
+	//##ModelId=474D30660187
 	virtual BOOL OnInitDialog();
+	//##ModelId=474D30660197
 	virtual void OnOK();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()

@@ -10,10 +10,12 @@
 /////////////////////////////////////////////////////////////////////////////
 // CSearchEditBox window
 
+//##ModelId=474D3080036C
 class CSearchEditBox : public CEdit
 {
 // Construction
 public:
+	//##ModelId=474D3080039B
 	CSearchEditBox();
 
 // Attributes
@@ -26,11 +28,13 @@ public:
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CSearchEditBox)
 	public:
+	//##ModelId=474D308003AA
 	virtual BOOL PreTranslateMessage(MSG* pMsg);
 	//}}AFX_VIRTUAL
 
 // Implementation
 public:
+	//##ModelId=474D308003BC
 	virtual ~CSearchEditBox();
 
 	// Generated message map functions

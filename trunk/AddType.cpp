@@ -15,6 +15,7 @@ static char THIS_FILE[] = __FILE__;
 // CAddType dialog
 
 
+//##ModelId=474D307A00EC
 CAddType::CAddType(CWnd* pParent /*=NULL*/)
 	: CDialog(CAddType::IDD, pParent)
 {
@@ -24,6 +25,7 @@ CAddType::CAddType(CWnd* pParent /*=NULL*/)
 }
 
 
+//##ModelId=474D307A0224
 void CAddType::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -48,6 +50,7 @@ END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // CAddType message handlers
+//##ModelId=474D307A030E
 BOOL CAddType::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
@@ -101,6 +104,7 @@ BOOL CAddType::OnInitDialog()
 	return FALSE;
 }
 
+//##ModelId=474D307A0281
 void CAddType::OnAdd1() 
 {
 	m_csSelectedTypes.RemoveAll();
@@ -123,6 +127,7 @@ void CAddType::OnAdd1()
 	EndDialog(IDOK);
 }
 
+//##ModelId=474D307A02A2
 void CAddType::OnAdd2() 
 {
 	UpdateData();
@@ -132,6 +137,7 @@ void CAddType::OnAdd2()
 	EndDialog(IDOK);
 }
 
+//##ModelId=474D307A02EF
 void CAddType::OnAdd3() 
 {
 	m_csSelectedTypes.RemoveAll();
@@ -155,11 +161,13 @@ void CAddType::OnAdd3()
 }
 
 
+//##ModelId=474D307A034C
 void CAddType::OnDblclkList1() 
 {
 	OnAdd1();
 }
 
+//##ModelId=474D307A039B
 void CAddType::OnDblclkList2() 
 {
 	OnAdd3();

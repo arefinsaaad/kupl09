@@ -12,6 +12,7 @@
 COleClipSource
 \*------------------------------------------------------------------*/
 //IMPLEMENT_DYNAMIC(COleClipSource, COleDataSource)
+//##ModelId=474D3058034C
 COleClipSource::COleClipSource()
 {
 	m_bLoadedFormats = false;
@@ -19,11 +20,13 @@ COleClipSource::COleClipSource()
 	m_bPasteHTMLFormatAs_CF_TEXT = false;
 }
 
+//##ModelId=474D3058035C
 COleClipSource::~COleClipSource()
 {
 	
 }
 
+//##ModelId=474D3058036D
 BOOL COleClipSource::DoDelayRender()
 {
 	CClipTypes types;
@@ -38,6 +41,7 @@ BOOL COleClipSource::DoDelayRender()
 
 #include "Client.h"
 
+//##ModelId=474D3058036E
 BOOL COleClipSource::DoImmediateRender()
 {
 	if(m_bLoadedFormats)
@@ -107,6 +111,7 @@ BOOL COleClipSource::DoImmediateRender()
 	return bProcessedMult;
 }
 
+//##ModelId=474D3058038B
 long COleClipSource::PutFormatOnClipboard(CClipFormats *pFormats, bool bPasteHTMLFormatAs_CF_TEXT)
 {
 	CClipFormat* pCF;
@@ -170,6 +175,7 @@ long COleClipSource::PutFormatOnClipboard(CClipFormats *pFormats, bool bPasteHTM
 	return count;
 }  
 
+//##ModelId=474D305803BB
 BOOL COleClipSource::OnRenderGlobalData(LPFORMATETC lpFormatEtc, HGLOBAL* phGlobal)
 {
 	static bool bInHere = false;

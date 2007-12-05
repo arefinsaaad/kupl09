@@ -94,20 +94,27 @@ static char THIS_FILE[] = __FILE__;
 
 IMPLEMENT_DYNAMIC(CSystemTray, CWnd)
 
+//##ModelId=474D302300CC
 const UINT CSystemTray::m_nTimerID    = 4567;
+//##ModelId=474D3023010A
 UINT CSystemTray::m_nMaxTooltipLength  = 64;     // This may change...
+//##ModelId=474D30230139
 const UINT CSystemTray::m_nTaskbarCreatedMsg = ::RegisterWindowMessage(_T("TaskbarCreated"));
+//##ModelId=474D30230169
 CWnd  CSystemTray::m_wndInvisible;
+//##ModelId=474D30230197
 BOOL CSystemTray::m_bShowWndAnimation;
 
 /////////////////////////////////////////////////////////////////////////////
 // CSystemTray construction/creation/destruction
 
+//##ModelId=474D3021031F
 CSystemTray::CSystemTray()
 {
     Initialise();
 }
 
+//##ModelId=474D3021034C
 CSystemTray::CSystemTray(CWnd* pParent,             // The window that will recieve tray notifications
                          UINT uCallbackMessage,     // the callback message to send to parent
                          LPCTSTR szToolTip,         // tray icon tooltip
@@ -124,6 +131,7 @@ CSystemTray::CSystemTray(CWnd* pParent,             // The window that will reci
            szBalloonTip, szBalloonTitle, dwBalloonIcon, uBalloonTimeout);
 }
 
+//##ModelId=474D3022030F
 void CSystemTray::Initialise()
 {
     memset(&m_tnd, 0, sizeof(m_tnd));
@@ -177,6 +185,7 @@ void CSystemTray::Initialise()
 //  uBalloonTimeout: Number of seconds for the balloon to remain visible.
 //                   Must be between 10 and 30 inclusive.
 
+//##ModelId=474D302103D9
 BOOL CSystemTray::Create(CWnd* pParent, UINT uCallbackMessage, LPCTSTR szToolTip, 
                          HICON icon, UINT uID, BOOL bHidden /*=FALSE*/,
                          LPCTSTR szBalloonTip /*=NULL*/, 
@@ -282,6 +291,7 @@ BOOL CSystemTray::Create(CWnd* pParent, UINT uCallbackMessage, LPCTSTR szToolTip
     return bResult;
 }
 
+//##ModelId=474D302103AA
 CSystemTray::~CSystemTray()
 {
     RemoveIcon();
@@ -311,6 +321,7 @@ CSystemTray::~CSystemTray()
 // Added by Michael Dunn, November, 1999
 //////////////////////////////////////////////////////////////////////////
 
+//##ModelId=474D302200EB
 void CSystemTray::SetFocus()
 {
 #ifdef SYSTEMTRAY_USEW2K
@@ -318,12 +329,14 @@ void CSystemTray::SetFocus()
 #endif
 }
 
+//##ModelId=474D30220178
 BOOL CSystemTray::MoveToRight()
 {
     RemoveIcon();
     return AddIcon();
 }
 
+//##ModelId=474D30220139
 BOOL CSystemTray::AddIcon()
 {
     if (!m_bRemoved)
@@ -340,6 +353,7 @@ BOOL CSystemTray::AddIcon()
     return (m_bRemoved == FALSE);
 }
 
+//##ModelId=474D30220158
 BOOL CSystemTray::RemoveIcon()
 {
     m_bShowIconPending = FALSE;
@@ -354,6 +368,7 @@ BOOL CSystemTray::RemoveIcon()
     return (m_bRemoved == TRUE);
 }
 
+//##ModelId=474D3022010A
 BOOL CSystemTray::HideIcon()
 {
     if (!m_bEnabled || m_bRemoved || m_bHidden)
@@ -375,6 +390,7 @@ BOOL CSystemTray::HideIcon()
     return (m_bHidden == TRUE);
 }
 
+//##ModelId=474D3022011A
 BOOL CSystemTray::ShowIcon()
 {
     if (m_bRemoved)
@@ -398,6 +414,7 @@ BOOL CSystemTray::ShowIcon()
     return (m_bHidden == FALSE);
 }
 
+//##ModelId=474D3022006E
 BOOL CSystemTray::SetIcon(HICON hIcon)
 {
     if (!m_bEnabled)
@@ -412,6 +429,7 @@ BOOL CSystemTray::SetIcon(HICON hIcon)
         return Shell_NotifyIcon(NIM_MODIFY, &m_tnd);
 }
 
+//##ModelId=474D3022007E
 BOOL CSystemTray::SetIcon(LPCTSTR lpszIconName)
 {
     HICON hIcon = (HICON) ::LoadImage(AfxGetResourceHandle(), 
@@ -423,11 +441,13 @@ BOOL CSystemTray::SetIcon(LPCTSTR lpszIconName)
     return SetIcon(hIcon);
 }
 
+//##ModelId=474D3022009D
 BOOL CSystemTray::SetIcon(UINT nIDResource)
 {
     return SetIcon(MAKEINTRESOURCE(nIDResource));
 }
 
+//##ModelId=474D302200AD
 BOOL CSystemTray::SetStandardIcon(LPCTSTR lpIconName)
 {
     HICON hIcon = LoadIcon(NULL, lpIconName);
@@ -435,16 +455,19 @@ BOOL CSystemTray::SetStandardIcon(LPCTSTR lpIconName)
     return SetIcon(hIcon);
 }
 
+//##ModelId=474D302200CC
 BOOL CSystemTray::SetStandardIcon(UINT nIDResource)
 {
 	return SetStandardIcon(MAKEINTRESOURCE(nIDResource));
 }
  
+//##ModelId=474D302200DB
 HICON CSystemTray::GetIcon() const
 {
     return (m_bEnabled)? m_tnd.hIcon : NULL;
 }
 
+//##ModelId=474D302201C6
 BOOL CSystemTray::SetIconList(UINT uFirstIconID, UINT uLastIconID) 
 {
 	if (uFirstIconID > uLastIconID)
@@ -474,6 +497,7 @@ BOOL CSystemTray::SetIconList(UINT uFirstIconID, UINT uLastIconID)
     return TRUE;
 }
 
+//##ModelId=474D302201E5
 BOOL CSystemTray::SetIconList(HICON* pHIconList, UINT nNumIcons)
 {
     m_IconList.RemoveAll();
@@ -494,6 +518,7 @@ BOOL CSystemTray::SetIconList(HICON* pHIconList, UINT nNumIcons)
     return TRUE;
 }
 
+//##ModelId=474D30220204
 BOOL CSystemTray::Animate(UINT nDelayMilliSeconds, int nNumSeconds /*=-1*/)
 {
     StopAnimation();
@@ -509,6 +534,7 @@ BOOL CSystemTray::Animate(UINT nDelayMilliSeconds, int nNumSeconds /*=-1*/)
     return (m_uIDTimer != 0);
 }
 
+//##ModelId=474D30220214
 BOOL CSystemTray::StepAnimation()
 {
     if (!m_IconList.GetSize())
@@ -521,6 +547,7 @@ BOOL CSystemTray::StepAnimation()
     return SetIcon(m_IconList[m_nCurrentIcon]);
 }
 
+//##ModelId=474D30220224
 BOOL CSystemTray::StopAnimation()
 {
     BOOL bResult = FALSE;
@@ -539,6 +566,7 @@ BOOL CSystemTray::StopAnimation()
 /////////////////////////////////////////////////////////////////////////////
 // CSystemTray tooltip text manipulation
 
+//##ModelId=474D30220030
 BOOL CSystemTray::SetTooltipText(LPCTSTR pszTip)
 {
     ASSERT(AfxIsValidString(pszTip)); // (md)
@@ -556,6 +584,7 @@ BOOL CSystemTray::SetTooltipText(LPCTSTR pszTip)
         return Shell_NotifyIcon(NIM_MODIFY, &m_tnd);
 }
 
+//##ModelId=474D3022003F
 BOOL CSystemTray::SetTooltipText(UINT nID)
 {
     CString strText;
@@ -564,6 +593,7 @@ BOOL CSystemTray::SetTooltipText(UINT nID)
     return SetTooltipText(strText);
 }
 
+//##ModelId=474D3022005E
 CString CSystemTray::GetTooltipText() const
 {
     CString strText;
@@ -602,6 +632,7 @@ CString CSystemTray::GetTooltipText() const
 // Added by Michael Dunn, November 1999
 //////////////////////////////////////////////////////////////////////////
 
+//##ModelId=474D30220197
 BOOL CSystemTray::ShowBalloon(LPCTSTR szText,
                               LPCTSTR szTitle  /*=NULL*/,
                               DWORD   dwIcon   /*=NIIF_NONE*/,
@@ -657,6 +688,7 @@ BOOL CSystemTray::ShowBalloon(LPCTSTR szText,
 /////////////////////////////////////////////////////////////////////////////
 // CSystemTray notification window stuff
 
+//##ModelId=474D30220262
 BOOL CSystemTray::SetNotificationWnd(CWnd* pWnd)
 {
     if (!m_bEnabled) 
@@ -678,6 +710,7 @@ BOOL CSystemTray::SetNotificationWnd(CWnd* pWnd)
         return Shell_NotifyIcon(NIM_MODIFY, &m_tnd);
 }
 
+//##ModelId=474D30220272
 CWnd* CSystemTray::GetNotificationWnd() const
 {
     return CWnd::FromHandle(m_tnd.hWnd);
@@ -688,12 +721,14 @@ CWnd* CSystemTray::GetNotificationWnd() const
 // Hatr added
 
 // Change or retrive the window to send menu commands to
+//##ModelId=474D30220274
 BOOL CSystemTray::SetTargetWnd(CWnd* pTargetWnd)
 {
     m_pTargetWnd = pTargetWnd;
     return TRUE;
 } // CSystemTray::SetTargetWnd()
 
+//##ModelId=474D30220291
 CWnd* CSystemTray::GetTargetWnd() const
 {
     if (m_pTargetWnd)
@@ -705,6 +740,7 @@ CWnd* CSystemTray::GetTargetWnd() const
 /////////////////////////////////////////////////////////////////////////////
 // CSystemTray notification message stuff
 
+//##ModelId=474D30220293
 BOOL CSystemTray::SetCallbackMessage(UINT uCallbackMessage)
 {
     if (!m_bEnabled)
@@ -722,6 +758,7 @@ BOOL CSystemTray::SetCallbackMessage(UINT uCallbackMessage)
         return Shell_NotifyIcon(NIM_MODIFY, &m_tnd);
 }
 
+//##ModelId=474D302202A2
 UINT CSystemTray::GetCallbackMessage() const
 {
     return m_tnd.uCallbackMessage;
@@ -730,6 +767,7 @@ UINT CSystemTray::GetCallbackMessage() const
 /////////////////////////////////////////////////////////////////////////////
 // CSystemTray menu manipulation
 
+//##ModelId=474D30220245
 BOOL CSystemTray::SetMenuDefaultItem(UINT uItem, BOOL bByPos)
 {
 #ifdef _WIN32_WCE
@@ -756,6 +794,7 @@ BOOL CSystemTray::SetMenuDefaultItem(UINT uItem, BOOL bByPos)
 #endif
 }
 
+//##ModelId=474D30220233
 void CSystemTray::GetMenuDefaultItem(UINT& uItem, BOOL& bByPos)
 {
     uItem = m_DefaultMenuItemID;
@@ -775,6 +814,7 @@ BEGIN_MESSAGE_MAP(CSystemTray, CWnd)
     ON_REGISTERED_MESSAGE(CSystemTray::m_nTaskbarCreatedMsg, OnTaskbarCreated)
 END_MESSAGE_MAP()
 
+//##ModelId=474D302301E7
 void CSystemTray::OnTimer(UINT nIDEvent) 
 {
     if (nIDEvent != m_uIDTimer)
@@ -798,6 +838,7 @@ void CSystemTray::OnTimer(UINT nIDEvent)
 // This is called whenever the taskbar is created (eg after explorer crashes
 // and restarts. Please note that the WM_TASKBARCREATED message is only passed
 // to TOP LEVEL windows (like WM_QUERYNEWPALETTE)
+//##ModelId=474D30230224
 LRESULT CSystemTray::OnTaskbarCreated(WPARAM /*wParam*/, LPARAM /*lParam*/) 
 {
     InstallIconPending();
@@ -805,6 +846,7 @@ LRESULT CSystemTray::OnTaskbarCreated(WPARAM /*wParam*/, LPARAM /*lParam*/)
 }
 
 #ifndef _WIN32_WCE
+//##ModelId=474D30230204
 void CSystemTray::OnSettingChange(UINT uFlags, LPCTSTR lpszSection) 
 {
 	CWnd::OnSettingChange(uFlags, lpszSection);
@@ -902,6 +944,7 @@ LRESULT CSystemTray::OnTrayNotification(UINT wParam, LONG lParam)
     return 1;
 }
 
+//##ModelId=474D302202F1
 LRESULT CSystemTray::WindowProc(UINT message, WPARAM wParam, LPARAM lParam) 
 {
     if (message == m_tnd.uCallbackMessage)
@@ -910,6 +953,7 @@ LRESULT CSystemTray::WindowProc(UINT message, WPARAM wParam, LPARAM lParam)
 	return CWnd::WindowProc(message, wParam, lParam);
 }
 
+//##ModelId=474D3022033D
 void CSystemTray::InstallIconPending()
 {
     // Is the icon display pending, and it's not been set as "hidden"?
@@ -964,6 +1008,7 @@ BOOL CALLBACK FindTrayWnd(HWND hwnd, LPARAM lParam)
  
 #ifndef _WIN32_WCE
 // enhanced version by Matthew Ellis <m.t.ellis@bigfoot.com>
+//##ModelId=474D302301D5
 void CSystemTray::GetTrayWndRect(LPRECT lprect)
 {
 #define DEFAULT_RECT_WIDTH 150
@@ -1042,6 +1087,7 @@ void CSystemTray::GetTrayWndRect(LPRECT lprect)
 }
 
 // Check to see if the animation has been disabled (Matthew Ellis <m.t.ellis@bigfoot.com>)
+//##ModelId=474D302301E5
 BOOL CSystemTray::GetDoWndAnimation()
 {
 	if(!m_bShowWndAnimation)
@@ -1056,6 +1102,7 @@ BOOL CSystemTray::GetDoWndAnimation()
 }
 #endif
 
+//##ModelId=474D302300AD
 BOOL CSystemTray::RemoveTaskbarIcon(CWnd* pWnd)
 {
     LPCTSTR pstrOwnerClass = AfxRegisterWndClass(0);
@@ -1074,6 +1121,7 @@ BOOL CSystemTray::RemoveTaskbarIcon(CWnd* pWnd)
     return TRUE;
 }
 
+//##ModelId=474D302202CF
 void CSystemTray::MinimiseToTray(CWnd* pWnd)
 {
 #ifndef _WIN32_WCE
@@ -1092,6 +1140,7 @@ void CSystemTray::MinimiseToTray(CWnd* pWnd)
 #endif
 }
 
+//##ModelId=474D302202D2
 void CSystemTray::MaximiseFromTray(CWnd* pWnd)
 {
 #ifndef _WIN32_WCE

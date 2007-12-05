@@ -40,6 +40,7 @@ static char THIS_FILE[]=__FILE__;
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
+//##ModelId=474D308A0281
 CAlphaBlend::CAlphaBlend()
 {
 	m_hWnd = NULL;
@@ -47,10 +48,12 @@ CAlphaBlend::CAlphaBlend()
 	m_bTransparent = false;
 }
 
+//##ModelId=474D308A02A4
 CAlphaBlend::~CAlphaBlend()
 {
 }
 
+//##ModelId=474D308A0282
 CAlphaBlend::CAlphaBlend(HWND hWnd, int nOpactiy)
 {
 	m_hWnd = NULL;
@@ -61,6 +64,7 @@ CAlphaBlend::CAlphaBlend(HWND hWnd, int nOpactiy)
 	SetOpacity(nOpactiy);
 }
 
+//##ModelId=474D308A02A1
 CAlphaBlend::CAlphaBlend(CWnd *pWnd, int nOpacity)
 {
 	m_hWnd = NULL;
@@ -71,6 +75,7 @@ CAlphaBlend::CAlphaBlend(CWnd *pWnd, int nOpacity)
 	SetOpacity(nOpacity);
 }
 
+//##ModelId=474D308A02B1
 BOOL CAlphaBlend::SetWindowHandle(HWND hWnd)
 {
 	if (::IsWindow(hWnd)) m_hWnd = hWnd;
@@ -79,6 +84,7 @@ BOOL CAlphaBlend::SetWindowHandle(HWND hWnd)
 	return true;
 }
 
+//##ModelId=474D308A02B3
 BOOL CAlphaBlend::SetWindowHandle(CWnd *pWnd)
 {
 	if (pWnd && ::IsWindow(pWnd->GetSafeHwnd())) 
@@ -88,6 +94,7 @@ BOOL CAlphaBlend::SetWindowHandle(CWnd *pWnd)
 	return true;
 }
 
+//##ModelId=474D308A02EF
 BOOL CAlphaBlend::SetOpacity(int nOpacity)
 {
 	if (nOpacity >= 0 && nOpacity <= OPACITY_MAX)
@@ -104,6 +111,7 @@ BOOL CAlphaBlend::SetOpacity(int nOpacity)
 	return false;
 }
 
+//##ModelId=474D308B008D
 BOOL CAlphaBlend::SetLayeredWindowAttributesEx(HWND hwnd, COLORREF crKey, BYTE bAlpha, DWORD dwFlags)
 {
 	BOOL bRet = FALSE;
@@ -127,6 +135,7 @@ BOOL CAlphaBlend::SetLayeredWindowAttributesEx(HWND hwnd, COLORREF crKey, BYTE b
 	return bRet;
 }
 
+//##ModelId=474D308A02F1
 void CAlphaBlend::SetTransparent(BOOL bTransparent)
 {
 	if (bTransparent)
@@ -166,6 +175,7 @@ void CAlphaBlend::SetTransparent(BOOL bTransparent)
 	}
 }
 
+//##ModelId=474D308A031F
 BOOL CAlphaBlend::SetTransparent(HWND hWnd, int nOpacity, BOOL bTransparent)
 {
 	// set members

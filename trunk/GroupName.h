@@ -10,15 +10,18 @@
 /////////////////////////////////////////////////////////////////////////////
 // CGroupName dialog
 
+//##ModelId=474D306503BA
 class CGroupName : public CDialog
 {
 // Construction
 public:
+	//##ModelId=474D306503D9
 	CGroupName(CWnd* pParent = NULL);   // standard constructor
 
 // Dialog Data
 	//{{AFX_DATA(CGroupName)
 	enum { IDD = IDD_GROUP_NAME };
+	//##ModelId=474D30660001
 	CString	m_csName;
 	//}}AFX_DATA
 
@@ -27,6 +30,7 @@ public:
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CGroupName)
 	protected:
+	//##ModelId=474D3066003F
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	//}}AFX_VIRTUAL
 
@@ -35,7 +39,9 @@ protected:
 
 	// Generated message map functions
 	//{{AFX_MSG(CGroupName)
+	//##ModelId=474D3066006F
 	virtual void OnOK();
+	//##ModelId=474D3066007F
 	virtual BOOL OnInitDialog();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()

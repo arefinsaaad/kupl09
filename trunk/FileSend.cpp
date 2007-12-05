@@ -20,16 +20,19 @@ static char THIS_FILE[]=__FILE__;
 //using namespace nsPath;
 
 
+//##ModelId=474D307D0233
 CFileSend::CFileSend()
 {
 
 }
 
+//##ModelId=474D307D0234
 CFileSend::~CFileSend()
 {
 
 }
 
+//##ModelId=474D307D0253
 BOOL CFileSend::SendClientFiles(SOCKET sock, CClipList *pClipList)
 {
 	if(!pClipList || pClipList->GetCount() <= 0)
@@ -84,6 +87,7 @@ BOOL CFileSend::SendClientFiles(SOCKET sock, CClipList *pClipList)
 	return bRet;
 }
 
+//##ModelId=474D307D0272
 CClipFormat* CFileSend::GetCF_HDROP_Data(CClipList *pClipList)
 {
 	CClip* pClip;
@@ -105,6 +109,7 @@ CClipFormat* CFileSend::GetCF_HDROP_Data(CClipList *pClipList)
 	return NULL;
 }
  
+//##ModelId=474D307D02A1
 BOOL CFileSend::SendFile(CString csFile)
 {
 	CFile file;

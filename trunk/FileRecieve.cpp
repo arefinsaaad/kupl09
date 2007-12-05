@@ -17,15 +17,18 @@ static char THIS_FILE[]=__FILE__;
 #define new DEBUG_NEW
 #endif
 
+//##ModelId=474D307E0010
 CFileRecieve::CFileRecieve()
 {
 	m_pProgress = NULL;
 }
 
+//##ModelId=474D307E0020
 CFileRecieve::~CFileRecieve()
 {
 }
 
+//##ModelId=474D307E0022
 long CFileRecieve::RecieveFiles(SOCKET sock, CString csIP, CFileTransferProgressDlg *pProgress)
 {
 	CSendInfo Info;
@@ -105,6 +108,7 @@ long CFileRecieve::RecieveFiles(SOCKET sock, CString csIP, CFileTransferProgress
 	return lRet;
 }
 
+//##ModelId=474D307E0041
 long CFileRecieve::RecieveFileData(ULONG lFileSize, CString csFileName)
 {
 	CString csFile = CGetSetOptions::GetPath(PATH_REMOTE_FILES);
@@ -192,6 +196,7 @@ long CFileRecieve::RecieveFileData(ULONG lFileSize, CString csFileName)
 	return bRet;
 }
 
+//##ModelId=474D307E0032
 HGLOBAL CFileRecieve::CreateCF_HDROPBuffer()
 {
 	int nFileArraySize = m_RecievedFiles.GetSize();

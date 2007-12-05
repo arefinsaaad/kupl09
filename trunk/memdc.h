@@ -13,14 +13,20 @@
 //
 // This class implements a memory Device Context
 
+//##ModelId=474D3086005F
 class CMemDC : public CDC 
 {
 private:
+	//##ModelId=474D308600BD
 	CBitmap*	m_bitmap;
+	//##ModelId=474D308600DC
 	CBitmap*	m_oldBitmap;
+	//##ModelId=474D308600FC
 	CDC*		m_pDC;
+	//##ModelId=474D3086011A
 	CRect		m_rcBounds;
 public:
+	//##ModelId=474D30860187
 	CMemDC(CDC* pDC, const CRect& rcBounds) : CDC()
 	{
 		CreateCompatibleDC(pDC);
@@ -30,6 +36,7 @@ public:
 		m_pDC = pDC;
 		m_rcBounds = rcBounds;
 	}
+	//##ModelId=474D308601B6
 	~CMemDC() 
 	{
 		m_pDC->BitBlt(m_rcBounds.left, m_rcBounds.top, m_rcBounds.Width(), m_rcBounds.Height(), 
@@ -38,6 +45,7 @@ public:
 		if (m_bitmap != NULL) 
 			delete m_bitmap;
 	}
+	//##ModelId=474D308601E5
 	CMemDC* operator->() 
 	{
 		return this;

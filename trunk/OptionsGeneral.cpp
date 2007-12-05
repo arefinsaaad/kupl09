@@ -23,6 +23,7 @@ static char THIS_FILE[] = __FILE__;
 
 IMPLEMENT_DYNCREATE(COptionsGeneral, CPropertyPage)
 
+//##ModelId=474D303F011A
 COptionsGeneral::COptionsGeneral() : CPropertyPage(COptionsGeneral::IDD)
 {
 	m_csTitle = theApp.m_Language.GetString("GeneralTitle", "General");
@@ -34,10 +35,12 @@ COptionsGeneral::COptionsGeneral() : CPropertyPage(COptionsGeneral::IDD)
 	//}}AFX_DATA_INIT
 }
 
+//##ModelId=474D303F011B
 COptionsGeneral::~COptionsGeneral()
 {
 }
 
+//##ModelId=474D303F03C9
 void COptionsGeneral::DoDataExchange(CDataExchange* pDX)
 {
 	CPropertyPage::DoDataExchange(pDX);
@@ -83,6 +86,7 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // COptionsGeneral message handlers
 
+//##ModelId=474D3040005F
 BOOL COptionsGeneral::OnInitDialog() 
 {
 	CPropertyPage::OnInitDialog();
@@ -157,6 +161,7 @@ BOOL COptionsGeneral::OnInitDialog()
 #define NO_MATCH	-2
 #define FOUND_MATCH	-1
 
+//##ModelId=474D3040005E
 void COptionsGeneral::FillLanguages()
 {
 	CString csFile = CGetSetOptions::GetPath(PATH_LANGUAGE);
@@ -191,6 +196,7 @@ void COptionsGeneral::FillLanguages()
 	}
 }
 
+//##ModelId=474D30400001
 BOOL COptionsGeneral::OnApply()
 {
 	UpdateData();
@@ -302,10 +308,12 @@ BOOL COptionsGeneral::OnApply()
 	return CPropertyPage::OnApply();
 }
 
+//##ModelId=474D303F03BA
 BOOL COptionsGeneral::OnSetActive() 
 {	
 	return CPropertyPage::OnSetActive();
 }
+//##ModelId=474D3040006F
 void COptionsGeneral::OnBtCompactAndRepair() 
 {
 	CWaitCursor wait;
@@ -317,6 +325,7 @@ void COptionsGeneral::OnBtCompactAndRepair()
 	CATCH_SQLITE_EXCEPTION
 }
 
+//##ModelId=474D3040007F
 void COptionsGeneral::OnCheckForUpdates() 
 {
 	CInternetUpdate update;
@@ -328,6 +337,7 @@ void COptionsGeneral::OnCheckForUpdates()
 	}
 }
 
+//##ModelId=474D3040008D
 void COptionsGeneral::OnSetDbPath() 
 {
 	if(m_btSetDatabasePath.GetCheck() == BST_CHECKED)
@@ -342,6 +352,7 @@ void COptionsGeneral::OnSetDbPath()
 	}	
 }
 
+//##ModelId=474D3040009D
 void COptionsGeneral::OnGetPath() 
 {
 	OPENFILENAME	FileName;
@@ -420,6 +431,7 @@ void COptionsGeneral::OnGetPath()
 	}
 }
 
+//##ModelId=474D3040009F
 void COptionsGeneral::OnSelectSound() 
 {
 	OPENFILENAME	FileName;
@@ -452,6 +464,7 @@ void COptionsGeneral::OnSelectSound()
 	UpdateData(FALSE);
 }
 
+//##ModelId=474D304000AE
 void COptionsGeneral::OnButtonPlay() 
 {
 	UpdateData();
@@ -459,6 +472,7 @@ void COptionsGeneral::OnButtonPlay()
 	PlaySound(m_csPlaySound, NULL, SND_FILENAME|SND_ASYNC);
 }
 
+//##ModelId=474D304000BD
 void COptionsGeneral::OnButtonAbout() 
 {
 	CMultiLanguage Lang;

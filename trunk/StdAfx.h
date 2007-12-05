@@ -33,6 +33,7 @@
 #include <Winsock2.h>
 
 #include "UnicodeMacros.h"
+#include "afx.h"
 
 #include <imm.h>
 #import "riched20.dll" raw_interfaces_only, raw_native_types, no_namespace, named_guids

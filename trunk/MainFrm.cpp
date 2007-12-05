@@ -14,7 +14,8 @@
 #include "tinyxml.h"
 #include "Path.h"
 #include "DittoCopyBuffer.h"
-#include "shellapi.h"			// modified by kyo
+#include "shellapi.h"				// modified by kyo
+#include "Text2pdf.h"				// modified by kyo
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -25,8 +26,10 @@ static char THIS_FILE[] = __FILE__;
 #define	WM_ICON_NOTIFY			WM_APP+10
 
 
+//##ModelId=474D306102B0
 bool CShowMainFrame::m_bShowingMainFrame = false;
 
+//##ModelId=474D30610262
 CShowMainFrame::CShowMainFrame() : 
 	m_bHideMainFrameOnExit(false), 
 	m_hWnd(NULL)
@@ -40,6 +43,7 @@ CShowMainFrame::CShowMainFrame() :
 
 	m_hWnd = theApp.m_pMainFrame->GetSafeHwnd();
 }
+//##ModelId=474D30610291
 CShowMainFrame::~CShowMainFrame()
 {
 	if(m_bHideMainFrameOnExit && m_hWnd && ::IsWindow(m_hWnd))
@@ -92,11 +96,13 @@ static UINT indicators[] =
 /////////////////////////////////////////////////////////////////////////////
 // CMainFrame construction/destruction
 
+//##ModelId=474D305F00EB
 CMainFrame::CMainFrame()
 {
 	m_pEditFrameWnd = NULL;
 }
 
+//##ModelId=474D305F0168
 CMainFrame::~CMainFrame()
 {
 	if(g_Opt.m_bUseHookDllForFocus)
@@ -105,6 +111,7 @@ CMainFrame::~CMainFrame()
 	CGetSetOptions::SetMainHWND(0);
 }
 
+//##ModelId=474D30600139
 int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
 	if (CFrameWnd::OnCreate(lpCreateStruct) == -1)
@@ -173,6 +180,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	return 0;
 }
 
+//##ModelId=474D305F011A
 BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 {
 	if(cs.hMenu!=NULL)  
@@ -209,11 +217,13 @@ BOOL CMainFrame::PreCreateWindow(CREATESTRUCT& cs)
 // CMainFrame diagnostics
 
 #ifdef _DEBUG
+//##ModelId=474D305F0197
 void CMainFrame::AssertValid() const
 {
 	CFrameWnd::AssertValid();
 }
 
+//##ModelId=474D305F01B6
 void CMainFrame::Dump(CDumpContext& dc) const
 {
 	CFrameWnd::Dump(dc);
@@ -225,17 +235,20 @@ void CMainFrame::Dump(CDumpContext& dc) const
 // CMainFrame message handlers
 
 
+//##ModelId=474D306001A7
 void CMainFrame::OnFirstOption() 
 {
 	theApp.ShowOptionsDlg();
 }
 
+//##ModelId=474D306001C6
 void CMainFrame::OnFirstExit() 
 {
 //	CloseAllOpenDialogs();
 	this->SendMessage(WM_CLOSE, 0, 0);
 }
 
+//##ModelId=474D306002FF
 LRESULT CMainFrame::OnHotKey(WPARAM wParam, LPARAM lParam)
 {
 	if(theApp.m_pDittoHotKey && wParam == theApp.m_pDittoHotKey->m_Atom)
@@ -402,6 +415,7 @@ LRESULT CMainFrame::OnHotKey(WPARAM wParam, LPARAM lParam)
 	return TRUE;
 }
 
+//##ModelId=474D305F03C9
 void CMainFrame::DoFirstTenPositionsPaste(int nPos)
 {
 	try
@@ -433,6 +447,7 @@ void CMainFrame::DoFirstTenPositionsPaste(int nPos)
 	CATCH_SQLITE_EXCEPTION
 }
 
+//##ModelId=474D305F03AA
 void CMainFrame::DoDittoCopyBufferPaste(int nCopyBuffer)
 {
 	try
@@ -457,6 +472,7 @@ void CMainFrame::DoDittoCopyBufferPaste(int nCopyBuffer)
 	CATCH_SQLITE_EXCEPTION
 }
 
+//##ModelId=474D30600262
 void CMainFrame::OnTimer(UINT nIDEvent) 
 {
 	switch(nIDEvent)
@@ -540,6 +556,7 @@ void CMainFrame::OnTimer(UINT nIDEvent)
 	CFrameWnd::OnTimer(nIDEvent);
 }
 
+//##ModelId=474D3060005E
 void CMainFrame::StopLookingForKeystrokes(bool bInitAppVaribles)
 {
 	StopMonitoringKeyboardChanges();
@@ -562,6 +579,7 @@ void CMainFrame::StopLookingForKeystrokes(bool bInitAppVaribles)
 	}	
 }
 
+//##ModelId=474D3060035C
 LRESULT CMainFrame::OnShowTrayIcon(WPARAM wParam, LPARAM lParam)
 {
 	if(lParam)
@@ -581,21 +599,25 @@ LRESULT CMainFrame::OnShowTrayIcon(WPARAM wParam, LPARAM lParam)
 	return TRUE;
 }
 
+//##ModelId=474D306002A1
 void CMainFrame::OnFirstShowquickpaste() 
 {
 	QuickPaste.ShowQPasteWnd(this, true, false, FALSE);
 }
 
+//##ModelId=474D306002B0
 void CMainFrame::OnFirstToggleConnectCV()
 {
 	theApp.ToggleConnectCV();
 }
 
+//##ModelId=474D306002CF
 void CMainFrame::OnUpdateFirstToggleConnectCV(CCmdUI* pCmdUI) 
 {
 	theApp.UpdateMenuConnectCV( pCmdUI->m_pMenu, ID_FIRST_TOGGLECONNECTCV );
 }
 
+//##ModelId=474D3060039B
 LRESULT CMainFrame::OnCopyProperties(WPARAM wParam, LPARAM lParam)
 {
 	long lID = (long)wParam;
@@ -614,6 +636,7 @@ LRESULT CMainFrame::OnCopyProperties(WPARAM wParam, LPARAM lParam)
 	return TRUE;
 }
 
+//##ModelId=474D306003D9
 LRESULT CMainFrame::OnShutDown(WPARAM wParam, LPARAM lParam)
 {
 	SetTimer(CLOSE_APP, 100, NULL);
@@ -621,6 +644,7 @@ LRESULT CMainFrame::OnShutDown(WPARAM wParam, LPARAM lParam)
 	return TRUE;
 }
 
+//##ModelId=474D30610010
 LRESULT CMainFrame::OnClipboardCopied(WPARAM wParam, LPARAM lParam)
 {
 	// if the delay is undesirable, this could be altered to save one at a time,
@@ -662,7 +686,7 @@ LRESULT CMainFrame::OnClipboardCopied(WPARAM wParam, LPARAM lParam)
 			strAddress.ReleaseBuffer();
 			combo.UnsubclassWindow();
 
-			MessageBox("IE 핸들 들어왔음");
+//			MessageBox("IE 핸들 들어왔음");
 
 			theApp.SetWebAddr( true, strAddress );
 		}
@@ -673,6 +697,7 @@ LRESULT CMainFrame::OnClipboardCopied(WPARAM wParam, LPARAM lParam)
 	return TRUE;
 }
 
+//##ModelId=474D30610168
 BOOL CMainFrame::PreTranslateMessage(MSG* pMsg)
 {
 	// target before mouse messages change the focus
@@ -683,6 +708,7 @@ BOOL CMainFrame::PreTranslateMessage(MSG* pMsg)
 	return CFrameWnd::PreTranslateMessage(pMsg);
 }
 
+//##ModelId=474D306101E5
 void CMainFrame::OnClose()
 {	
 	CloseAllOpenDialogs();
@@ -697,6 +723,7 @@ void CMainFrame::OnClose()
 	CFrameWnd::OnClose();
 }
 
+//##ModelId=474D306000DC
 bool CMainFrame::CloseAllOpenDialogs()
 {
 	bool bRet = false;
@@ -736,6 +763,7 @@ bool CMainFrame::CloseAllOpenDialogs()
 	return bRet;
 }
 
+//##ModelId=474D3061004F
 LRESULT CMainFrame::OnAddToDatabaseFromSocket(WPARAM wParam, LPARAM lParam)
 {
 	LogSendRecieveInfo("---------Start of OnAddToDatabaseFromSocket");
@@ -801,6 +829,7 @@ LRESULT CMainFrame::OnAddToDatabaseFromSocket(WPARAM wParam, LPARAM lParam)
 	return TRUE;
 }
 
+//##ModelId=474D3061006E
 LRESULT CMainFrame::OnErrorOnSendRecieve(WPARAM wParam, LPARAM lParam)
 {
 	CString csNewText = (TCHAR*)wParam;
@@ -810,6 +839,7 @@ LRESULT CMainFrame::OnErrorOnSendRecieve(WPARAM wParam, LPARAM lParam)
 	return TRUE;
 }
 
+//##ModelId=474D306100EC
 LRESULT CMainFrame::OnKeyBoardChanged(WPARAM wParam, LPARAM lParam)
 {
 	if(wParam == VK_ESCAPE)
@@ -888,6 +918,7 @@ LRESULT CMainFrame::OnKeyBoardChanged(WPARAM wParam, LPARAM lParam)
 	return TRUE;
 }
 
+//##ModelId=474D3061009D
 LRESULT CMainFrame::OnFocusChanged(WPARAM wParam, LPARAM lParam)
 {
 	if(g_Opt.m_bUseHookDllForFocus == FALSE)
@@ -973,6 +1004,7 @@ LRESULT CMainFrame::OnFocusChanged(WPARAM wParam, LPARAM lParam)
 	return TRUE;
 }
 
+//##ModelId=474D306002EF
 void CMainFrame::OnFirstHelp() 
 {
 	CString csFile = CGetSetOptions::GetPath(PATH_HELP);
@@ -980,6 +1012,7 @@ void CMainFrame::OnFirstHelp()
 	CHyperLink::GotoURL(csFile, SW_SHOW);
 }
 
+//##ModelId=474D306100BC
 LRESULT CMainFrame::OnCustomizeTrayMenu(WPARAM wParam, LPARAM lParam)
 {
 	CMenu *pMenu = (CMenu*)wParam;
@@ -991,6 +1024,7 @@ LRESULT CMainFrame::OnCustomizeTrayMenu(WPARAM wParam, LPARAM lParam)
 	return true;
 }
 
+//##ModelId=474D3060007E
 bool CMainFrame::PasteQuickPasteEntry(CString csQuickPaste)
 {
 	Log(StrF(_T("PasteQuickPasteEntry -- %s"), csQuickPaste));
@@ -1037,6 +1071,7 @@ bool CMainFrame::PasteQuickPasteEntry(CString csQuickPaste)
 	return bRet;
 }
 
+//##ModelId=474D306000AD
 bool CMainFrame::SaveQuickPasteEntry(CString csQuickPaste, CClipList *pClipList)
 {
 	Log(StrF(_T("SaveQuickPasteEntry text = %s - recived copy = %d"), csQuickPaste, pClipList != NULL));
@@ -1096,6 +1131,7 @@ bool CMainFrame::SaveQuickPasteEntry(CString csQuickPaste, CClipList *pClipList)
 	return bRet;
 }
 
+//##ModelId=474D306000CC
 void CMainFrame::ShowErrorMessage(CString csTitle, CString csMessage)
 {
 	Log(StrF(_T("ShowErrorMessage %s - %s"), csTitle, csMessage));
@@ -1118,6 +1154,7 @@ void CMainFrame::ShowErrorMessage(CString csTitle, CString csMessage)
 	pErrorWnd->HideWindowInXMilliSeconds(4000);
 }
 
+//##ModelId=474D306000EB
 void CMainFrame::DeleteOldRemoteCopies(CString csDir)
 {
 	//must be deleting a sub folder in the musicgen directory
@@ -1165,6 +1202,7 @@ void CMainFrame::DeleteOldRemoteCopies(CString csDir)
 	}
 }
 
+//##ModelId=474D3060010A
 UINT CMainFrame::RemoteOldRemoteFilesThread(LPVOID pParam)
 {
 	CString csDir = CGetSetOptions::GetPath(PATH_REMOTE_FILES);
@@ -1175,11 +1213,13 @@ UINT CMainFrame::RemoteOldRemoteFilesThread(LPVOID pParam)
 
 	return TRUE;
 }
+//##ModelId=474D30610214
 void CMainFrame::OnFirstImport()
 {
 	theApp.ImportClips(theApp.m_MainhWnd);
 }
 
+//##ModelId=474D3060011A
 void CMainFrame::ShowEditWnd(CClipIDs &Ids)
 {
 	CWaitCursor wait;
@@ -1213,12 +1253,14 @@ void CMainFrame::ShowEditWnd(CClipIDs &Ids)
 	}
 }
 
+//##ModelId=474D3061011A
 LRESULT CMainFrame::OnEditWndClose(WPARAM wParam, LPARAM lParam)
 {
 	m_pEditFrameWnd = NULL;
 	return TRUE;
 }
 
+//##ModelId=474D30610149
 LRESULT CMainFrame::OnSetConnected(WPARAM wParam, LPARAM lParam)
 {
 	if(wParam)
@@ -1229,6 +1271,7 @@ LRESULT CMainFrame::OnSetConnected(WPARAM wParam, LPARAM lParam)
 	return TRUE;
 }
 
+//##ModelId=474D30610216
 void CMainFrame::OnDestroy()
 {
 	CFrameWnd::OnDestroy();
@@ -1239,6 +1282,7 @@ void CMainFrame::OnDestroy()
 	}
 }
 
+//##ModelId=474D30610225
 void CMainFrame::OnFirstNewclip()
 {
 	CClipIDs IDs;

@@ -27,12 +27,14 @@ DWORD CALLBACK EditStreamInCallback(DWORD dwCookie, LPBYTE pbBuff, LONG cb, LONG
 /////////////////////////////////////////////////////////////////////////////
 // CFormattedTextDraw
 
+//##ModelId=474D30880032
 HRESULT CFormattedTextDraw::get_RTFText(BSTR *pVal)
 {
 	*pVal = SysAllocStringLen(m_RTFText, SysStringLen(m_RTFText));
 	return S_OK;
 }
 
+//##ModelId=474D30880040
 HRESULT CFormattedTextDraw::put_RTFText(BSTR newVal)
 {
 	HRESULT hr;
@@ -63,6 +65,7 @@ HRESULT CFormattedTextDraw::put_RTFText(BSTR newVal)
 	return S_OK;
 }
 
+//##ModelId=474D30880021
 HRESULT CFormattedTextDraw::Draw(void *hdcDraw, RECT *prc)
 {
 	if (!m_spTextServices) 
@@ -84,11 +87,13 @@ HRESULT CFormattedTextDraw::Draw(void *hdcDraw, RECT *prc)
 	return S_OK;
 }
 
+//##ModelId=474D30880020
 HRESULT CFormattedTextDraw::Create()
 {
 	return CreateTextServicesObject();
 }
 
+//##ModelId=474D308703BA
 HRESULT CFormattedTextDraw::get_NaturalWidth(long Height, long *pVal)
 {
 	long lWidth;
@@ -116,6 +121,7 @@ HRESULT CFormattedTextDraw::get_NaturalWidth(long Height, long *pVal)
 	return S_OK;
 }
 
+//##ModelId=474D3087037B
 HRESULT CFormattedTextDraw::get_NaturalHeight(long Width, long *pVal)
 {
 	long lHeight;
@@ -145,199 +151,238 @@ HRESULT CFormattedTextDraw::get_NaturalHeight(long Width, long *pVal)
 
 /////////////////////////////////////////////////////////////////////////////
 // ITextHost functions
+//##ModelId=474D3088007F
 HDC CFormattedTextDraw::TxGetDC()
 {
 	return NULL;
 }
 
+//##ModelId=474D3088008D
 INT CFormattedTextDraw::TxReleaseDC(HDC hdc)
 {
 	return 1;
 }
 
+//##ModelId=474D3088009D
 BOOL CFormattedTextDraw::TxShowScrollBar(INT fnBar, BOOL fShow)
 {
 	return FALSE;
 }
 
+//##ModelId=474D3088010A
 BOOL CFormattedTextDraw::TxEnableScrollBar(INT fuSBFlags, INT fuArrowflags)
 {
 	return FALSE;
 }
 
+//##ModelId=474D3088011B
 BOOL CFormattedTextDraw::TxSetScrollRange(INT fnBar, LONG nMinPos, INT nMaxPos, BOOL fRedraw)
 {
 	return FALSE;
 }
 
+//##ModelId=474D30880139
 BOOL CFormattedTextDraw::TxSetScrollPos(INT fnBar, INT nPos, BOOL fRedraw)
 {
 	return FALSE;
 }
 
+//##ModelId=474D3088014A
 void CFormattedTextDraw::TxInvalidateRect(LPCRECT prc, BOOL fMode)
 {
 }
 
+//##ModelId=474D30880197
 void CFormattedTextDraw::TxViewChange(BOOL fUpdate)
 {
 }
 
+//##ModelId=474D308801A7
 BOOL CFormattedTextDraw::TxCreateCaret(HBITMAP hbmp, INT xWidth, INT yHeight)
 {
 	return FALSE;
 }
 
+//##ModelId=474D308801B6
 BOOL CFormattedTextDraw::TxShowCaret(BOOL fShow)
 {
 	return FALSE;
 }
 
+//##ModelId=474D308801C6
 BOOL CFormattedTextDraw::TxSetCaretPos(INT x, INT y)
 {
 	return FALSE;
 }
 
+//##ModelId=474D308801D5
 BOOL CFormattedTextDraw::TxSetTimer(UINT idTimer, UINT uTimeout)
 {
 	return FALSE;
 }
 
+//##ModelId=474D308801E5
 void CFormattedTextDraw::TxKillTimer(UINT idTimer)
 {
 }
 
+//##ModelId=474D308801F5
 void CFormattedTextDraw::TxScrollWindowEx(INT dx, INT dy, LPCRECT lprcScroll, LPCRECT lprcClip, HRGN hrgnUpdate, LPRECT lprcUpdate, UINT fuScroll)
 {
 }
 
+//##ModelId=474D30880252
 void CFormattedTextDraw::TxSetCapture(BOOL fCapture)
 {
 }
 
+//##ModelId=474D30880263
 void CFormattedTextDraw::TxSetFocus()
 {
 }
 
+//##ModelId=474D30880272
 void CFormattedTextDraw::TxSetCursor(HCURSOR hcur, BOOL fText)
 {
 }
 
+//##ModelId=474D308802D0
 BOOL CFormattedTextDraw::TxScreenToClient(LPPOINT lppt)
 {
 	return FALSE;
 }
 
+//##ModelId=474D308802E0
 BOOL CFormattedTextDraw::TxClientToScreen(LPPOINT lppt)
 {
 	return FALSE;
 }
 
+//##ModelId=474D3088031E
 HRESULT	CFormattedTextDraw::TxActivate(LONG * plOldState)
 {
 	return S_OK;
 }
 
+//##ModelId=474D3088033D
 HRESULT	CFormattedTextDraw::TxDeactivate(LONG lNewState)
 {
 	return S_OK;
 }
 
+//##ModelId=474D3088035D
 HRESULT	CFormattedTextDraw::TxGetClientRect(LPRECT prc)
 {
 	*prc = m_rcClient;
 	return S_OK;
 }
 
+//##ModelId=474D3088039B
 HRESULT	CFormattedTextDraw::TxGetViewInset(LPRECT prc)
 {
 	*prc = m_rcViewInset;
 	return S_OK;
 }
 
+//##ModelId=474D308803BB
 HRESULT CFormattedTextDraw::TxGetCharFormat(const CHARFORMATW **ppCF)
 {
 	*ppCF = m_pCF;
 	return S_OK;
 }
 
+//##ModelId=474D30890010
 HRESULT	CFormattedTextDraw::TxGetParaFormat(const PARAFORMAT **ppPF)
 {
 	*ppPF = &m_PF;
 	return S_OK;
 }
 
+//##ModelId=474D30890031
 COLORREF CFormattedTextDraw::TxGetSysColor(int nIndex)
 {
 	return GetSysColor(nIndex);
 }
 
+//##ModelId=474D3089006E
 HRESULT	CFormattedTextDraw::TxGetBackStyle(TXTBACKSTYLE *pstyle)
 {
 	*pstyle = TXTBACK_TRANSPARENT;
 	return S_OK;
 }
 
+//##ModelId=474D3089007F
 HRESULT	CFormattedTextDraw::TxGetMaxLength(DWORD *plength)
 {
 	*plength = m_dwMaxLength;
 	return S_OK;
 }
 
+//##ModelId=474D3089008D
 HRESULT	CFormattedTextDraw::TxGetScrollBars(DWORD *pdwScrollBar)
 {
 	*pdwScrollBar = m_dwScrollbar;
 	return S_OK;
 }
 
+//##ModelId=474D3089009E
 HRESULT	CFormattedTextDraw::TxGetPasswordChar(TCHAR *pch)
 {
 	return S_FALSE;
 }
 
+//##ModelId=474D308900AD
 HRESULT	CFormattedTextDraw::TxGetAcceleratorPos(LONG *pcp)
 {
 	*pcp = -1;
 	return S_OK;
 }
 
+//##ModelId=474D308900AF
 HRESULT	CFormattedTextDraw::TxGetExtent(LPSIZEL lpExtent)
 {
 	return E_NOTIMPL;
 }
 
+//##ModelId=474D308900BD
 HRESULT CFormattedTextDraw::OnTxCharFormatChange(const CHARFORMATW * pcf)
 {
 	memcpy(m_pCF, pcf, pcf->cbSize);
 	return S_OK;
 }
 
+//##ModelId=474D308900FC
 HRESULT	CFormattedTextDraw::OnTxParaFormatChange(const PARAFORMAT * ppf)
 {
 	memcpy(&m_PF, ppf, ppf->cbSize);
 	return S_OK;
 }
 
+//##ModelId=474D3089010B
 HRESULT	CFormattedTextDraw::TxGetPropertyBits(DWORD dwMask, DWORD *pdwBits)
 {
 	*pdwBits = m_dwPropertyBits;
 	return S_OK;
 }
 
+//##ModelId=474D3089012A
 HRESULT	CFormattedTextDraw::TxNotify(DWORD iNotify, void *pv)
 {
 	return S_OK;
 }
 
+//##ModelId=474D3089013A
 HIMC CFormattedTextDraw::TxImmGetContext()
 {
 	return NULL;
 }
 
+//##ModelId=474D3089013B
 void CFormattedTextDraw::TxImmReleaseContext(HIMC himc)
 {
 }
 
+//##ModelId=474D3089014A
 HRESULT	CFormattedTextDraw::TxGetSelectionBarWidth(LONG *lSelBarWidth)
 {
 	*lSelBarWidth = 100;
@@ -347,6 +392,7 @@ HRESULT	CFormattedTextDraw::TxGetSelectionBarWidth(LONG *lSelBarWidth)
 /////////////////////////////////////////////////////////////////////////////
 // custom functions
 
+//##ModelId=474D30890158
 HRESULT CFormattedTextDraw::CharFormatFromHFONT(CHARFORMAT2W* pCF, HFONT hFont)
 // Takes an HFONT and fills in a CHARFORMAT2W structure with the corresponding info
 {
@@ -405,11 +451,13 @@ HRESULT CFormattedTextDraw::CharFormatFromHFONT(CHARFORMAT2W* pCF, HFONT hFont)
 	return S_OK;
 }
 
+//##ModelId=474D3089016A
 HRESULT CFormattedTextDraw::InitDefaultCharFormat()
 {
 	return CharFormatFromHFONT(m_pCF, NULL);
 }
 
+//##ModelId=474D3089016B
 HRESULT CFormattedTextDraw::InitDefaultParaFormat()
 {
 	memset(&m_PF, 0, sizeof(PARAFORMAT2));
@@ -421,6 +469,7 @@ HRESULT CFormattedTextDraw::InitDefaultParaFormat()
 	return S_OK;
 }
 
+//##ModelId=474D30890178
 HRESULT CFormattedTextDraw::CreateTextServicesObject()
 {
 	HRESULT hr;

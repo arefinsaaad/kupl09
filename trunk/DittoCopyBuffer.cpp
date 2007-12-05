@@ -4,6 +4,7 @@
 #include <Mmsystem.h> //play sound
 
 
+//##ModelId=474D306D0272
 CDittoCopyBuffer::CDittoCopyBuffer() :
 	m_ActiveTimer(TRUE, TRUE),
 	m_RestoreTimer(TRUE, TRUE),
@@ -13,11 +14,13 @@ CDittoCopyBuffer::CDittoCopyBuffer() :
 	m_dwLastPaste = 0;
 }
 
+//##ModelId=474D306D0273
 CDittoCopyBuffer::~CDittoCopyBuffer(void)
 {
 }
 
 
+//##ModelId=474D306D02C0
 bool CDittoCopyBuffer::StartCopy(long lCopyBuffer, bool bCut)
 {
 	Log(StrF(_T("Start of Ditto Copy buffer = %d"), lCopyBuffer));
@@ -53,6 +56,7 @@ bool CDittoCopyBuffer::StartCopy(long lCopyBuffer, bool bCut)
 	return true;
 }
 
+//##ModelId=474D306D032F
 UINT CDittoCopyBuffer::StartCopyTimer(LPVOID pParam)
 {
 	CDittoCopyBuffer *pBuffer = (CDittoCopyBuffer*)pParam;
@@ -71,6 +75,7 @@ UINT CDittoCopyBuffer::StartCopyTimer(LPVOID pParam)
 	return 0;
 }
 
+//##ModelId=474D306D02CF
 bool CDittoCopyBuffer::EndCopy(long lID)
 {
 	if(m_lCurrentDittoBuffer < 0 || m_lCurrentDittoBuffer >= 10)
@@ -109,6 +114,7 @@ bool CDittoCopyBuffer::EndCopy(long lID)
 	return bRet;
 }
 
+//##ModelId=474D306D02E0
 bool CDittoCopyBuffer::PutClipOnDittoCopyBuffer(long lClipId, long lBuffer)
 {
 	try
@@ -138,6 +144,7 @@ bool CDittoCopyBuffer::PutClipOnDittoCopyBuffer(long lClipId, long lBuffer)
 	return false;
 }
 
+//##ModelId=474D306D02D1
 bool CDittoCopyBuffer::PastCopyBuffer(long lCopyBuffer)
 {
 	//Can't paste while another is still active
@@ -199,6 +206,7 @@ bool CDittoCopyBuffer::PastCopyBuffer(long lCopyBuffer)
 	return bRet;
 }
 
+//##ModelId=474D306D033F
 void CDittoCopyBuffer::EndRestoreThread()
 {
 	//Tell the thread to stop waiting and restore the clipboard
@@ -208,6 +216,7 @@ void CDittoCopyBuffer::EndRestoreThread()
 	WaitForSingleObject(m_Pasting, 5000);
 }
 
+//##ModelId=474D306D02F0
 UINT CDittoCopyBuffer::DelayRestoreClipboard(LPVOID pParam)
 {
 	CDittoCopyBuffer *pBuffer = (CDittoCopyBuffer*)pParam;

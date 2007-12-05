@@ -10,10 +10,12 @@
 /////////////////////////////////////////////////////////////////////////////
 // CGroupCombo window
 
+//##ModelId=474D3066009D
 class CGroupCombo : public CComboBox
 {
 // Construction
 public:
+	//##ModelId=474D306600AE
 	CGroupCombo();
 
 // Attributes
@@ -29,13 +31,19 @@ public:
 
 // Implementation
 public:
+	//##ModelId=474D306600AF
 	virtual ~CGroupCombo();
 
+	//##ModelId=474D306600BD
 	void FillCombo();
+	//##ModelId=474D306600CC
 	void FillCombo(long lParentID, long lSpaces);
+	//##ModelId=474D306600DD
 	BOOL SetCurSelOnItemData(long lItemData);
+	//##ModelId=474D306600EC
 	int GetItemDataFromCursel();
 
+	//##ModelId=474D306600FB
 	long m_lSkipGroupID;
 
 	// Generated message map functions

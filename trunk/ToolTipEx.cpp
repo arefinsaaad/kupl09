@@ -22,6 +22,7 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // CToolTipEx
 
+//##ModelId=474D307F0234
 CToolTipEx::CToolTipEx() :
 	m_dwTextStyle(DT_EXPANDTABS|DT_EXTERNALLEADING|DT_NOPREFIX|DT_WORDBREAK),
 	m_rectMargin(2, 2, 3, 3),
@@ -30,6 +31,7 @@ CToolTipEx::CToolTipEx() :
 {
 }
 
+//##ModelId=474D307F030E
 CToolTipEx::~CToolTipEx()
 {
 	DELETE_BITMAP
@@ -52,6 +54,7 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CToolTipEx message handlers
 
+//##ModelId=474D307F0253
 BOOL CToolTipEx::Create(CWnd* pParentWnd)
 {    
     // Get the class name and create the window
@@ -77,6 +80,7 @@ BOOL CToolTipEx::Create(CWnd* pParentWnd)
     return TRUE;
 }
 
+//##ModelId=474D307F0263
 BOOL CToolTipEx::Show(CPoint point)
 {
 	if(m_pBitmap)
@@ -143,6 +147,7 @@ BOOL CToolTipEx::Show(CPoint point)
 	return TRUE;
 }
 
+//##ModelId=474D307F0272
 BOOL CToolTipEx::Hide()
 {
 	DELETE_BITMAP
@@ -155,6 +160,7 @@ BOOL CToolTipEx::Hide()
 	return TRUE;
 }
 
+//##ModelId=474D308001B6
 void CToolTipEx::OnPaint() 
 {
 	CPaintDC dc(this); // device context for painting
@@ -198,6 +204,7 @@ void CToolTipEx::OnPaint()
 //	dc.SelectObject(pOldFont);
 }
 
+//##ModelId=474D307F02E0
 void CToolTipEx::PostNcDestroy() 
 {
 	CWnd::PostNcDestroy();
@@ -205,6 +212,7 @@ void CToolTipEx::PostNcDestroy()
     delete this;
 }
 
+//##ModelId=474D307F02EF
 BOOL CToolTipEx::PreTranslateMessage(MSG* pMsg) 
 {
 	switch(pMsg->message) 
@@ -228,6 +236,7 @@ BOOL CToolTipEx::PreTranslateMessage(MSG* pMsg)
 	return CWnd::PreTranslateMessage(pMsg);
 }
 
+//##ModelId=474D307F0243
 BOOL CToolTipEx::OnMsg(MSG* pMsg)
 {
 	if(FALSE == IsWindowVisible())
@@ -282,6 +291,7 @@ BOOL CToolTipEx::OnMsg(MSG* pMsg)
 	return FALSE;
 }
 
+//##ModelId=474D307F02DF
 CRect CToolTipEx::GetBoundsRect()
 {
     CWindowDC dc(NULL);
@@ -335,6 +345,7 @@ CRect CToolTipEx::GetBoundsRect()
     return rect;
 }
 
+//##ModelId=474D308000BC
 CString CToolTipEx::GetFieldFromString(CString ref, int nIndex, TCHAR ch)
 {
     CString strReturn;
@@ -374,6 +385,7 @@ CString CToolTipEx::GetFieldFromString(CString ref, int nIndex, TCHAR ch)
     return ref.Mid(nOldStart, nEnd-nOldStart-1);
 }
 
+//##ModelId=474D30800187
 LPLOGFONT CToolTipEx::GetSystemToolTipFont()
 {
     static LOGFONT LogFont;
@@ -388,6 +400,7 @@ LPLOGFONT CToolTipEx::GetSystemToolTipFont()
     return &LogFont;
 }
 
+//##ModelId=474D30800149
 BOOL CToolTipEx::SetLogFont(LPLOGFONT lpLogFont, BOOL bRedraw /*=TRUE*/)
 {
     ASSERT(lpLogFont);
@@ -409,6 +422,7 @@ BOOL CToolTipEx::SetLogFont(LPLOGFONT lpLogFont, BOOL bRedraw /*=TRUE*/)
     return TRUE;
 }
 
+//##ModelId=474D307F02A3
 void CToolTipEx::SetBitmap(CBitmap *pBitmap)
 {
 	DELETE_BITMAP
@@ -416,6 +430,7 @@ void CToolTipEx::SetBitmap(CBitmap *pBitmap)
 	m_pBitmap = pBitmap;
 }
 
+//##ModelId=474D308001D5
 void CToolTipEx::OnSize(UINT nType, int cx, int cy) 
 {
 	CWnd::OnSize(nType, cx, cy);
@@ -429,6 +444,7 @@ void CToolTipEx::OnSize(UINT nType, int cx, int cy)
 	m_RichEdit.MoveWindow(cr);
 }
 
+//##ModelId=474D30800197
 BOOL CToolTipEx::IsCursorInToolTip()
 {
 	CRect cr;
@@ -440,6 +456,7 @@ BOOL CToolTipEx::IsCursorInToolTip()
 	return cr.PtInRect(cursorPos);
 }
 
+//##ModelId=474D307F02A1
 void CToolTipEx::SetRTFText(const char *pRTF)
 {
 	m_RichEdit.SetRTF(pRTF);
@@ -452,6 +469,7 @@ void CToolTipEx::SetRTFText(const char *pRTF)
 //	m_csRTF = csRTF;
 //}
 
+//##ModelId=474D307F0291
 void CToolTipEx::SetToolTipText(const CString &csText)
 {
 	m_csText = csText;
@@ -459,6 +477,7 @@ void CToolTipEx::SetToolTipText(const CString &csText)
 	m_RichEdit.SetText(csText);
 }
 
+//##ModelId=474D30800204
 UINT CToolTipEx::OnNcHitTest(CPoint point) 
 {
 	CRect crWindow;
@@ -494,6 +513,7 @@ UINT CToolTipEx::OnNcHitTest(CPoint point)
 	return CWnd::OnNcHitTest(point);
 }
 
+//##ModelId=474D30800262
 void CToolTipEx::OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinimized) 
 {
 	CWnd::OnActivate(nState, pWndOther, bMinimized);
@@ -508,6 +528,7 @@ void CToolTipEx::OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinimized)
 		}
 	}
 }
+//##ModelId=474D308002E0
 void CToolTipEx::OnTimer(UINT_PTR nIDEvent)
 {
 	switch(nIDEvent)

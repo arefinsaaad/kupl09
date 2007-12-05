@@ -20,11 +20,13 @@ LPCTSTR szEntryY  = _T("Y");
 /////////////////////////////////////////////////////////////////////////////
 // CProgressWnd
 
+//##ModelId=474D3037006F
 CProgressWnd::CProgressWnd()
 {
     CommonConstruct();
 }
 
+//##ModelId=474D3037007E
 CProgressWnd::CProgressWnd(CWnd* pParent, LPCTSTR pszTitle, BOOL bSmooth /* = FALSE */)
 {
     CommonConstruct();
@@ -33,6 +35,7 @@ CProgressWnd::CProgressWnd(CWnd* pParent, LPCTSTR pszTitle, BOOL bSmooth /* = FA
     Create(pParent, pszTitle, bSmooth);
 }
 
+//##ModelId=474D303700BC
 void CProgressWnd::CommonConstruct()
 {
     m_nNumTextLines  = 4;
@@ -50,11 +53,13 @@ void CProgressWnd::CommonConstruct()
     m_bPersistantPosition = TRUE;   // saves and restores position automatically
 }
 
+//##ModelId=474D3037008D
 CProgressWnd::~CProgressWnd()
 {
     DestroyWindow();
 }
 
+//##ModelId=474D3037008F
 BOOL CProgressWnd::Create(CWnd* pParent, LPCTSTR pszTitle, BOOL bSmooth /* = FALSE */)
 {
     BOOL bSuccess;
@@ -126,6 +131,7 @@ BOOL CProgressWnd::Create(CWnd* pParent, LPCTSTR pszTitle, BOOL bSmooth /* = FAL
     return TRUE;
 }
 
+//##ModelId=474D303700AD
 BOOL CProgressWnd::GoModal(LPCTSTR pszTitle /*=_T("Progress")"*/, BOOL bSmooth /*=FALSE*/)
 {
     CWnd *pMainWnd = AfxGetMainWnd();
@@ -145,6 +151,7 @@ BOOL CProgressWnd::GoModal(LPCTSTR pszTitle /*=_T("Progress")"*/, BOOL bSmooth /
     return TRUE;
 }
     
+//##ModelId=474D30370197
 void CProgressWnd::SetWindowSize(int nNumTextLines, int nWindowWidth /*=390*/)
 {
     int nMargin = 10;
@@ -197,6 +204,7 @@ void CProgressWnd::SetWindowSize(int nNumTextLines, int nWindowWidth /*=390*/)
     m_Text.MoveWindow(TextRect);
 }
 
+//##ModelId=474D3037014A
 void CProgressWnd::Clear() 
 { 
     SetText(_T(""));
@@ -208,6 +216,7 @@ void CProgressWnd::Clear()
         UpdateWindow();
 }
 
+//##ModelId=474D30370158
 void CProgressWnd::Hide()  
 { 
     if (!::IsWindow(GetSafeHwnd())) 
@@ -220,6 +229,7 @@ void CProgressWnd::Hide()
     }
 }
 
+//##ModelId=474D30370168
 void CProgressWnd::Show()  
 { 
     if (!::IsWindow(GetSafeHwnd()))
@@ -233,6 +243,7 @@ void CProgressWnd::Show()
     }
 }
 
+//##ModelId=474D303700CC
 void CProgressWnd::SetRange(int nLower, int nUpper, int nStep /* = 1 */)    
 {
     if (!::IsWindow(GetSafeHwnd())) 
@@ -255,6 +266,7 @@ void CProgressWnd::SetRange(int nLower, int nUpper, int nStep /* = 1 */)
     m_wndProgress.SetStep(nStep);
 }
 
+//##ModelId=474D303700FB
 int CProgressWnd::OffsetPos(int nPos)
 { 
     if (!::IsWindow(GetSafeHwnd())) 
@@ -265,6 +277,7 @@ int CProgressWnd::OffsetPos(int nPos)
     return SetPos(m_nPrevPos + nPos);  
 }
 
+//##ModelId=474D3037010A
 int CProgressWnd::StepIt()                
 {
     if (!::IsWindow(GetSafeHwnd())) 
@@ -275,6 +288,7 @@ int CProgressWnd::StepIt()
     return SetPos(m_nPrevPos + m_nStep); 
 }
 
+//##ModelId=474D3037011A
 int CProgressWnd::SetStep(int nStep)
 {
     int nOldStep = m_nStep;
@@ -285,6 +299,7 @@ int CProgressWnd::SetStep(int nStep)
     return m_wndProgress.SetStep(nStep); 
 }
 
+//##ModelId=474D3037012A
 int CProgressWnd::SetPos(int nPos)                    
 {
 #ifdef PBM_SETRANGE32
@@ -318,6 +333,7 @@ int CProgressWnd::SetPos(int nPos)
     return m_wndProgress.SetPos(nPos);        
 }
 
+//##ModelId=474D30370139
 void CProgressWnd::SetText(LPCTSTR fmt, ...)
 {
     if (!::IsWindow(GetSafeHwnd())) 
@@ -344,6 +360,7 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CProgressWnd message handlers
 
+//##ModelId=474D30370262
 BOOL CProgressWnd::OnEraseBkgnd(CDC* pDC) 
 {
     // Fill background with Catchment background colour
@@ -357,6 +374,7 @@ BOOL CProgressWnd::OnEraseBkgnd(CDC* pDC)
     return TRUE;
 }
 
+//##ModelId=474D30370272
 void CProgressWnd::OnCancel() 
 {
     m_bCancelled = TRUE;
@@ -371,6 +389,7 @@ void CProgressWnd::OnCancel()
 }
 
 
+//##ModelId=474D30370252
 BOOL CProgressWnd::DestroyWindow() 
 {
     if (m_bPersistantPosition)
@@ -388,6 +407,7 @@ BOOL CProgressWnd::DestroyWindow()
 	return CWnd::DestroyWindow();
 }
 
+//##ModelId=474D303701A7
 void CProgressWnd::PeekAndPump(BOOL bCancelOnESCkey /*= TRUE*/)
 {
     if (m_bModal && ::GetFocus() != m_hWnd)
@@ -417,6 +437,7 @@ void CProgressWnd::PeekAndPump(BOOL bCancelOnESCkey /*= TRUE*/)
 }
 
 // Retores the previous window size from the registry
+//##ModelId=474D303701B7
 void CProgressWnd::GetPreviousSettings()
 {
     int x = AfxGetApp()->GetProfileInt(szSection, szEntryX, -1);
@@ -432,6 +453,7 @@ void CProgressWnd::GetPreviousSettings()
 }
 
 // Saves the current window position registry
+//##ModelId=474D303701B8
 void CProgressWnd::SaveCurrentSettings()
 {   
     if (!IsWindow(m_hWnd))
@@ -444,18 +466,21 @@ void CProgressWnd::SaveCurrentSettings()
     AfxGetApp()->WriteProfileInt(szSection, szEntryY, rect.top);
 }
 
+//##ModelId=474D30370178
 void CProgressWnd::HideCancel()
 {
 	m_CancelButton.ShowWindow(SW_HIDE);
 	UpdateData(FALSE);
 }
 
+//##ModelId=474D30370179
 void CProgressWnd::ShowCancel()
 {
 	m_CancelButton.ShowWindow(SW_SHOW);
 	UpdateData(FALSE);
 }
 
+//##ModelId=474D303701A9
 void CProgressWnd::SetTitleText(CString csTitle)
 {
 	m_strTitle = csTitle;

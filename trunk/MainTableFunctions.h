@@ -9,13 +9,18 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
+//##ModelId=474D305E039B
 class CMainTableFunctions  
 {
 public:
+	//##ModelId=474D305E03BA
 	CMainTableFunctions();
+	//##ModelId=474D305E03C9
 	virtual ~CMainTableFunctions();
 
+	//##ModelId=474D305E03CB
 	static void LoadAcceleratorKeys(CAccels& accels, CppSQLite3DB &db);
+	//##ModelId=474D305E03DC
 	static CString GetDisplayText(int nMaxLines, const CString &OrigText);
 };
 

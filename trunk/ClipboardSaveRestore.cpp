@@ -2,14 +2,17 @@
 #include "CP_Main.h"
 #include ".\clipboardsaverestore.h"
 
+//##ModelId=474D30760204
 CClipboardSaveRestore::CClipboardSaveRestore(void)
 {
 }
 
+//##ModelId=474D30760214
 CClipboardSaveRestore::~CClipboardSaveRestore(void)
 {
 }
 
+//##ModelId=474D30760216
 bool CClipboardSaveRestore::Save()
 {
 	m_Clipboard.RemoveAll();
@@ -50,6 +53,7 @@ bool CClipboardSaveRestore::Save()
 	return bRet;
 }
 
+//##ModelId=474D30760217
 bool CClipboardSaveRestore::Restore()
 {
 	bool bRet = false;

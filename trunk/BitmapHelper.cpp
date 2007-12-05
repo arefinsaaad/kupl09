@@ -16,16 +16,19 @@ static char THIS_FILE[]=__FILE__;
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
+//##ModelId=474D3079034C
 CBitmapHelper::CBitmapHelper()
 {
 
 }
 
+//##ModelId=474D3079034D
 CBitmapHelper::~CBitmapHelper()
 {
 
 }
 
+//##ModelId=474D3079034F
 int CBitmapHelper::GetCBitmapWidth(const CBitmap & cbm)
 {
 	BITMAP bm;
@@ -33,6 +36,7 @@ int CBitmapHelper::GetCBitmapWidth(const CBitmap & cbm)
 	return bm.bmWidth;
 }
 
+//##ModelId=474D3079036C
 int CBitmapHelper::GetCBitmapHeight(const CBitmap & cbm)
 {
 	BITMAP bm;
@@ -40,6 +44,7 @@ int CBitmapHelper::GetCBitmapHeight(const CBitmap & cbm)
 	return bm.bmHeight;
 } 
 
+//##ModelId=474D307903AA
 BOOL CBitmapHelper::GetCBitmap(void	*pClip2, CDC *pDC, CBitmap *pBitMap, int nMaxHeight)
 {
 	LPBITMAPINFO	lpBI ;
@@ -99,6 +104,7 @@ BOOL CBitmapHelper::GetCBitmap(void	*pClip2, CDC *pDC, CBitmap *pBitMap, int nMa
 	return bRet;
 }
 
+//##ModelId=474D307A0030
 WORD CBitmapHelper::PaletteSize(LPSTR lpDIB)
 {
     // calculate the size required by the palette
@@ -108,6 +114,7 @@ WORD CBitmapHelper::PaletteSize(LPSTR lpDIB)
         return (DIBNumColors(lpDIB) * sizeof(RGBTRIPLE));
 }
 
+//##ModelId=474D307A0033
 WORD CBitmapHelper::DIBNumColors(LPSTR lpDIB)
 {
     WORD wBitCount;  // DIB bit count
@@ -155,6 +162,7 @@ WORD CBitmapHelper::DIBNumColors(LPSTR lpDIB)
 }
 
 
+//##ModelId=474D307A0010
 HANDLE CBitmapHelper::hBitmapToDIB(HBITMAP hBitmap, DWORD dwCompression, HPALETTE hPal) 
 {
     BITMAP                  bm;
@@ -274,6 +282,7 @@ HANDLE CBitmapHelper::hBitmapToDIB(HBITMAP hBitmap, DWORD dwCompression, HPALETT
 }
 
 
+//##ModelId=474D307A007E
 bool CBitmapHelper::DrawDIB(CDC *pDC, HANDLE hData, int nLeft, int nRight, int &nWidth)
 {
 	LPBITMAPINFO	lpBI ;

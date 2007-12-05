@@ -15,12 +15,14 @@ static char THIS_FILE[] = __FILE__;
 // CFileTransferProgressDlg dialog
 
 
+//##ModelId=474D306602CF
 CFileTransferProgressDlg::CFileTransferProgressDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CFileTransferProgressDlg::IDD, pParent)
 {
 	m_bCancelled = false;
 }
 
+//##ModelId=474D30670263
 void CFileTransferProgressDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -43,6 +45,7 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CFileTransferProgressDlg message handlers
 
+//##ModelId=474D3067037B
 void CFileTransferProgressDlg::PostNcDestroy() 
 {
 	CDialog::PostNcDestroy();
@@ -50,6 +53,7 @@ void CFileTransferProgressDlg::PostNcDestroy()
 	delete this;
 }
 
+//##ModelId=474D306703BA
 BOOL CFileTransferProgressDlg::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
@@ -64,21 +68,25 @@ BOOL CFileTransferProgressDlg::OnInitDialog()
 	return TRUE;
 }
 
+//##ModelId=474D30680001
 void CFileTransferProgressDlg::OnCancel() 
 {
 	m_bCancelled = true;
 }
 
+//##ModelId=474D30670149
 void CFileTransferProgressDlg::SetMessage(CString &cs)
 {
 	m_Message.SetWindowText(cs);
 }
 
+//##ModelId=474D30670168
 void CFileTransferProgressDlg::SetFileMessage(CString &cs)
 {
 	m_CopyingFile.SetWindowText(cs);
 }
 
+//##ModelId=474D30670197
 void CFileTransferProgressDlg::SetNumFiles(int nFiles)
 {
 	m_ProgressAllFiles.SetRange32(0, nFiles);
@@ -90,21 +98,25 @@ void CFileTransferProgressDlg::SetNumFiles(int nFiles)
 	m_ProgressSingleFile.SetPos(0);
 }
 
+//##ModelId=474D30670224
 void CFileTransferProgressDlg::ResetSingleFileProgress()
 {
 	m_ProgressSingleFile.SetPos(0);
 }
 
+//##ModelId=474D306701E5
 void CFileTransferProgressDlg::StepAllFiles()
 {
 	m_ProgressAllFiles.StepIt();
 }
 
+//##ModelId=474D306701F5
 void CFileTransferProgressDlg::SetSingleFilePos(int nPos)
 {
 	m_ProgressSingleFile.SetPos(nPos);
 }
 
+//##ModelId=474D30670262
 void CFileTransferProgressDlg::PumpMessages()
 {
 	int nLoops = 0;

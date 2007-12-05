@@ -10,14 +10,17 @@
 
 IMPLEMENT_DYNCREATE(COptionsCopyBuffers, CPropertyPage)
 
+//##ModelId=474D304000EC
 COptionsCopyBuffers::COptionsCopyBuffers() : CPropertyPage(COptionsCopyBuffers::IDD)
 {
 }
 
+//##ModelId=474D304000FB
 COptionsCopyBuffers::~COptionsCopyBuffers()
 {
 }
 
+//##ModelId=474D304000FC
 void COptionsCopyBuffers::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -36,6 +39,7 @@ void COptionsCopyBuffers::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(COptionsCopyBuffers, CPropertyPage)
 END_MESSAGE_MAP()
 
+//##ModelId=474D3040010B
 BOOL COptionsCopyBuffers::OnInitDialog()
 {
 	CPropertyPage::OnInitDialog();
@@ -63,6 +67,7 @@ BOOL COptionsCopyBuffers::OnInitDialog()
 	return TRUE;
 }
 
+//##ModelId=474D3040011A
 BOOL COptionsCopyBuffers::OnApply()
 {
 	ARRAY keys;
