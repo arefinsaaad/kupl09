@@ -18,26 +18,31 @@ IMPLEMENT_DYNCREATE(CWebBrowser2, CWnd)
 /////////////////////////////////////////////////////////////////////////////
 // CWebBrowser2 operations
 
+//##ModelId=474D301D00BE
 void CWebBrowser2::GoBack()
 {
 	InvokeHelper(0x64, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
 }
 
+//##ModelId=474D301D00CC
 void CWebBrowser2::GoForward()
 {
 	InvokeHelper(0x65, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
 }
 
+//##ModelId=474D301D00DB
 void CWebBrowser2::GoHome()
 {
 	InvokeHelper(0x66, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
 }
 
+//##ModelId=474D301D00DC
 void CWebBrowser2::GoSearch()
 {
 	InvokeHelper(0x67, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
 }
 
+//##ModelId=474D301D00EB
 void CWebBrowser2::Navigate(LPCTSTR URL, VARIANT* Flags, VARIANT* TargetFrameName, VARIANT* PostData, VARIANT* Headers)
 {
 	static BYTE parms[] =
@@ -46,11 +51,13 @@ void CWebBrowser2::Navigate(LPCTSTR URL, VARIANT* Flags, VARIANT* TargetFrameNam
 		 URL, Flags, TargetFrameName, PostData, Headers);
 }
 
+//##ModelId=474D301D011A
 void CWebBrowser2::Refresh()
 {
 	InvokeHelper(DISPID_REFRESH, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
 }
 
+//##ModelId=474D301D012A
 void CWebBrowser2::Refresh2(VARIANT* Level)
 {
 	static BYTE parms[] =
@@ -59,11 +66,13 @@ void CWebBrowser2::Refresh2(VARIANT* Level)
 		 Level);
 }
 
+//##ModelId=474D301D0139
 void CWebBrowser2::Stop()
 {
 	InvokeHelper(0x6a, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
 }
 
+//##ModelId=474D301D0149
 LPDISPATCH CWebBrowser2::GetApplication()
 {
 	LPDISPATCH result;
@@ -71,6 +80,7 @@ LPDISPATCH CWebBrowser2::GetApplication()
 	return result;
 }
 
+//##ModelId=474D301D0158
 LPDISPATCH CWebBrowser2::GetParent()
 {
 	LPDISPATCH result;
@@ -78,6 +88,7 @@ LPDISPATCH CWebBrowser2::GetParent()
 	return result;
 }
 
+//##ModelId=474D301D0168
 LPDISPATCH CWebBrowser2::GetContainer()
 {
 	LPDISPATCH result;
@@ -85,6 +96,7 @@ LPDISPATCH CWebBrowser2::GetContainer()
 	return result;
 }
 
+//##ModelId=474D301D0178
 LPDISPATCH CWebBrowser2::GetDocument()
 {
 	LPDISPATCH result;
@@ -92,6 +104,7 @@ LPDISPATCH CWebBrowser2::GetDocument()
 	return result;
 }
 
+//##ModelId=474D301D0187
 BOOL CWebBrowser2::GetTopLevelContainer()
 {
 	BOOL result;
@@ -99,6 +112,7 @@ BOOL CWebBrowser2::GetTopLevelContainer()
 	return result;
 }
 
+//##ModelId=474D301D0197
 CString CWebBrowser2::GetType()
 {
 	CString result;
@@ -106,6 +120,7 @@ CString CWebBrowser2::GetType()
 	return result;
 }
 
+//##ModelId=474D301D01A7
 long CWebBrowser2::GetLeft()
 {
 	long result;
@@ -113,6 +128,7 @@ long CWebBrowser2::GetLeft()
 	return result;
 }
 
+//##ModelId=474D301D01B6
 void CWebBrowser2::SetLeft(long nNewValue)
 {
 	static BYTE parms[] =
@@ -121,6 +137,7 @@ void CWebBrowser2::SetLeft(long nNewValue)
 		 nNewValue);
 }
 
+//##ModelId=474D301D01C6
 long CWebBrowser2::GetTop()
 {
 	long result;
@@ -128,6 +145,7 @@ long CWebBrowser2::GetTop()
 	return result;
 }
 
+//##ModelId=474D301D01D5
 void CWebBrowser2::SetTop(long nNewValue)
 {
 	static BYTE parms[] =
@@ -136,6 +154,7 @@ void CWebBrowser2::SetTop(long nNewValue)
 		 nNewValue);
 }
 
+//##ModelId=474D301D01E5
 long CWebBrowser2::GetWidth()
 {
 	long result;
@@ -143,6 +162,7 @@ long CWebBrowser2::GetWidth()
 	return result;
 }
 
+//##ModelId=474D301D01E6
 void CWebBrowser2::SetWidth(long nNewValue)
 {
 	static BYTE parms[] =
@@ -151,6 +171,7 @@ void CWebBrowser2::SetWidth(long nNewValue)
 		 nNewValue);
 }
 
+//##ModelId=474D301D01F5
 long CWebBrowser2::GetHeight()
 {
 	long result;
@@ -158,6 +179,7 @@ long CWebBrowser2::GetHeight()
 	return result;
 }
 
+//##ModelId=474D301D01F6
 void CWebBrowser2::SetHeight(long nNewValue)
 {
 	static BYTE parms[] =
@@ -166,6 +188,7 @@ void CWebBrowser2::SetHeight(long nNewValue)
 		 nNewValue);
 }
 
+//##ModelId=474D301D0205
 CString CWebBrowser2::GetLocationName()
 {
 	CString result;
@@ -173,6 +196,7 @@ CString CWebBrowser2::GetLocationName()
 	return result;
 }
 
+//##ModelId=474D301D0214
 CString CWebBrowser2::GetLocationURL()
 {
 	CString result;
@@ -180,6 +204,7 @@ CString CWebBrowser2::GetLocationURL()
 	return result;
 }
 
+//##ModelId=474D301D0215
 BOOL CWebBrowser2::GetBusy()
 {
 	BOOL result;
@@ -187,11 +212,13 @@ BOOL CWebBrowser2::GetBusy()
 	return result;
 }
 
+//##ModelId=474D301D0224
 void CWebBrowser2::Quit()
 {
 	InvokeHelper(0x12c, DISPATCH_METHOD, VT_EMPTY, NULL, NULL);
 }
 
+//##ModelId=474D301D0225
 void CWebBrowser2::ClientToWindow(long* pcx, long* pcy)
 {
 	static BYTE parms[] =
@@ -200,6 +227,7 @@ void CWebBrowser2::ClientToWindow(long* pcx, long* pcy)
 		 pcx, pcy);
 }
 
+//##ModelId=474D301D0235
 void CWebBrowser2::PutProperty(LPCTSTR Property_, const VARIANT& vtValue)
 {
 	static BYTE parms[] =
@@ -208,6 +236,7 @@ void CWebBrowser2::PutProperty(LPCTSTR Property_, const VARIANT& vtValue)
 		 Property_, &vtValue);
 }
 
+//##ModelId=474D301D0245
 VARIANT CWebBrowser2::GetProperty_(LPCTSTR Property_)
 {
 	VARIANT result;
@@ -218,6 +247,7 @@ VARIANT CWebBrowser2::GetProperty_(LPCTSTR Property_)
 	return result;
 }
 
+//##ModelId=474D301D0253
 CString CWebBrowser2::GetName()
 {
 	CString result;
@@ -225,6 +255,7 @@ CString CWebBrowser2::GetName()
 	return result;
 }
 
+//##ModelId=474D301D0262
 long CWebBrowser2::GetHwnd()
 {
 	long result;
@@ -232,6 +263,7 @@ long CWebBrowser2::GetHwnd()
 	return result;
 }
 
+//##ModelId=474D301D0263
 CString CWebBrowser2::GetFullName()
 {
 	CString result;
@@ -239,6 +271,7 @@ CString CWebBrowser2::GetFullName()
 	return result;
 }
 
+//##ModelId=474D301D0272
 CString CWebBrowser2::GetPath()
 {
 	CString result;
@@ -246,6 +279,7 @@ CString CWebBrowser2::GetPath()
 	return result;
 }
 
+//##ModelId=474D301D0273
 BOOL CWebBrowser2::GetVisible()
 {
 	BOOL result;
@@ -253,6 +287,7 @@ BOOL CWebBrowser2::GetVisible()
 	return result;
 }
 
+//##ModelId=474D301D0281
 void CWebBrowser2::SetVisible(BOOL bNewValue)
 {
 	static BYTE parms[] =
@@ -261,6 +296,7 @@ void CWebBrowser2::SetVisible(BOOL bNewValue)
 		 bNewValue);
 }
 
+//##ModelId=474D301D0283
 BOOL CWebBrowser2::GetStatusBar()
 {
 	BOOL result;
@@ -268,6 +304,7 @@ BOOL CWebBrowser2::GetStatusBar()
 	return result;
 }
 
+//##ModelId=474D301D0291
 void CWebBrowser2::SetStatusBar(BOOL bNewValue)
 {
 	static BYTE parms[] =
@@ -276,6 +313,7 @@ void CWebBrowser2::SetStatusBar(BOOL bNewValue)
 		 bNewValue);
 }
 
+//##ModelId=474D301D02A1
 CString CWebBrowser2::GetStatusText()
 {
 	CString result;
@@ -283,6 +321,7 @@ CString CWebBrowser2::GetStatusText()
 	return result;
 }
 
+//##ModelId=474D301D02A2
 void CWebBrowser2::SetStatusText(LPCTSTR lpszNewValue)
 {
 	static BYTE parms[] =
@@ -291,6 +330,7 @@ void CWebBrowser2::SetStatusText(LPCTSTR lpszNewValue)
 		 lpszNewValue);
 }
 
+//##ModelId=474D301D02B1
 long CWebBrowser2::GetToolBar()
 {
 	long result;
@@ -298,6 +338,7 @@ long CWebBrowser2::GetToolBar()
 	return result;
 }
 
+//##ModelId=474D301D02C0
 void CWebBrowser2::SetToolBar(long nNewValue)
 {
 	static BYTE parms[] =
@@ -306,6 +347,7 @@ void CWebBrowser2::SetToolBar(long nNewValue)
 		 nNewValue);
 }
 
+//##ModelId=474D301D02CF
 BOOL CWebBrowser2::GetMenuBar()
 {
 	BOOL result;
@@ -313,6 +355,7 @@ BOOL CWebBrowser2::GetMenuBar()
 	return result;
 }
 
+//##ModelId=474D301D02D0
 void CWebBrowser2::SetMenuBar(BOOL bNewValue)
 {
 	static BYTE parms[] =
@@ -321,6 +364,7 @@ void CWebBrowser2::SetMenuBar(BOOL bNewValue)
 		 bNewValue);
 }
 
+//##ModelId=474D301D02DF
 BOOL CWebBrowser2::GetFullScreen()
 {
 	BOOL result;
@@ -328,6 +372,7 @@ BOOL CWebBrowser2::GetFullScreen()
 	return result;
 }
 
+//##ModelId=474D301D02E0
 void CWebBrowser2::SetFullScreen(BOOL bNewValue)
 {
 	static BYTE parms[] =
@@ -336,6 +381,7 @@ void CWebBrowser2::SetFullScreen(BOOL bNewValue)
 		 bNewValue);
 }
 
+//##ModelId=474D301D02F0
 void CWebBrowser2::Navigate2(VARIANT* URL, VARIANT* Flags, VARIANT* TargetFrameName, VARIANT* PostData, VARIANT* Headers)
 {
 	static BYTE parms[] =
@@ -344,6 +390,7 @@ void CWebBrowser2::Navigate2(VARIANT* URL, VARIANT* Flags, VARIANT* TargetFrameN
 		 URL, Flags, TargetFrameName, PostData, Headers);
 }
 
+//##ModelId=474D301D0310
 long CWebBrowser2::QueryStatusWB(long cmdID)
 {
 	long result;
@@ -354,6 +401,7 @@ long CWebBrowser2::QueryStatusWB(long cmdID)
 	return result;
 }
 
+//##ModelId=474D301D031F
 void CWebBrowser2::ExecWB(long cmdID, long cmdexecopt, VARIANT* pvaIn, VARIANT* pvaOut)
 {
 	static BYTE parms[] =
@@ -362,6 +410,7 @@ void CWebBrowser2::ExecWB(long cmdID, long cmdexecopt, VARIANT* pvaIn, VARIANT* 
 		 cmdID, cmdexecopt, pvaIn, pvaOut);
 }
 
+//##ModelId=474D301D034C
 void CWebBrowser2::ShowBrowserBar(VARIANT* pvaClsid, VARIANT* pvarShow, VARIANT* pvarSize)
 {
 	static BYTE parms[] =
@@ -370,6 +419,7 @@ void CWebBrowser2::ShowBrowserBar(VARIANT* pvaClsid, VARIANT* pvarShow, VARIANT*
 		 pvaClsid, pvarShow, pvarSize);
 }
 
+//##ModelId=474D301D036D
 long CWebBrowser2::GetReadyState()
 {
 	long result;
@@ -377,6 +427,7 @@ long CWebBrowser2::GetReadyState()
 	return result;
 }
 
+//##ModelId=474D301D037B
 BOOL CWebBrowser2::GetOffline()
 {
 	BOOL result;
@@ -384,6 +435,7 @@ BOOL CWebBrowser2::GetOffline()
 	return result;
 }
 
+//##ModelId=474D301D038B
 void CWebBrowser2::SetOffline(BOOL bNewValue)
 {
 	static BYTE parms[] =
@@ -392,6 +444,7 @@ void CWebBrowser2::SetOffline(BOOL bNewValue)
 		 bNewValue);
 }
 
+//##ModelId=474D301D039C
 BOOL CWebBrowser2::GetSilent()
 {
 	BOOL result;
@@ -399,6 +452,7 @@ BOOL CWebBrowser2::GetSilent()
 	return result;
 }
 
+//##ModelId=474D301D03AA
 void CWebBrowser2::SetSilent(BOOL bNewValue)
 {
 	static BYTE parms[] =
@@ -407,6 +461,7 @@ void CWebBrowser2::SetSilent(BOOL bNewValue)
 		 bNewValue);
 }
 
+//##ModelId=474D301D03BB
 BOOL CWebBrowser2::GetRegisterAsBrowser()
 {
 	BOOL result;
@@ -414,6 +469,7 @@ BOOL CWebBrowser2::GetRegisterAsBrowser()
 	return result;
 }
 
+//##ModelId=474D301D03C9
 void CWebBrowser2::SetRegisterAsBrowser(BOOL bNewValue)
 {
 	static BYTE parms[] =
@@ -422,6 +478,7 @@ void CWebBrowser2::SetRegisterAsBrowser(BOOL bNewValue)
 		 bNewValue);
 }
 
+//##ModelId=474D301D03D9
 BOOL CWebBrowser2::GetRegisterAsDropTarget()
 {
 	BOOL result;
@@ -429,6 +486,7 @@ BOOL CWebBrowser2::GetRegisterAsDropTarget()
 	return result;
 }
 
+//##ModelId=474D301E0001
 void CWebBrowser2::SetRegisterAsDropTarget(BOOL bNewValue)
 {
 	static BYTE parms[] =
@@ -437,6 +495,7 @@ void CWebBrowser2::SetRegisterAsDropTarget(BOOL bNewValue)
 		 bNewValue);
 }
 
+//##ModelId=474D301E0003
 BOOL CWebBrowser2::GetTheaterMode()
 {
 	BOOL result;
@@ -444,6 +503,7 @@ BOOL CWebBrowser2::GetTheaterMode()
 	return result;
 }
 
+//##ModelId=474D301E0010
 void CWebBrowser2::SetTheaterMode(BOOL bNewValue)
 {
 	static BYTE parms[] =
@@ -452,6 +512,7 @@ void CWebBrowser2::SetTheaterMode(BOOL bNewValue)
 		 bNewValue);
 }
 
+//##ModelId=474D301E0020
 BOOL CWebBrowser2::GetAddressBar()
 {
 	BOOL result;
@@ -459,6 +520,7 @@ BOOL CWebBrowser2::GetAddressBar()
 	return result;
 }
 
+//##ModelId=474D301E0021
 void CWebBrowser2::SetAddressBar(BOOL bNewValue)
 {
 	static BYTE parms[] =
@@ -467,6 +529,7 @@ void CWebBrowser2::SetAddressBar(BOOL bNewValue)
 		 bNewValue);
 }
 
+//##ModelId=474D301E0030
 BOOL CWebBrowser2::GetResizable()
 {
 	BOOL result;
@@ -474,6 +537,7 @@ BOOL CWebBrowser2::GetResizable()
 	return result;
 }
 
+//##ModelId=474D301E0031
 void CWebBrowser2::SetResizable(BOOL bNewValue)
 {
 	static BYTE parms[] =

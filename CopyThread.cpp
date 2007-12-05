@@ -16,6 +16,7 @@ static char THIS_FILE[] = __FILE__;
 
 IMPLEMENT_DYNCREATE(CCopyThread, CWinThread)
 
+//##ModelId=474D307202DF
 CCopyThread::CCopyThread():
 	m_bQuit(false),
 	m_bConfigChanged(false),
@@ -27,6 +28,7 @@ CCopyThread::CCopyThread():
 	::InitializeCriticalSection(&m_CS);
 }
 
+//##ModelId=474D307202E0
 CCopyThread::~CCopyThread()
 {
 	m_LocalConfig.DeleteTypes();
@@ -36,6 +38,7 @@ CCopyThread::~CCopyThread()
 	::DeleteCriticalSection(&m_CS);
 }
 
+//##ModelId=474D3073010B
 BOOL CCopyThread::InitInstance()
 {
 	m_pClipboardViewer = new CClipboardViewer(this);
@@ -46,6 +49,7 @@ BOOL CCopyThread::InitInstance()
 	return TRUE;
 }
 
+//##ModelId=474D3073012A
 int CCopyThread::ExitInstance()
 {
 	m_pClipboardViewer->Disconnect(false);
@@ -64,6 +68,7 @@ END_MESSAGE_MAP()
 
 
 // Called within Copy Thread:
+//##ModelId=474D3072037B
 void CCopyThread::OnClipboardChange()
 {
 	SyncConfig(); // synchronize with the main thread's copy configuration
@@ -126,9 +131,9 @@ void CCopyThread::OnClipboardChange()
 		::PostMessage(m_LocalConfig.m_hClipHandler, WM_CLIPBOARD_COPIED, (WPARAM)pClip, 0);
 	else
 		::SendMessage(m_LocalConfig.m_hClipHandler, WM_CLIPBOARD_COPIED, (WPARAM)pClip, 0);
-	
 }
 
+//##ModelId=474D3072038B
 void CCopyThread::SyncConfig()
 {
 	// atomic read
@@ -157,6 +162,7 @@ void CCopyThread::SyncConfig()
 	}
 }
 
+//##ModelId=474D3072038C
 void CCopyThread::AddToClips(CClip* pClip)
 {
 	Hold();
@@ -169,22 +175,26 @@ void CCopyThread::AddToClips(CClip* pClip)
 	Release();
 }
 
+//##ModelId=474D30730020
 bool CCopyThread::IsClipboardViewerConnected()
 {
 	return m_pClipboardViewer->m_bIsConnected;
 }
 
+//##ModelId=474D3073003F
 bool CCopyThread::GetConnectCV()
 {
 	return m_pClipboardViewer->GetConnect();
 }
 
+//##ModelId=474D3073004F
 void CCopyThread::SetConnectCV(bool bConnect)
 {
 	ASSERT( m_pClipboardViewer && m_pClipboardViewer->m_hWnd );
 	::SendMessage( m_pClipboardViewer->m_hWnd, WM_SETCONNECT, bConnect, 0 );
 }
 
+//##ModelId=474D3073007E
 CClipList* CCopyThread::GetClips()
 {
 	Hold();
@@ -196,6 +206,7 @@ CClipList* CCopyThread::GetClips()
 	return pRet;
 }
 
+//##ModelId=474D3073008D
 void CCopyThread::SetSupportedTypes( CClipTypes* pTypes )
 {
 	Hold();
@@ -211,6 +222,7 @@ void CCopyThread::SetSupportedTypes( CClipTypes* pTypes )
 	Release();
 }
 
+//##ModelId=474D3073009D
 HWND CCopyThread::SetClipHandler(HWND hWnd)
 {
 	Hold();
@@ -223,6 +235,7 @@ HWND CCopyThread::SetClipHandler(HWND hWnd)
 
 	return hRet;
 }
+//##ModelId=474D307300AD
 HWND CCopyThread::GetClipHandler()
 {
 	Hold();
@@ -233,6 +246,7 @@ HWND CCopyThread::GetClipHandler()
 
 	return hRet;
 }
+//##ModelId=474D307300CC
 bool CCopyThread::SetCopyOnChange(bool bVal)
 {
 	Hold();
@@ -245,6 +259,7 @@ bool CCopyThread::SetCopyOnChange(bool bVal)
 
 	return bRet;
 }
+//##ModelId=474D307300DC
 bool CCopyThread::GetCopyOnChange()
 {
 	Hold();
@@ -253,6 +268,7 @@ bool CCopyThread::GetCopyOnChange()
 
 	return bRet;
 }
+//##ModelId=474D307300EB
 bool CCopyThread::SetAsyncCopy(bool bVal)
 {
 	Hold();
@@ -263,6 +279,7 @@ bool CCopyThread::SetAsyncCopy(bool bVal)
 
 	return bRet;
 }
+//##ModelId=474D307300FB
 bool CCopyThread::GetAsyncCopy()
 {
 	Hold();
@@ -272,6 +289,7 @@ bool CCopyThread::GetAsyncCopy()
 	return bRet;
 }
 
+//##ModelId=474D307300FC
 void CCopyThread::Init(CCopyConfig cfg)
 {
 	ASSERT(m_LocalConfig.m_pSupportedTypes == NULL);
@@ -280,6 +298,7 @@ void CCopyThread::Init(CCopyConfig cfg)
 	m_SharedConfig.m_pSupportedTypes = NULL;
 }
 
+//##ModelId=474D3073010A
 bool CCopyThread::Quit()
 {
 	m_bQuit = true;

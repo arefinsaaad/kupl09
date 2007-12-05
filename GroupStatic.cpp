@@ -14,12 +14,14 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // CGroupStatic
 
+//##ModelId=474D308602A1
 CGroupStatic::CGroupStatic()
 {
 	m_dwTextColor = 0;
 	m_dwBkColor = RGB(255, 255, 255);
 }
 
+//##ModelId=474D3086039C
 CGroupStatic::~CGroupStatic()
 {
 }
@@ -34,6 +36,7 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CGroupStatic message handlers
 
+//##ModelId=474D3086033E
 BOOL CGroupStatic::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT* pLResult) 
 {  
 #ifndef WIN32
@@ -100,6 +103,7 @@ BOOL CGroupStatic::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRE
 /*************************************************************************
 *
 *************************************************************************/
+//##ModelId=474D308602E0
 void CGroupStatic::SetFont( int nPointSize, LPCTSTR lpszFaceName, CDC* pDC )
 {
    // If a font has been allocated, delete it

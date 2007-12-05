@@ -91,6 +91,7 @@ UINT  ClientThread(LPVOID pParam)
 	return 0;
 }
 
+//##ModelId=474D307B033D
 CServer::CServer()
 {
 	m_pClipList = NULL;
@@ -98,11 +99,13 @@ CServer::CServer()
 	m_bSetToClipBoard = FALSE;
 }
 
+//##ModelId=474D307B036C
 CServer::~CServer()
 {
 	closesocket(m_Sock.GetSocket());
 }
 
+//##ModelId=474D307B036D
 void CServer::RunThread(SOCKET sock)
 {
 	m_Sock.SetSocket(sock);	
@@ -167,6 +170,7 @@ void CServer::RunThread(SOCKET sock)
 	}
 }
 
+//##ModelId=474D307B03C9
 void CServer::OnStart(CSendInfo &info)
 {
 	CTextConvert::ConvertFromUTF8(info.m_cIP, m_csIP);
@@ -201,6 +205,7 @@ void CServer::OnStart(CSendInfo &info)
 	LogSendRecieveInfo(StrF(_T("::START %s %s %s"), m_csDesc, m_csComputerName, m_csIP));
 }
 
+//##ModelId=474D307C0030
 void CServer::OnDataStart(CSendInfo &info)
 {
 	LogSendRecieveInfo("::DATA_START -- START");
@@ -247,6 +252,7 @@ void CServer::OnDataStart(CSendInfo &info)
 	LogSendRecieveInfo("::DATA_START -- END");
 }
 
+//##ModelId=474D307C0002
 void CServer::OnDataEnd(CSendInfo &info)
 {
 	LogSendRecieveInfo("::DATA_END");
@@ -265,6 +271,7 @@ void CServer::OnDataEnd(CSendInfo &info)
 	}
 }
 
+//##ModelId=474D307C007E
 void CServer::OnEnd(CSendInfo &info)
 {				
 	LogSendRecieveInfo("::END");
@@ -281,6 +288,7 @@ void CServer::OnEnd(CSendInfo &info)
 		LogSendRecieveInfo("::ERROR pClipList was NULL");
 }
 
+//##ModelId=474D307C009D
 void CServer::OnExit(CSendInfo &info)
 {
 	LogSendRecieveInfo("::EXIT");
@@ -297,6 +305,7 @@ void CServer::OnExit(CSendInfo &info)
 		LogSendRecieveInfo("::ERROR pClipList was NULL or Count was 0");
 }
 
+//##ModelId=474D307C00BC
 void CServer::OnRequestFiles(CSendInfo &info)
 {
 	CFileSend Send;
@@ -306,6 +315,7 @@ void CServer::OnRequestFiles(CSendInfo &info)
 	m_pClipList = NULL;
 }
 
+//##ModelId=474D307B03BA
 void CServer::AddRemoteCF_HDROPFormat()
 {
 	CClipFormat cf;

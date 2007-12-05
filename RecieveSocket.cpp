@@ -5,6 +5,7 @@
 #include "CP_Main.h"
 #include "TextConvert.h"
 
+//##ModelId=474D307D0178
 CRecieveSocket::CRecieveSocket(SOCKET sock)
 {
 	m_pDataReturnedFromDecrypt = NULL;
@@ -12,6 +13,7 @@ CRecieveSocket::CRecieveSocket(SOCKET sock)
 	m_pEncryptor = new CEncryption; //CreateEncryptionInterface("encryptdecrypt.dll");
 }
 
+//##ModelId=474D307D0187
 CRecieveSocket::~CRecieveSocket()
 {
 	if(m_pEncryptor)
@@ -23,6 +25,7 @@ CRecieveSocket::~CRecieveSocket()
 	}
 }
 
+//##ModelId=474D307D01C6
 void CRecieveSocket::FreeDecryptedData()
 { 
 	if(g_Opt.m_csPassword == "")
@@ -36,6 +39,7 @@ void CRecieveSocket::FreeDecryptedData()
 	m_pDataReturnedFromDecrypt = NULL;
 }
 
+//##ModelId=474D307D0188
 LPVOID CRecieveSocket::ReceiveEncryptedData(long lInSize, long &lOutSize)
 {
 	if(m_pEncryptor == NULL)
@@ -113,6 +117,7 @@ LPVOID CRecieveSocket::ReceiveEncryptedData(long lInSize, long &lOutSize)
 	return pOutput;
 }
 
+//##ModelId=474D307D0198
 BOOL CRecieveSocket::RecieveExactSize(char *pData, long lSize)
 {
 	LogSendRecieveInfo(StrF(_T("RecieveExactSize:: ------ Start wanted size %d"), lSize));
@@ -149,6 +154,7 @@ BOOL CRecieveSocket::RecieveExactSize(char *pData, long lSize)
 
 #define ENCRYPTED_SIZE_CSENDINFO 508
 
+//##ModelId=474D307D01B7
 BOOL CRecieveSocket::RecieveCSendInfo(CSendInfo *pInfo)
 {
 	BOOL bRet = FALSE;

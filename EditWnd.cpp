@@ -9,11 +9,13 @@
 #include "ProcessPaste.h"
 
 IMPLEMENT_DYNAMIC(CEditWnd, CWnd)
+//##ModelId=474D3068011A
 CEditWnd::CEditWnd()
 {
 	m_lLastSaveID = -1;
 }
 
+//##ModelId=474D3068012A
 CEditWnd::~CEditWnd()
 {
 }
@@ -30,6 +32,7 @@ BEGIN_MESSAGE_MAP(CEditWnd, CWnd)
 	ON_WM_DESTROY()
 END_MESSAGE_MAP()
 
+//##ModelId=474D306902CF
 int CEditWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
 	if (CWnd::OnCreate(lpCreateStruct) == -1)
@@ -79,6 +82,7 @@ int CEditWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	return 0;
 }
 
+//##ModelId=474D3069039B
 void CEditWnd::OnSize(UINT nType, int cx, int cy)
 {
 	CWnd::OnSize(nType, cx, cy);
@@ -89,6 +93,7 @@ void CEditWnd::OnSize(UINT nType, int cx, int cy)
 	}
 }
 
+//##ModelId=474D3069012A
 void CEditWnd::MoveControls()
 {
 	static int nToolbarHeight = 23;
@@ -101,6 +106,7 @@ void CEditWnd::MoveControls()
 	m_cbUpdateDescription.MoveWindow(2, rc.Height()-20, rc.Width()-2, 20);
 }
 
+//##ModelId=474D306A0020
 void CEditWnd::OnSaveAll() 
 {
 	BOOL bUpdateDesc = m_cbUpdateDescription.GetCheck();
@@ -111,11 +117,13 @@ void CEditWnd::OnSaveAll()
 	}
 }
 
+//##ModelId=474D306903D9
 void CEditWnd::OnSave() 
 {
 	DoSave();
 }
 
+//##ModelId=474D30690252
 bool CEditWnd::DoSave()
 {
 	bool bRet = false;
@@ -128,6 +136,7 @@ bool CEditWnd::DoSave()
 	return bRet;
 }
 
+//##ModelId=474D30690262
 bool CEditWnd::DoSaveItem(long lIndex)
 {
 	bool bRet = false;
@@ -168,6 +177,7 @@ bool CEditWnd::DoSaveItem(long lIndex)
 	return bRet;
 }
 
+//##ModelId=474D30680139
 bool CEditWnd::EditIds(CClipIDs &Ids)
 {
 	int nCount = min(Ids.GetSize(), 10);
@@ -184,6 +194,7 @@ bool CEditWnd::EditIds(CClipIDs &Ids)
 	return true;
 }
 
+//##ModelId=474D30690204
 bool CEditWnd::AddItem(long lID)
 {
 	bool bRet = false;
@@ -227,6 +238,7 @@ bool CEditWnd::AddItem(long lID)
 
 }
 
+//##ModelId=474D30690168
 long CEditWnd::IsIDAlreadyInEdit(long lID, bool bSetFocus)
 {
 	int nSize = m_Edits.size();
@@ -248,6 +260,7 @@ long CEditWnd::IsIDAlreadyInEdit(long lID, bool bSetFocus)
 	return -1;
 }
 
+//##ModelId=474D306A0001
 void CEditWnd::OnDestroy()
 {
 	CWnd::OnDestroy();
@@ -270,6 +283,7 @@ void CEditWnd::OnDestroy()
 	CGetSetOptions::SetUpdateDescWhenSavingClip(m_cbUpdateDescription.GetCheck());
 }
 
+//##ModelId=474D306A009D
 void CEditWnd::OnSetFocus(CWnd* pOldWnd)
 {
 	CWnd::OnSetFocus(pOldWnd);
@@ -285,6 +299,7 @@ void CEditWnd::OnSetFocus(CWnd* pOldWnd)
 	}
 }
 
+//##ModelId=474D3068014A
 bool CEditWnd::CloseEdits(bool bPrompt)
 {
 	BOOL bUpdateDesc = m_cbUpdateDescription.GetCheck();
@@ -315,6 +330,7 @@ bool CEditWnd::CloseEdits(bool bPrompt)
 	return true;
 }
 
+//##ModelId=474D306A003F
 void CEditWnd::OnClose()
 {	
 	BOOL bUpdateDesc = m_cbUpdateDescription.GetCheck();
@@ -345,11 +361,13 @@ void CEditWnd::OnClose()
 	}
 }
 
+//##ModelId=474D306A0041
 void CEditWnd::OnNew()
 {
 	AddItem(-1);
 }
 
+//##ModelId=474D306A007E
 void CEditWnd::OnSaveCloseClipboard()
 {
 	if(DoSave())
@@ -366,6 +384,7 @@ void CEditWnd::OnSaveCloseClipboard()
 	}
 }
 
+//##ModelId=474D306A00AD
 BOOL CEditWnd::PreTranslateMessage(MSG* pMsg)
 {
 	m_ToolTip.RelayEvent(pMsg);

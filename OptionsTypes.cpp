@@ -17,6 +17,7 @@ static char THIS_FILE[] = __FILE__;
 
 IMPLEMENT_DYNCREATE(COptionsTypes, CPropertyPage)
 
+//##ModelId=474D303D00EB
 COptionsTypes::COptionsTypes() : CPropertyPage(COptionsTypes::IDD)
 {
 	m_csTitle = theApp.m_Language.GetString("SupportedTypesTitle", "Supported Types");
@@ -29,10 +30,12 @@ COptionsTypes::COptionsTypes() : CPropertyPage(COptionsTypes::IDD)
 	m_bSave = false;
 }
 
+//##ModelId=474D303D00EC
 COptionsTypes::~COptionsTypes()
 {
 }
 
+//##ModelId=474D303D010C
 void COptionsTypes::DoDataExchange(CDataExchange* pDX)
 {
 	CPropertyPage::DoDataExchange(pDX);
@@ -52,6 +55,7 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // COptionsTypes message handlers
 
+//##ModelId=474D303D010A
 BOOL COptionsTypes::OnApply() 
 {
 	if(m_bSave)
@@ -78,6 +82,7 @@ BOOL COptionsTypes::OnApply()
 	return CPropertyPage::OnApply();
 }
 
+//##ModelId=474D303D0158
 BOOL COptionsTypes::OnInitDialog() 
 {
 	CPropertyPage::OnInitDialog();
@@ -114,6 +119,7 @@ BOOL COptionsTypes::OnInitDialog()
 	return FALSE;
 }
 
+//##ModelId=474D303D0168
 void COptionsTypes::OnDelete() 
 {
 	int nCount = m_List.GetSelCount();
@@ -131,6 +137,7 @@ void COptionsTypes::OnDelete()
 }
 
 #include "AddType.h"
+//##ModelId=474D303D0187
 void COptionsTypes::OnAdd() 
 {
 	CAddType add(this);
@@ -150,6 +157,7 @@ void COptionsTypes::OnAdd()
 	}	
 }
 
+//##ModelId=474D303D0139
 BOOL COptionsTypes::TextAllReadyThere(const CString &cs)
 {
 	CString csThere;

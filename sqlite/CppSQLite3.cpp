@@ -45,6 +45,7 @@ int sqlite3_decode_binary(const unsigned char *in, unsigned char *out);
 
 ////////////////////////////////////////////////////////////////////////////////
 
+//##ModelId=474D306E031E
 CppSQLite3Exception::CppSQLite3Exception(const int nErrCode,
 									TCHAR* szErrMess,
 									bool bDeleteMsg/*=true*/) :
@@ -69,6 +70,7 @@ CppSQLite3Exception::CppSQLite3Exception(const int nErrCode,
 }
 
 									
+//##ModelId=474D306E034C
 CppSQLite3Exception::CppSQLite3Exception(const CppSQLite3Exception&  e) :
 									mnErrCode(e.mnErrCode)
 {
@@ -85,6 +87,7 @@ CppSQLite3Exception::CppSQLite3Exception(const CppSQLite3Exception&  e) :
 }
 
 
+//##ModelId=474D306E039C
 const TCHAR* CppSQLite3Exception::errorCodeAsString(int nErrCode)
 {
 	switch (nErrCode)
@@ -123,6 +126,7 @@ const TCHAR* CppSQLite3Exception::errorCodeAsString(int nErrCode)
 }
 
 
+//##ModelId=474D306E036C
 CppSQLite3Exception::~CppSQLite3Exception()
 {
 
@@ -130,6 +134,7 @@ CppSQLite3Exception::~CppSQLite3Exception()
 
 ////////////////////////////////////////////////////////////////////////////////
 
+//##ModelId=474D306F00BC
 CppSQLite3Query::CppSQLite3Query()
 {
 	mpVM = 0;
@@ -139,6 +144,7 @@ CppSQLite3Query::CppSQLite3Query()
 }
 
 
+//##ModelId=474D306F00DB
 CppSQLite3Query::CppSQLite3Query(const CppSQLite3Query& rQuery)
 {
 	mpVM = rQuery.mpVM;
@@ -150,6 +156,7 @@ CppSQLite3Query::CppSQLite3Query(const CppSQLite3Query& rQuery)
 }
 
 
+//##ModelId=474D306F012A
 CppSQLite3Query::CppSQLite3Query(sqlite3* pDB,
 							sqlite3_stmt* pVM,
 							bool bEof,
@@ -163,6 +170,7 @@ CppSQLite3Query::CppSQLite3Query(sqlite3* pDB,
 }
 
 
+//##ModelId=474D306F0178
 CppSQLite3Query::~CppSQLite3Query()
 {
 	try
@@ -175,6 +183,7 @@ CppSQLite3Query::~CppSQLite3Query()
 }
 
 
+//##ModelId=474D306F0158
 CppSQLite3Query& CppSQLite3Query::operator=(const CppSQLite3Query& rQuery)
 {
 	try
@@ -194,6 +203,7 @@ CppSQLite3Query& CppSQLite3Query::operator=(const CppSQLite3Query& rQuery)
 }
 
 
+//##ModelId=474D306F0197
 int CppSQLite3Query::numFields()
 {
 	checkVM();
@@ -201,6 +211,7 @@ int CppSQLite3Query::numFields()
 }
 
 
+//##ModelId=474D306F0233
 const TCHAR* CppSQLite3Query::fieldValue(int nField)
 {
 	checkVM();
@@ -220,6 +231,7 @@ const TCHAR* CppSQLite3Query::fieldValue(int nField)
 }
 
 
+//##ModelId=474D306F0243
 const TCHAR* CppSQLite3Query::fieldValue(const TCHAR* szField)
 {
 	int nField = fieldIndex(szField);
@@ -232,6 +244,7 @@ const TCHAR* CppSQLite3Query::fieldValue(const TCHAR* szField)
 }
 
 
+//##ModelId=474D306F0272
 int CppSQLite3Query::getIntField(int nField, int nNullValue/*=0*/)
 {
 	if (fieldDataType(nField) == SQLITE_NULL)
@@ -245,6 +258,7 @@ int CppSQLite3Query::getIntField(int nField, int nNullValue/*=0*/)
 }
 
 
+//##ModelId=474D306F0291
 int CppSQLite3Query::getIntField(const TCHAR* szField, int nNullValue/*=0*/)
 {
 	int nField = fieldIndex(szField);
@@ -252,6 +266,7 @@ int CppSQLite3Query::getIntField(const TCHAR* szField, int nNullValue/*=0*/)
 }
 
 
+//##ModelId=474D306F02FE
 double CppSQLite3Query::getFloatField(int nField, double fNullValue/*=0.0*/)
 {
 	if (fieldDataType(nField) == SQLITE_NULL)
@@ -265,6 +280,7 @@ double CppSQLite3Query::getFloatField(int nField, double fNullValue/*=0.0*/)
 }
 
 
+//##ModelId=474D306F031E
 double CppSQLite3Query::getFloatField(const TCHAR* szField, double fNullValue/*=0.0*/)
 {
 	int nField = fieldIndex(szField);
@@ -272,6 +288,7 @@ double CppSQLite3Query::getFloatField(const TCHAR* szField, double fNullValue/*=
 }
 
 
+//##ModelId=474D306F033D
 const TCHAR* CppSQLite3Query::getStringField(int nField, const TCHAR* szNullValue/*=""*/)
 {
 	if (fieldDataType(nField) == SQLITE_NULL)
@@ -289,12 +306,14 @@ const TCHAR* CppSQLite3Query::getStringField(int nField, const TCHAR* szNullValu
 }
 
 
+//##ModelId=474D306F036C
 const TCHAR* CppSQLite3Query::getStringField(const TCHAR* szField, const TCHAR* szNullValue/*=""*/)
 {
 	int nField = fieldIndex(szField);
 	return getStringField(nField, szNullValue);
 }
 
+//##ModelId=474D30700030
 int CppSQLite3Query::getBlobFieldSize(int nField)
 {
 	checkVM();
@@ -311,6 +330,7 @@ int CppSQLite3Query::getBlobFieldSize(int nField)
 	return nLen;
 }
 
+//##ModelId=474D306F039B
 const unsigned char* CppSQLite3Query::getBlobField(int nField, int& nLen)
 {
 	checkVM();
@@ -326,12 +346,14 @@ const unsigned char* CppSQLite3Query::getBlobField(int nField, int& nLen)
 	return (const unsigned char*)sqlite3_column_blob(mpVM, nField);
 }
 
+//##ModelId=474D306F03D9
 int CppSQLite3Query::getBlobFieldSize(const TCHAR* szField)
 {
 	int nField = fieldIndex(szField);
 	return getBlobFieldSize(nField);
 }
 
+//##ModelId=474D306F03C9
 const unsigned char* CppSQLite3Query::getBlobField(const TCHAR* szField, int& nLen)
 {
 	int nField = fieldIndex(szField);
@@ -339,12 +361,14 @@ const unsigned char* CppSQLite3Query::getBlobField(const TCHAR* szField, int& nL
 }
 
 
+//##ModelId=474D3070004F
 bool CppSQLite3Query::fieldIsNull(int nField)
 {
 	return (fieldDataType(nField) == SQLITE_NULL);
 }
 
 
+//##ModelId=474D3070006E
 bool CppSQLite3Query::fieldIsNull(const TCHAR* szField)
 {
 	int nField = fieldIndex(szField);
@@ -352,6 +376,7 @@ bool CppSQLite3Query::fieldIsNull(const TCHAR* szField)
 }
 
 
+//##ModelId=474D306F01B6
 int CppSQLite3Query::fieldIndex(const TCHAR* szField)
 {
 	checkVM();
@@ -379,6 +404,7 @@ int CppSQLite3Query::fieldIndex(const TCHAR* szField)
 }
 
 
+//##ModelId=474D306F01D5
 const TCHAR* CppSQLite3Query::fieldName(int nCol)
 {
 	checkVM();
@@ -397,6 +423,7 @@ const TCHAR* CppSQLite3Query::fieldName(int nCol)
 }
 
 
+//##ModelId=474D306F01F5
 const TCHAR* CppSQLite3Query::fieldDeclType(int nCol)
 {
 	checkVM();
@@ -416,6 +443,7 @@ const TCHAR* CppSQLite3Query::fieldDeclType(int nCol)
 }
 
 
+//##ModelId=474D306F0214
 int CppSQLite3Query::fieldDataType(int nCol)
 {
 	checkVM();
@@ -431,6 +459,7 @@ int CppSQLite3Query::fieldDataType(int nCol)
 }
 
 
+//##ModelId=474D3070008D
 bool CppSQLite3Query::eof()
 {
 	checkVM();
@@ -438,6 +467,7 @@ bool CppSQLite3Query::eof()
 }
 
 
+//##ModelId=474D307000AD
 void CppSQLite3Query::nextRow()
 {
 	checkVM();
@@ -463,6 +493,7 @@ void CppSQLite3Query::nextRow()
 }
 
 
+//##ModelId=474D307000BC
 void CppSQLite3Query::finalize()
 {
 	if (mpVM && mbOwnVM)
@@ -478,6 +509,7 @@ void CppSQLite3Query::finalize()
 }
 
 
+//##ModelId=474D307000DB
 void CppSQLite3Query::checkVM()
 {
 	if (mpVM == 0)
@@ -490,6 +522,7 @@ void CppSQLite3Query::checkVM()
 
 ////////////////////////////////////////////////////////////////////////////////
 
+//##ModelId=474D307002A1
 CppSQLite3Statement::CppSQLite3Statement()
 {
 	mpDB = 0;
@@ -497,6 +530,7 @@ CppSQLite3Statement::CppSQLite3Statement()
 }
 
 
+//##ModelId=474D307002B0
 CppSQLite3Statement::CppSQLite3Statement(const CppSQLite3Statement& rStatement)
 {
 	mpDB = rStatement.mpDB;
@@ -506,6 +540,7 @@ CppSQLite3Statement::CppSQLite3Statement(const CppSQLite3Statement& rStatement)
 }
 
 
+//##ModelId=474D307002C0
 CppSQLite3Statement::CppSQLite3Statement(sqlite3* pDB, sqlite3_stmt* pVM)
 {
 	mpDB = pDB;
@@ -513,6 +548,7 @@ CppSQLite3Statement::CppSQLite3Statement(sqlite3* pDB, sqlite3_stmt* pVM)
 }
 
 
+//##ModelId=474D307002EF
 CppSQLite3Statement::~CppSQLite3Statement()
 {
 	try
@@ -525,6 +561,7 @@ CppSQLite3Statement::~CppSQLite3Statement()
 }
 
 
+//##ModelId=474D3070030E
 CppSQLite3Statement& CppSQLite3Statement::operator=(const CppSQLite3Statement& rStatement)
 {
 	mpDB = rStatement.mpDB;
@@ -535,6 +572,7 @@ CppSQLite3Statement& CppSQLite3Statement::operator=(const CppSQLite3Statement& r
 }
 
 
+//##ModelId=474D3070033D
 int CppSQLite3Statement::execDML()
 {
 	checkDB();
@@ -565,6 +603,7 @@ int CppSQLite3Statement::execDML()
 }
 
 
+//##ModelId=474D3070034C
 CppSQLite3Query CppSQLite3Statement::execQuery()
 {
 	checkDB();
@@ -591,6 +630,7 @@ CppSQLite3Query CppSQLite3Statement::execQuery()
 }
 
 
+//##ModelId=474D3070036C
 void CppSQLite3Statement::bind(int nParam, const TCHAR* szValue)
 {
 	checkVM();
@@ -609,6 +649,7 @@ void CppSQLite3Statement::bind(int nParam, const TCHAR* szValue)
 }
 
 
+//##ModelId=474D307003D9
 void CppSQLite3Statement::bind(int nParam, const int nValue)
 {
 	checkVM();
@@ -623,6 +664,7 @@ void CppSQLite3Statement::bind(int nParam, const int nValue)
 }
 
 
+//##ModelId=474D30710020
 void CppSQLite3Statement::bind(int nParam, const double dValue)
 {
 	checkVM();
@@ -637,6 +679,7 @@ void CppSQLite3Statement::bind(int nParam, const double dValue)
 }
 
 
+//##ModelId=474D3071005E
 void CppSQLite3Statement::bind(int nParam, const unsigned char* blobValue, int nLen)
 {
 	checkVM();
@@ -652,6 +695,7 @@ void CppSQLite3Statement::bind(int nParam, const unsigned char* blobValue, int n
 }
 
 	
+//##ModelId=474D3071009D
 void CppSQLite3Statement::bindNull(int nParam)
 {
 	checkVM();
@@ -666,6 +710,7 @@ void CppSQLite3Statement::bindNull(int nParam)
 }
 
 
+//##ModelId=474D307100BD
 void CppSQLite3Statement::reset()
 {
 	if (mpVM)
@@ -681,6 +726,7 @@ void CppSQLite3Statement::reset()
 }
 
 
+//##ModelId=474D307100CC
 void CppSQLite3Statement::finalize()
 {
 	if (mpVM)
@@ -697,6 +743,7 @@ void CppSQLite3Statement::finalize()
 }
 
 
+//##ModelId=474D307100DB
 void CppSQLite3Statement::checkDB()
 {
 	if (mpDB == 0)
@@ -708,6 +755,7 @@ void CppSQLite3Statement::checkDB()
 }
 
 
+//##ModelId=474D307100FB
 void CppSQLite3Statement::checkVM()
 {
 	if (mpVM == 0)
@@ -721,6 +769,7 @@ void CppSQLite3Statement::checkVM()
 
 ////////////////////////////////////////////////////////////////////////////////
 
+//##ModelId=474D307101E5
 CppSQLite3DB::CppSQLite3DB()
 {
 	mpDB = 0;
@@ -728,6 +777,7 @@ CppSQLite3DB::CppSQLite3DB()
 }
 
 
+//##ModelId=474D3071039C
 CppSQLite3DB::CppSQLite3DB(const CppSQLite3DB& db)
 {
 	mpDB = db.mpDB;
@@ -735,12 +785,14 @@ CppSQLite3DB::CppSQLite3DB(const CppSQLite3DB& db)
 }
 
 
+//##ModelId=474D307101F5
 CppSQLite3DB::~CppSQLite3DB()
 {
 	close();
 }
 
 
+//##ModelId=474D307103AA
 CppSQLite3DB& CppSQLite3DB::operator=(const CppSQLite3DB& db)
 {
 	mpDB = db.mpDB;
@@ -749,6 +801,7 @@ CppSQLite3DB& CppSQLite3DB::operator=(const CppSQLite3DB& db)
 }
 
 
+//##ModelId=474D30710204
 void CppSQLite3DB::open(const TCHAR* szFile)
 {
 #ifdef _UNICODE
@@ -767,6 +820,7 @@ void CppSQLite3DB::open(const TCHAR* szFile)
 }
 
 
+//##ModelId=474D30710224
 bool CppSQLite3DB::close()
 {
 	bool bRet = true;
@@ -785,6 +839,7 @@ bool CppSQLite3DB::close()
 }
 
 
+//##ModelId=474D3071031E
 CppSQLite3Statement CppSQLite3DB::compileStatement(const TCHAR* szSQL)
 {
 	checkDB();
@@ -794,6 +849,7 @@ CppSQLite3Statement CppSQLite3DB::compileStatement(const TCHAR* szSQL)
 }
 
 
+//##ModelId=474D30710243
 bool CppSQLite3DB::tableExists(const TCHAR* szTable)
 {
 	TCHAR szSQL[128];
@@ -805,6 +861,7 @@ bool CppSQLite3DB::tableExists(const TCHAR* szTable)
 	return (nRet > 0);
 }
 
+//##ModelId=474D30710262
 int CppSQLite3DB::execDMLEx(LPCTSTR szSQL,...)
 {
 	CString csText;
@@ -818,6 +875,7 @@ int CppSQLite3DB::execDMLEx(LPCTSTR szSQL,...)
 	return execDML(csText);
 }
 
+//##ModelId=474D30710292
 int CppSQLite3DB::execDML(const TCHAR* szSQL)
 {
 	checkDB();
@@ -841,6 +899,7 @@ int CppSQLite3DB::execDML(const TCHAR* szSQL)
 	return nRet;
 }
 
+//##ModelId=474D307102B0
 CppSQLite3Query CppSQLite3DB::execQueryEx(LPCTSTR szSQL,...)
 {
 	CString csText;
@@ -855,6 +914,7 @@ CppSQLite3Query CppSQLite3DB::execQueryEx(LPCTSTR szSQL,...)
 }
 
 
+//##ModelId=474D307102CF
 CppSQLite3Query CppSQLite3DB::execQuery(const TCHAR* szSQL)
 {
 	checkDB();
@@ -882,6 +942,7 @@ CppSQLite3Query CppSQLite3DB::execQuery(const TCHAR* szSQL)
 }
 
 
+//##ModelId=474D307102EF
 int CppSQLite3DB::execScalarEx(LPCTSTR szSQL,...)
 {
 	CString csText;
@@ -895,6 +956,7 @@ int CppSQLite3DB::execScalarEx(LPCTSTR szSQL,...)
 	return execScalar(csText);
 }
 
+//##ModelId=474D3071030E
 int CppSQLite3DB::execScalar(const TCHAR* szSQL)
 {
 	CppSQLite3Query q = execQuery(szSQL);
@@ -909,12 +971,14 @@ int CppSQLite3DB::execScalar(const TCHAR* szSQL)
 	return ATOI(q.fieldValue(0));
 }
 
+//##ModelId=474D3071032D
 sqlite_int64 CppSQLite3DB::lastRowId()
 {
 	return sqlite3_last_insert_rowid(mpDB);
 }
 
 
+//##ModelId=474D3071035D
 void CppSQLite3DB::setBusyTimeout(int nMillisecs)
 {
 	mnBusyTimeoutMs = nMillisecs;
@@ -922,6 +986,7 @@ void CppSQLite3DB::setBusyTimeout(int nMillisecs)
 }
 
 
+//##ModelId=474D307103DA
 void CppSQLite3DB::checkDB()
 {
 	if (!mpDB)
@@ -933,6 +998,7 @@ void CppSQLite3DB::checkDB()
 }
 
 
+//##ModelId=474D307103C9
 sqlite3_stmt* CppSQLite3DB::compile(const TCHAR* szSQL)
 {
 	checkDB();

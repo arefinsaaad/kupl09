@@ -18,11 +18,13 @@ static char THIS_FILE[]=__FILE__;
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
+//##ModelId=474D3027012A
 CQuickPaste::CQuickPaste()
 {
 	m_pwndPaste = NULL;
 }
 
+//##ModelId=474D30270139
 CQuickPaste::~CQuickPaste()
 {
 	if(m_pwndPaste)
@@ -33,6 +35,7 @@ CQuickPaste::~CQuickPaste()
 	
 }
 
+//##ModelId=474D30270149
 void CQuickPaste::Create(CWnd *pParent)
 {
 	CPoint point;
@@ -52,6 +55,7 @@ void CQuickPaste::Create(CWnd *pParent)
 	Log(_T("Creating QPasteWnd"));
 }
 
+//##ModelId=474D30270178
 BOOL CQuickPaste::CloseQPasteWnd()
 {
 	if(m_pwndPaste)
@@ -74,6 +78,7 @@ BOOL CQuickPaste::CloseQPasteWnd()
 	return TRUE;
 }
 
+//##ModelId=474D30270158
 void CQuickPaste::ShowQPasteWnd(CWnd *pParent, bool bAtPrevPos, bool bFromKeyboard, BOOL bReFillList)
 {		
 	if(bFromKeyboard == false && GetKeyState(VK_SHIFT) & 0x8000 && GetKeyState(VK_CONTROL) & 0x8000)
@@ -176,6 +181,7 @@ void CQuickPaste::ShowQPasteWnd(CWnd *pParent, bool bAtPrevPos, bool bFromKeyboa
 	m_pwndPaste->SetForegroundWindow();
 }
 
+//##ModelId=474D30270169
 void CQuickPaste::HideQPasteWnd()
 {
 	// Hide the window
@@ -186,6 +192,7 @@ void CQuickPaste::HideQPasteWnd()
 	}
 }
 
+//##ModelId=474D30270187
 BOOL CQuickPaste::IsWindowVisibleEx()
 {
 	if(m_pwndPaste)

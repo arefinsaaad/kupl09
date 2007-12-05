@@ -26,6 +26,7 @@ static char THIS_FILE[]=__FILE__;
 COleDataObjectEx
 \*----------------------------------------------------------------------------*/
 
+//##ModelId=474D30770001
 HGLOBAL COleDataObjectEx::GetGlobalData(CLIPFORMAT cfFormat, LPFORMATETC lpFormatEtc)
 {
     HGLOBAL hGlobal = COleDataObject::GetGlobalData(cfFormat, lpFormatEtc);
@@ -97,6 +98,7 @@ HGLOBAL COleDataObjectEx::GetGlobalData(CLIPFORMAT cfFormat, LPFORMATETC lpForma
 /*----------------------------------------------------------------------------*\
 CClipFormat - holds the data of one clip format.
 \*----------------------------------------------------------------------------*/
+//##ModelId=474D307700BC
 CClipFormat::CClipFormat(CLIPFORMAT cfType, HGLOBAL hgData, long lDBID)
 {
 	m_cfType = cfType;
@@ -105,11 +107,13 @@ CClipFormat::CClipFormat(CLIPFORMAT cfType, HGLOBAL hgData, long lDBID)
 	m_lDBID = lDBID;
 }
 
+//##ModelId=474D307700FB
 CClipFormat::~CClipFormat() 
 { 
 	Free(); 
 }
 
+//##ModelId=474D3077010A
 void CClipFormat::Clear()
 {
 	m_cfType = 0;
@@ -117,6 +121,7 @@ void CClipFormat::Clear()
 	m_lDBID = -1;
 }
 
+//##ModelId=474D3077012A
 void CClipFormat::Free()
 {
 	if(bDeleteData)
@@ -136,6 +141,7 @@ CClipFormats - holds an array of CClipFormat
 \*----------------------------------------------------------------------------*/
 // returns a pointer to the CClipFormat in this array which matches the given type
 //  or NULL if that type doesn't exist in this array.
+//##ModelId=474D307701C6
 CClipFormat* CClipFormats::FindFormat(UINT cfType)
 {
 	CClipFormat* pCF;
@@ -155,9 +161,12 @@ CClipFormat* CClipFormats::FindFormat(UINT cfType)
 CClip - holds multiple CClipFormats and CopyClipboard() statistics
 \*----------------------------------------------------------------------------*/
 
+//##ModelId=474D307702FE
 DWORD CClip::m_LastAddedCRC = 0;
+//##ModelId=474D3077031E
 long CClip::m_LastAddedID = -1;
 
+//##ModelId=474D30770281
 CClip::CClip() : 
 	m_ID(0), 
 	m_CRC(0),
@@ -168,11 +177,13 @@ CClip::CClip() :
 {
 }
 
+//##ModelId=474D30770291
 CClip::~CClip()
 {
 	EmptyFormats();
 }
 
+//##ModelId=474D307800BC
 void CClip::Clear()
 {
 	m_ID = -1;
@@ -189,6 +200,7 @@ void CClip::Clear()
 	EmptyFormats();
 }
 
+//##ModelId=474D307702C0
 const CClip& CClip::operator=(const CClip &clip)
 {
 	const CClipFormat* pCF;
@@ -223,6 +235,7 @@ const CClip& CClip::operator=(const CClip &clip)
 	return *this;
 }
 
+//##ModelId=474D307800CC
 void CClip::EmptyFormats()
 {
 	// free global memory in m_Formats
@@ -234,6 +247,7 @@ void CClip::EmptyFormats()
 }
 
 // Adds a new Format to this Clip by copying the given data.
+//##ModelId=474D307800DB
 bool CClip::AddFormat(CLIPFORMAT cfType, void* pData, UINT nLen)
 {
 	ASSERT(pData && nLen);
@@ -266,6 +280,7 @@ bool CClip::AddFormat(CLIPFORMAT cfType, void* pData, UINT nLen)
 }
 
 // Fills this CClip with the contents of the clipboard.
+//##ModelId=474D3078010A
 bool CClip::LoadFromClipboard(CClipTypes* pClipTypes)
 {
 	COleDataObjectEx oleData;
@@ -405,6 +420,7 @@ bool CClip::LoadFromClipboard(CClipTypes* pClipTypes)
 	return true;
 }
 
+//##ModelId=474D30780168
 bool CClip::SetDescFromText(HGLOBAL hgData)
 {
 	if(hgData == 0)
@@ -429,6 +445,7 @@ bool CClip::SetDescFromText(HGLOBAL hgData)
 	return bRet;
 }
 
+//##ModelId=474D30780187
 bool CClip::SetDescFromType()
 {
 	int nSize = m_Formats.GetSize();
@@ -482,6 +499,7 @@ bool CClip::SetDescFromType()
 	return m_Desc.GetLength() > 0;
 }
 
+//##ModelId=474D30780197
 bool CClip::AddToDB(bool bCheckForDuplicates)
 {
 	bool bResult;
@@ -533,6 +551,7 @@ bool CClip::AddToDB(bool bCheckForDuplicates)
 }
 
 // if a duplicate exists, set recset to the duplicate and return true
+//##ModelId=474D307802A1
 int CClip::FindDuplicate()
 {
 	try
@@ -559,6 +578,7 @@ int CClip::FindDuplicate()
 	return -1;
 }
 
+//##ModelId=474D30780214
 DWORD CClip::GenerateCRC()
 {
 	CClipFormat* pCF;
@@ -591,6 +611,7 @@ DWORD CClip::GenerateCRC()
 }
 
 // assigns m_ID
+//##ModelId=474D30780281
 bool CClip::AddToMainTable()
 {
 	try
@@ -628,6 +649,7 @@ bool CClip::AddToMainTable()
 	return true;
 }
 
+//##ModelId=474D307801A8
 bool CClip::ModifyMainTable()
 {
 	bool bRet = false;
@@ -660,6 +682,7 @@ bool CClip::ModifyMainTable()
 }
 
 // Empties m_Formats as it saves them to the Data Table.
+//##ModelId=474D30780282
 bool CClip::AddToDataTable()
 {
 	CClipFormat* pCF;
@@ -696,6 +719,7 @@ bool CClip::AddToDataTable()
 // changes m_Time to be later than the latest clip entry in the db
 // ensures that pClip's time is not older than the last clip added
 // old times can happen on fast copies (<1 sec).
+//##ModelId=474D30780204
 void CClip::MakeLatestTime()
 {
 	try
@@ -713,6 +737,7 @@ void CClip::MakeLatestTime()
 	CATCH_SQLITE_EXCEPTION
 }
 
+//##ModelId=474D30780205
 BOOL CClip::LoadMainTable(long lID)
 {
 	try
@@ -742,6 +767,7 @@ BOOL CClip::LoadMainTable(long lID)
 // STATICS
 
 // Allocates a Global containing the requested Clip Format Data
+//##ModelId=474D30780224
 HGLOBAL CClip::LoadFormat(long lID, UINT cfType)
 {
 	HGLOBAL hGlobal = 0;
@@ -776,6 +802,7 @@ HGLOBAL CClip::LoadFormat(long lID, UINT cfType)
 	return hGlobal;
 }
 
+//##ModelId=474D30780234
 bool CClip::LoadFormats(long lID, bool bOnlyLoad_CF_TEXT)
 {
 	CClipFormat cf;
@@ -831,6 +858,7 @@ bool CClip::LoadFormats(long lID, bool bOnlyLoad_CF_TEXT)
 	return m_Formats.GetSize() > 0;
 }
 
+//##ModelId=474D30780262
 void CClip::LoadTypes(long lID, CClipTypes& types)
 {
 	types.RemoveAll();
@@ -857,6 +885,7 @@ void CClip::LoadTypes(long lID, CClipTypes& types)
 	CATCH_SQLITE_EXCEPTION
 }
 
+//##ModelId=474D307801E5
 bool CClip::SaveFromEditWnd(BOOL bUpdateDesc)
 {
 	bool bRet = false;
@@ -888,6 +917,7 @@ bool CClip::SaveFromEditWnd(BOOL bUpdateDesc)
 CClipList
 \*----------------------------------------------------------------------------*/
 
+//##ModelId=474D3078036C
 CClipList::~CClipList()
 {
 	CClip* pClip;
@@ -900,6 +930,7 @@ CClipList::~CClipList()
 
 // returns the number of clips actually saved
 // while this does empty the Format Data, it does not delete the Clips.
+//##ModelId=474D3078039B
 int CClipList::AddToDB(bool bLatestTime, bool bShowStatus)
 {
 	int savedCount = 0;
@@ -935,6 +966,7 @@ int CClipList::AddToDB(bool bLatestTime, bool bShowStatus)
 	return savedCount;
 }
 
+//##ModelId=474D307803BB
 const CClipList& CClipList::operator=(const CClipList &cliplist)
 {
 	POSITION pos;

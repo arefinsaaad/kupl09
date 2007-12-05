@@ -16,16 +16,19 @@ static char THIS_FILE[]=__FILE__;
 //////////////////////////////////////////////////////////////////////
 
 
+//##ModelId=474D306E0168
 CDialogResizer::CDialogResizer()
 {
 
 }
 
+//##ModelId=474D306E0178
 CDialogResizer::~CDialogResizer()
 {
 
 }
 
+//##ModelId=474D306E01D6
 void CDialogResizer::SetParent(HWND hWndParent)
 {
 	m_hWndParent = hWndParent;
@@ -36,6 +39,7 @@ void CDialogResizer::SetParent(HWND hWndParent)
 	m_DlgSize.cy = cr.Height();
 }
 
+//##ModelId=474D306E01A7
 void CDialogResizer::AddControl(int nControlID, int nFlags)
 {
 	HWND hWnd = GetDlgItem(m_hWndParent, nControlID);
@@ -43,6 +47,7 @@ void CDialogResizer::AddControl(int nControlID, int nFlags)
 		AddControl(hWnd, nFlags);
 }
 
+//##ModelId=474D306E01B7
 void CDialogResizer::AddControl(HWND hWnd, int nFlags)
 {
 	CDR_Data data;
@@ -53,6 +58,7 @@ void CDialogResizer::AddControl(HWND hWnd, int nFlags)
 	m_Controls.Add(data);
 }
 
+//##ModelId=474D306E017A
 void CDialogResizer::MoveControls(CSize csNewSize)
 {
 	int nDeltaX = csNewSize.cx - m_DlgSize.cx;

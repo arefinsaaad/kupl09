@@ -60,11 +60,16 @@ Todo
 
 */
 
+//##ModelId=474D30250253
 const WORD CSendKeys::VKKEYSCANSHIFTON = 0x01;
+//##ModelId=474D30250291
 const WORD CSendKeys::VKKEYSCANCTRLON  = 0x02;
+//##ModelId=474D302502B0
 const WORD CSendKeys::VKKEYSCANALTON   = 0x04;
+//##ModelId=474D302502CF
 const WORD CSendKeys::INVALIDKEY       = 0xFFFF;
 
+//##ModelId=474D3025031E
 const BYTE CSendKeys::ExtendedVKeys[MaxExtendedVKeys] =
 {
     VK_UP, 
@@ -79,6 +84,7 @@ const BYTE CSendKeys::ExtendedVKeys[MaxExtendedVKeys] =
     VK_DELETE
 };
 
+//##ModelId=474D302601B7
 CSendKeys::CSendKeys()
 {
   m_nDelayNow = m_nDelayAlways = 0;
@@ -92,6 +98,7 @@ CSendKeys::CSendKeys()
 // **If you add to this list, you must be sure to keep it sorted alphabetically
 // by Name because a binary search routine is used to scan it.**
 //
+//##ModelId=474D302502F0
 CSendKeys::key_desc_t CSendKeys::KeyNames[CSendKeys::MaxSendKeysRecs] = 
 {
   {_T("ADD"), VK_ADD}, 
@@ -169,6 +176,7 @@ CSendKeys::key_desc_t CSendKeys::KeyNames[CSendKeys::MaxSendKeysRecs] =
 
 
 // calls keybd_event() and waits, if needed, till the sent input is processed
+//##ModelId=474D3026008D
 void CSendKeys::KeyboardEvent(BYTE VKey, BYTE ScanCode, LONG Flags)
 {
   MSG KeyboardMsg;
@@ -186,6 +194,7 @@ void CSendKeys::KeyboardEvent(BYTE VKey, BYTE ScanCode, LONG Flags)
 }
 
 // Checks whether the specified VKey is an extended key or not
+//##ModelId=474D3025038C
 bool CSendKeys::IsVkExtended(BYTE VKey)
 {
   for (int i=0;i<MaxExtendedVKeys;i++)
@@ -197,6 +206,7 @@ bool CSendKeys::IsVkExtended(BYTE VKey)
 }
 
 // Generates KEYUP
+//##ModelId=474D302503AA
 void CSendKeys::SendKeyUp(BYTE VKey)
 {
   BYTE ScanCode = LOBYTE(::MapVirtualKey(VKey, 0));
@@ -206,6 +216,7 @@ void CSendKeys::SendKeyUp(BYTE VKey)
                 KEYEVENTF_KEYUP | (IsVkExtended(VKey) ? KEYEVENTF_EXTENDEDKEY : 0));
 }
 
+//##ModelId=474D302503BA
 void CSendKeys::SendKeyDown(BYTE VKey, WORD NumTimes, bool GenUpMsg, bool bDelay)
 {
   WORD Cnt = 0;
@@ -275,12 +286,14 @@ void CSendKeys::SendKeyDown(BYTE VKey, WORD NumTimes, bool GenUpMsg, bool bDelay
 }
 
 // Checks whether a bit is set
+//##ModelId=474D3025035C
 bool CSendKeys::BitSet(BYTE BitTable, UINT BitMask)
 {
   return BitTable & BitMask ? true : false;
 }
 
 // Sends a single key
+//##ModelId=474D3026003F
 void CSendKeys::SendKey(WORD MKey, WORD NumTimes, bool GenDownMsg)
 {
   // Send appropriate shift keys associated with the given VKey
@@ -308,6 +321,7 @@ void CSendKeys::SendKey(WORD MKey, WORD NumTimes, bool GenDownMsg)
 }
 
 // Implements a simple binary search to locate special key name strings
+//##ModelId=474D3026006E
 WORD CSendKeys::StringToVKey(LPCTSTR KeyString, int &idx)
 {
   bool Found = false, Collided;
@@ -344,6 +358,7 @@ WORD CSendKeys::StringToVKey(LPCTSTR KeyString, int &idx)
 
 // Releases all shift keys (keys that can be depressed while other keys are being pressed
 // If we are in a modifier group this function does nothing
+//##ModelId=474D3025038B
 void CSendKeys::PopUpShiftKeys()
 {
   if (!m_bUsingParens)
@@ -361,6 +376,7 @@ void CSendKeys::PopUpShiftKeys()
 }
 
 // Sends a key string
+//##ModelId=474D302600AD
 bool CSendKeys::SendKeys(LPCTSTR KeysString, bool Wait)
 {
   WORD MKey, NumTimes;
@@ -531,6 +547,7 @@ bool CSendKeys::SendKeys(LPCTSTR KeysString, bool Wait)
   return true;
 }
 
+//##ModelId=474D302600FB
 bool CSendKeys::AppActivate(HWND wnd)
 {
   if (wnd == NULL)
@@ -546,6 +563,7 @@ bool CSendKeys::AppActivate(HWND wnd)
   return true;
 }
 
+//##ModelId=474D30250233
 BOOL CALLBACK CSendKeys::enumwindowsProc(HWND hwnd, LPARAM lParam)
 {
   enumwindow_t *t = (enumwindow_t *) lParam;
@@ -588,6 +606,7 @@ BOOL CALLBACK CSendKeys::enumwindowsProc(HWND hwnd, LPARAM lParam)
 }
 
 // Searchs and activates a window given its title or class name
+//##ModelId=474D3026011A
 bool CSendKeys::AppActivate(LPCTSTR WindowTitle, LPCTSTR WindowClass)
 {
   HWND w;
@@ -636,6 +655,7 @@ bool CSendKeys::AppActivate(LPCTSTR WindowTitle, LPCTSTR WindowClass)
 }
 
 // Carries the required delay and clears the m_nDelaynow value
+//##ModelId=474D30250252
 void CSendKeys::CarryDelay()
 {
   // Should we delay once?

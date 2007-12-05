@@ -17,12 +17,14 @@ static char THIS_FILE[]=__FILE__;
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
+//##ModelId=474D307C03C9
 CSendSocket::CSendSocket()
 {
 	m_pEncryptor = new CEncryption;
 	m_Connection = NULL;
 }
 
+//##ModelId=474D307C03CA
 CSendSocket::~CSendSocket()
 {
 	delete m_pEncryptor;
@@ -30,12 +32,14 @@ CSendSocket::~CSendSocket()
 }
 
 
+//##ModelId=474D307D009D
 BOOL CSendSocket::SendCSendData(CSendInfo &data, MyEnums::eSendType type)
 {
 	data.m_Type = type;
 	return SendExactSize((char *)&data, sizeof(CSendInfo), true);
 }
 
+//##ModelId=474D307D00CC
 BOOL CSendSocket::SendExactSize(char *pData, long lLength, bool bEncrypt)
 {
 	BOOL bRet = FALSE;

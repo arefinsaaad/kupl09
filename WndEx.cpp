@@ -21,21 +21,25 @@ static char THIS_FILE[] = __FILE__;
 #define TIMER_AUTO_MAX		5
 #define TIMER_AUTO_MIN		6
 
+//##ModelId=474D307E033D
 CWndEx::CWndEx()
 {	
 	SetCaptionColorActive(false, theApp.GetConnectCV());
 	m_crFullSizeWindow.SetRectEmpty();
 }
 
+//##ModelId=474D307F006E
 CWndEx::~CWndEx()
 {
 }
 
+//##ModelId=474D307E038C
 void CWndEx::InvalidateNc()
 {
 	::RedrawWindow( m_hWnd, NULL, NULL, RDW_INVALIDATE | RDW_FRAME | RDW_NOCHILDREN );
 }
 
+//##ModelId=474D307F0002
 void CWndEx::GetWindowRectEx(LPRECT lpRect)
 {
 	if(m_DittoWindow.m_bMinimized)
@@ -47,6 +51,7 @@ void CWndEx::GetWindowRectEx(LPRECT lpRect)
 	CWnd::GetWindowRect(lpRect);
 }
 
+//##ModelId=474D307E037B
 bool CWndEx::SetCaptionColors( COLORREF left, COLORREF right )
 {
 	m_DittoWindow.SetCaptionColors(left, right);
@@ -75,6 +80,7 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CWndEx message handlers
 
+//##ModelId=474D307E033E
 BOOL CWndEx::Create(const CRect& crStart, CWnd* pParentWnd)
 {
 	WNDCLASS wc;	
@@ -97,6 +103,7 @@ BOOL CWndEx::Create(const CRect& crStart, CWnd* pParentWnd)
 		crStart, pParentWnd, 0);
 }
 
+//##ModelId=474D307F007E
 int CWndEx::OnCreate(LPCREATESTRUCT lpCreateStruct) 
 {
 	if (CWnd::OnCreate(lpCreateStruct) == -1)
@@ -113,6 +120,7 @@ int CWndEx::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	return 0;
 }
 
+//##ModelId=474D307F0010
 bool CWndEx::SetCaptionColorActive(bool bActive, bool ConnectedToClipboard)
 {
 	bool bResult;
@@ -132,6 +140,7 @@ bool CWndEx::SetCaptionColorActive(bool bActive, bool ConnectedToClipboard)
 	return bResult;
 }
 
+//##ModelId=474D307E03C9
 void CWndEx::SetAutoHide(BOOL bAutoHide)
 {
 	if(bAutoHide)
@@ -144,16 +153,19 @@ void CWndEx::SetAutoHide(BOOL bAutoHide)
 	}
 }
 
+//##ModelId=474D307E039B
 void CWndEx::SetCaptionOn(int nPos, bool bOnstartup)
 {
 	m_DittoWindow.SetCaptionOn(this, nPos, bOnstartup);
 }
 
+//##ModelId=474D307F008F
 void CWndEx::OnNcPaint()
 {
 	m_DittoWindow.DoNcPaint(this);
 }
 
+//##ModelId=474D307F00AD
 void CWndEx::OnNcCalcSize(BOOL bCalcValidRects, NCCALCSIZE_PARAMS FAR* lpncsp) 
 {
 	CWnd::OnNcCalcSize(bCalcValidRects, lpncsp);
@@ -161,6 +173,7 @@ void CWndEx::OnNcCalcSize(BOOL bCalcValidRects, NCCALCSIZE_PARAMS FAR* lpncsp)
 	m_DittoWindow.DoNcCalcSize(bCalcValidRects, lpncsp);
 }
 
+//##ModelId=474D307F00CC
 UINT CWndEx::OnNcHitTest(CPoint point) 
 {
 	UINT Ret = m_DittoWindow.DoNcHitTest(this, point);
@@ -170,6 +183,7 @@ UINT CWndEx::OnNcHitTest(CPoint point)
 	return Ret;
 }
 
+//##ModelId=474D307F00EB
 void CWndEx::OnNcLButtonDown(UINT nHitTest, CPoint point) 
 {
 	m_DittoWindow.DoNcLButtonDown(this, nHitTest, point);
@@ -177,6 +191,7 @@ void CWndEx::OnNcLButtonDown(UINT nHitTest, CPoint point)
 	CWnd::OnNcLButtonDown(nHitTest, point);
 }
 
+//##ModelId=474D307F0139
 void CWndEx::OnNcLButtonUp(UINT nHitTest, CPoint point) 
 {
 	long lRet = m_DittoWindow.DoNcLButtonUp(this, nHitTest, point);
@@ -192,6 +207,7 @@ void CWndEx::OnNcLButtonUp(UINT nHitTest, CPoint point)
 	CWnd::OnNcLButtonUp(nHitTest, point);
 }
 
+//##ModelId=474D307E03D9
 void CWndEx::MinMaxWindow(long lOption)
 {
 	if((m_DittoWindow.m_bMinimized) && (lOption == FORCE_MIN))
@@ -297,6 +313,7 @@ void CWndEx::MinMaxWindow(long lOption)
 	}
 }
 
+//##ModelId=474D307F010B
 void CWndEx::OnNcMouseMove(UINT nHitTest, CPoint point) 
 {
 	m_DittoWindow.DoNcMouseMove(this, nHitTest, point);
@@ -310,6 +327,7 @@ void CWndEx::OnNcMouseMove(UINT nHitTest, CPoint point)
 	CWnd::OnNcMouseMove(nHitTest, point);
 }
 
+//##ModelId=474D307E035C
 BOOL CWndEx::PreTranslateMessage(MSG* pMsg) 
 {
 	m_DittoWindow.DoPreTranslateMessage(pMsg);
@@ -317,11 +335,13 @@ BOOL CWndEx::PreTranslateMessage(MSG* pMsg)
 	return CWnd::PreTranslateMessage(pMsg);
 }
 
+//##ModelId=474D307F0158
 BOOL CWndEx::OnEraseBkgnd(CDC* pDC) 
 {
 	return CWnd::OnEraseBkgnd(pDC);
 }
 
+//##ModelId=474D307F0168
 void CWndEx::OnTimer(UINT nIDEvent)
 {
 	if(nIDEvent == TIMER_AUTO_MAX)
@@ -377,6 +397,7 @@ void CWndEx::OnTimer(UINT nIDEvent)
 	CWnd::OnTimer(nIDEvent);
 }
 
+//##ModelId=474D307F0187
 void CWndEx::OnWindowPosChanging(WINDOWPOS* lpwndpos)
 {
 	CWnd::OnWindowPosChanging(lpwndpos);
@@ -389,6 +410,7 @@ void CWndEx::OnWindowPosChanging(WINDOWPOS* lpwndpos)
 }
 
 
+//##ModelId=474D307F01C6
 void CWndEx::OnSize(UINT nType, int cx, int cy)
 {
 	CWnd::OnSize(nType, cx, cy);
@@ -397,6 +419,7 @@ void CWndEx::OnSize(UINT nType, int cx, int cy)
 }
 
 
+//##ModelId=474D307F0199
 void CWndEx::OnInitMenuPopup(CMenu *pPopupMenu, UINT nIndex,BOOL bSysMenu)
 {
     ASSERT(pPopupMenu != NULL);

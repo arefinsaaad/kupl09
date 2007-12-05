@@ -13,9 +13,11 @@
 #include "Encryption.h"
 #include "SendSocket.h"
 
+//##ModelId=474D307E0149
 class CSendToFriendInfo
 {
 public:
+	//##ModelId=474D307E0168
 	CSendToFriendInfo()
 	{
 		m_pPopup = NULL;
@@ -23,6 +25,7 @@ public:
 		m_pClipList = NULL;
 		m_pPopup = NULL;
 	}
+	//##ModelId=474D307E0169
 	~CSendToFriendInfo()
 	{
 		if(m_pClipList)
@@ -32,31 +35,46 @@ public:
 		}
 	}
 
+	//##ModelId=474D307E0179
 	CClipList *m_pClipList;
+	//##ModelId=474D307E0187
 	long m_lPos;
+	//##ModelId=474D307E0188
 	CString m_csIP;
+	//##ModelId=474D307E01A8
 	CPopup *m_pPopup;
+	//##ModelId=474D307E01B6
 	CString m_csErrorText;
 };
 
+//##ModelId=474D307E01E5
 class CClient  
 {
 public:
+	//##ModelId=474D307E0224
 	CClient();
+	//##ModelId=474D307E0233
 	virtual ~CClient();
 
+	//##ModelId=474D307E0235
 	BOOL SendItem(CClip *pClip);
 	
+	//##ModelId=474D307E0253
 	BOOL OpenConnection(const TCHAR* servername);
+	//##ModelId=474D307E0272
 	BOOL CloseConnection();
 
+	//##ModelId=474D307E0273
 	HGLOBAL RequestCopiedFiles(CClipFormat &HDropFormat, CString csIP, CString csComputerName);
 
 protected:
+	//##ModelId=474D307E02A1
 	SOCKET m_Connection;
 
+	//##ModelId=474D307E02B1
 	CSendSocket m_SendSocket;
 
+	//##ModelId=474D307E02C0
 	BOOL SendClipFormat(CClipFormat* pCF);
 	
 protected:

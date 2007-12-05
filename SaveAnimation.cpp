@@ -2,6 +2,7 @@
 #include ".\saveanimation.h"
 #include "PerfTimer.h"
 
+//##ModelId=474D302602DF
 CSaveAnimation::CSaveAnimation(void)
 {
 	m_dLeftPercent = 0;
@@ -11,10 +12,12 @@ CSaveAnimation::CSaveAnimation(void)
 	m_dSpeed = 40;
 }
 
+//##ModelId=474D302602E0
 CSaveAnimation::~CSaveAnimation(void)
 {
 }
 
+//##ModelId=474D302602F0
 void CSaveAnimation::DoAnimation(CRect crStart, CRect crEnd, CWnd *pWnd)
 {
 	m_crStart = crStart;
@@ -81,6 +84,7 @@ void CSaveAnimation::DoAnimation(CRect crStart, CRect crEnd, CWnd *pWnd)
 	pWnd->ReleaseDC(pDC);
 }
 
+//##ModelId=474D3026033D
 long CSaveAnimation::GetMaxDistance()
 {
 	long lMax = 0;
@@ -100,6 +104,7 @@ long CSaveAnimation::GetMaxDistance()
 	return lMax;
 }
 
+//##ModelId=474D3026031E
 void CSaveAnimation::GetPercentages(long lMaxDist)
 {
 	if(lMaxDist > 0)

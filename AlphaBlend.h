@@ -36,36 +36,53 @@
 
 #define OPACITY_MAX			255
 
+//##ModelId=474D308A0243
 class CAlphaBlend  
 {
 public:
+	//##ModelId=474D308A0281
 	CAlphaBlend();
+	//##ModelId=474D308A0282
 	CAlphaBlend(HWND hWnd, int nOpacity=220);
+	//##ModelId=474D308A02A1
 	CAlphaBlend(CWnd *pWnd, int nOpacity=220);
+	//##ModelId=474D308A02A4
 	virtual ~CAlphaBlend();
 
 	//// SET DATA MEMBERS ////
+	//##ModelId=474D308A02B1
 	BOOL SetWindowHandle(HWND hWnd);
+	//##ModelId=474D308A02B3
 	BOOL SetWindowHandle(CWnd *pWnd);
+	//##ModelId=474D308A02EF
 	BOOL SetOpacity(int nOpacity=220);
 
 	//// RUN IT ////
+	//##ModelId=474D308A02F1
 	void SetTransparent(BOOL bTransparent=true);
 
 	//// FOR THOSE OF US WHO ARE LAZY ////
+	//##ModelId=474D308A031F
 	BOOL SetTransparent(HWND hWnd, int nOpactiy=220, BOOL bTransparent=true);
 
 	//// GET TRANSPARENT/OPACITY STATUS ////
+	//##ModelId=474D308A036C
 	int GetOpacity(void) { return m_nOpacity; }
+	//##ModelId=474D308A037B
 	HWND GetWindow(void) { return m_hWnd; }
+	//##ModelId=474D308A03BA
 	BOOL IsTransparent(void) { return m_bTransparent; }
 
 protected:
+	//##ModelId=474D308A03DA
 	int m_nOpacity;
+	//##ModelId=474D308B0010
 	HWND m_hWnd;
 
+	//##ModelId=474D308B005E
 	BOOL m_bTransparent;
 
+	//##ModelId=474D308B008D
 	BOOL SetLayeredWindowAttributesEx(HWND hwnd, COLORREF crKey, BYTE bAlpha, DWORD dwFlags);
 };
 

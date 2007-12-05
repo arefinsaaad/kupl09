@@ -16,16 +16,19 @@ static char THIS_FILE[]=__FILE__;
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
+//##ModelId=474D306601C6
 CFormatSQL::CFormatSQL()
 {
 
 }
 
+//##ModelId=474D306601D5
 CFormatSQL::~CFormatSQL()
 {
 
 }
 
+//##ModelId=474D306601D7
 void CFormatSQL::Parse(CString cs)
 {
 	//Replace all single ' with a double '
@@ -84,6 +87,7 @@ void CFormatSQL::Parse(CString cs)
 		AddToSQL(csCurrentWord, eNotValue, eOrValue);
 }
 
+//##ModelId=474D30660234
 CFormatSQL::eSpecialTypes CFormatSQL::ConvetToKey(CString cs)
 {
 	cs.MakeUpper();
@@ -105,6 +109,7 @@ CFormatSQL::eSpecialTypes CFormatSQL::ConvetToKey(CString cs)
 	return eINVALID;
 }
 
+//##ModelId=474D30660244
 CString CFormatSQL::GetKeyWordString(eSpecialTypes eKeyWord)
 {
 	switch(eKeyWord)
@@ -122,6 +127,7 @@ CString CFormatSQL::GetKeyWordString(eSpecialTypes eKeyWord)
 	return " ";
 }
 
+//##ModelId=474D30660214
 bool CFormatSQL::AddToSQL(CString cs, eSpecialTypes &eNOTValue, eSpecialTypes &eORValue)
 {
 	CString csThisSQL;

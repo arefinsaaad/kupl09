@@ -11,11 +11,13 @@
 
 IMPLEMENT_DYNCREATE(CEditFrameWnd, CFrameWnd)
 
+//##ModelId=474D306A014A
 CEditFrameWnd::CEditFrameWnd()
 {
 	m_bAutoMenuEnable = FALSE;
 }
 
+//##ModelId=474D306A01D5
 CEditFrameWnd::~CEditFrameWnd()
 {
 }
@@ -44,6 +46,7 @@ END_MESSAGE_MAP()
 
 // CEditFrameWnd message handlers
 
+//##ModelId=474D306A0253
 int CEditFrameWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
 	if (CFrameWnd::OnCreate(lpCreateStruct) == -1)
@@ -70,6 +73,7 @@ int CEditFrameWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	return 0;
 }
 
+//##ModelId=474D306A0264
 void CEditFrameWnd::OnDestroy()
 {
 	CFrameWnd::OnDestroy();
@@ -82,6 +86,7 @@ void CEditFrameWnd::OnDestroy()
 	::SendMessage(m_hNotifyWnd, WM_EDIT_WND_CLOSING, 0, 0);
 }
 
+//##ModelId=474D306A0273
 void CEditFrameWnd::OnSize(UINT nType, int cx, int cy)
 {
 	CFrameWnd::OnSize(nType, cx, cy);
@@ -91,6 +96,7 @@ void CEditFrameWnd::OnSize(UINT nType, int cx, int cy)
 	MoveControls();
 }
 
+//##ModelId=474D306A0252
 void CEditFrameWnd::MoveControls()
 {
 	if(::IsWindow(m_EditWnd.GetSafeHwnd()))
@@ -101,10 +107,12 @@ void CEditFrameWnd::MoveControls()
 	}
 }
 
+//##ModelId=474D306A0168
 bool CEditFrameWnd::EditIds(CClipIDs &Ids)
 {
 	return m_EditWnd.EditIds(Ids);
 }
+//##ModelId=474D306A031E
 BOOL CEditFrameWnd::PreCreateWindow(CREATESTRUCT& cs)
 {
 	if(cs.hMenu!=NULL)  
@@ -134,12 +142,14 @@ BOOL CEditFrameWnd::PreCreateWindow(CREATESTRUCT& cs)
 	return CFrameWnd::PreCreateWindow(cs);
 }
 
+//##ModelId=474D306A02A2
 void CEditFrameWnd::OnDummy()
 {
 
 }
 
 
+//##ModelId=474D306A033D
 void CEditFrameWnd::OnSetFocus(CWnd* pOldWnd)
 {
 	CFrameWnd::OnSetFocus(pOldWnd);
@@ -147,6 +157,7 @@ void CEditFrameWnd::OnSetFocus(CWnd* pOldWnd)
 	m_EditWnd.SetFocus();
 }
 
+//##ModelId=474D306A034C
 void CEditFrameWnd::OnClose()
 {
 	if(m_EditWnd.CloseEdits(true) == false)
@@ -155,6 +166,7 @@ void CEditFrameWnd::OnClose()
 	CFrameWnd::OnClose();
 }
 
+//##ModelId=474D306A02D0
 void CEditFrameWnd::OnNcCalcSize(BOOL bCalcValidRects, NCCALCSIZE_PARAMS FAR* lpncsp) 
 {
 	CWnd::OnNcCalcSize(bCalcValidRects, lpncsp);
@@ -162,11 +174,13 @@ void CEditFrameWnd::OnNcCalcSize(BOOL bCalcValidRects, NCCALCSIZE_PARAMS FAR* lp
 	m_DittoWindow.DoNcCalcSize(bCalcValidRects, lpncsp);
 }
 
+//##ModelId=474D306A02C1
 void CEditFrameWnd::OnNcPaint()
 {
 	m_DittoWindow.DoNcPaint(this);	
 }
 
+//##ModelId=474D306A02E1
 UINT CEditFrameWnd::OnNcHitTest(CPoint point) 
 {
 	UINT Ret = m_DittoWindow.DoNcHitTest(this, point);
@@ -175,6 +189,7 @@ UINT CEditFrameWnd::OnNcHitTest(CPoint point)
 
 	return Ret;
 }
+//##ModelId=474D306A034E
 void CEditFrameWnd::OnNcLButtonDown(UINT nHitTest, CPoint point)
 {
 	m_DittoWindow.DoNcLButtonDown(this, nHitTest, point);
@@ -182,6 +197,7 @@ void CEditFrameWnd::OnNcLButtonDown(UINT nHitTest, CPoint point)
 	CFrameWnd::OnNcLButtonDown(nHitTest, point);
 }
 
+//##ModelId=474D306A036C
 void CEditFrameWnd::OnNcLButtonUp(UINT nHitTest, CPoint point)
 {
 	if(m_DittoWindow.DoNcLButtonUp(this, nHitTest, point) > 0)
@@ -190,6 +206,7 @@ void CEditFrameWnd::OnNcLButtonUp(UINT nHitTest, CPoint point)
 	CFrameWnd::OnNcLButtonUp(nHitTest, point);
 }
 
+//##ModelId=474D306A03BA
 void CEditFrameWnd::OnNcMouseMove(UINT nHitTest, CPoint point)
 {
 	m_DittoWindow.DoNcMouseMove(this, nHitTest, point);
@@ -197,6 +214,7 @@ void CEditFrameWnd::OnNcMouseMove(UINT nHitTest, CPoint point)
 	CFrameWnd::OnNcMouseMove(nHitTest, point);
 }
 
+//##ModelId=474D306A03D9
 BOOL CEditFrameWnd::PreTranslateMessage(MSG* pMsg)
 {
 	m_DittoWindow.DoPreTranslateMessage(pMsg);
@@ -204,10 +222,12 @@ BOOL CEditFrameWnd::PreTranslateMessage(MSG* pMsg)
 	return CFrameWnd::PreTranslateMessage(pMsg);
 }
 
+//##ModelId=474D306A01C7
 bool CEditFrameWnd::CloseAll()
 {
 	return m_EditWnd.CloseEdits(true);
 }
+//##ModelId=474D306B0001
 void CEditFrameWnd::OnNcLButtonDblClk(UINT nHitTest, CPoint point)
 {
 	CPoint pt(point);

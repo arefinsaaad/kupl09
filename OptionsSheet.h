@@ -10,12 +10,14 @@
 /////////////////////////////////////////////////////////////////////////////
 // COptionsSheet
 
+//##ModelId=474D303D0291
 class COptionsSheet : public CPropertySheet
 {
 	DECLARE_DYNAMIC(COptionsSheet)
 
 // Construction
 public:
+	//##ModelId=474D303D02A2
 	COptionsSheet(LPCTSTR pszCaption, CWnd* pParentWnd = NULL, UINT iSelectPage = 0);
 
 // Attributes
@@ -28,25 +30,37 @@ public:
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(COptionsSheet)
 	public:
+	//##ModelId=474D303D02B2
 	virtual int DoModal();
+	//##ModelId=474D303D02C0
 	virtual BOOL OnInitDialog();
 	//}}AFX_VIRTUAL
 
 // Implementation
 public:
+	//##ModelId=474D303D02C2
 	virtual ~COptionsSheet();
 
 	// Generated message map functions
 protected:
 
+	//##ModelId=474D303D02D0
 	CPropertyPage *m_pKeyBoardOptions;
+	//##ModelId=474D303D02E0
 	CPropertyPage *m_pGeneralOptions;
+	//##ModelId=474D303D030E
 	CPropertyPage *m_pQuickPasteOptions;
+	//##ModelId=474D303D031F
 	CPropertyPage *m_pUtilites;
+	//##ModelId=474D303D033E
 	CPropertyPage *m_pStats;
+	//##ModelId=474D303D035C
 	CPropertyPage *m_pTypes;
+	//##ModelId=474D303D036D
 	CPropertyPage *m_pAbout;
+	//##ModelId=474D303D038C
 	CPropertyPage *m_pFriends;
+	//##ModelId=474D303D03AB
 	CPropertyPage *m_pCopyBuffers;
 
 

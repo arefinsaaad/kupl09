@@ -9,6 +9,7 @@ static char THIS_FILE[]=__FILE__;
 #define new DEBUG_NEW
 #endif
 
+//##ModelId=474D303702D0
 CProcessPaste::CProcessPaste()
 {
 	m_pOle = new COleClipSource;
@@ -18,11 +19,13 @@ CProcessPaste::CProcessPaste()
 	m_bPasteHTMLFormatAs_CF_TEXT = false;
 }
 
+//##ModelId=474D303702DF
 CProcessPaste::~CProcessPaste()
 {	
 	DELETE_PTR(m_pOle);
 }
 
+//##ModelId=474D303702E1
 BOOL CProcessPaste::DoPaste()
 {
 	m_pOle->m_bOnlyPaste_CF_TEXT = m_bOnlyPaste_CF_TEXT;
@@ -72,6 +75,7 @@ BOOL CProcessPaste::DoPaste()
 	return FALSE;
 }
 
+//##ModelId=474D303702EF
 BOOL CProcessPaste::DoDrag()
 {
 	m_pOle->DoDelayRender();
@@ -84,6 +88,7 @@ BOOL CProcessPaste::DoDrag()
 	return FALSE;
 }
 
+//##ModelId=474D303702F0
 void CProcessPaste::MarkAsPasted()
 {
 //	Log(_T("start of MarkAsPasted"));
@@ -105,6 +110,7 @@ void CProcessPaste::MarkAsPasted()
 //	Log(_T("End of MarkAsPasted"));
 }
 
+//##ModelId=474D303702F1
 UINT CProcessPaste::MarkAsPastedThread(LPVOID pParam)
 {
 	static CEvent UpdateTimeEvent(TRUE, TRUE, _T("Ditto_Update_Clip_Time"), NULL);

@@ -10,18 +10,22 @@
 /////////////////////////////////////////////////////////////////////////////
 // COptionsTypes dialog
 
+//##ModelId=474D303D00CC
 class COptionsTypes : public CPropertyPage
 {
 	DECLARE_DYNCREATE(COptionsTypes)
 
 // Construction
 public:
+	//##ModelId=474D303D00EB
 	COptionsTypes();
+	//##ModelId=474D303D00EC
 	~COptionsTypes();
 
 // Dialog Data
 	//{{AFX_DATA(COptionsTypes)
 	enum { IDD = IDD_OPTIONS_TYPES };
+	//##ModelId=474D303D00FC
 	CListBox	m_List;
 	//}}AFX_DATA
 
@@ -30,22 +34,30 @@ public:
 	// ClassWizard generate virtual function overrides
 	//{{AFX_VIRTUAL(COptionsTypes)
 	public:
+	//##ModelId=474D303D010A
 	virtual BOOL OnApply();
 	protected:
+	//##ModelId=474D303D010C
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	//}}AFX_VIRTUAL
 
 // Implementation
 protected:
+	//##ModelId=474D303D011B
 	bool m_bSave;
+	//##ModelId=474D303D012A
 	CString m_csTitle;
+	//##ModelId=474D303D0139
 	BOOL TextAllReadyThere(const CString &cs);
 
 
 	// Generated message map functions
 	//{{AFX_MSG(COptionsTypes)
+	//##ModelId=474D303D0158
 	virtual BOOL OnInitDialog();
+	//##ModelId=474D303D0168
 	afx_msg void OnDelete();
+	//##ModelId=474D303D0187
 	afx_msg void OnAdd();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()

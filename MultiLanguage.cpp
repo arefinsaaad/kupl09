@@ -18,6 +18,7 @@ static char THIS_FILE[]=__FILE__;
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
+//##ModelId=474D305901D5
 CMultiLanguage::CMultiLanguage()
 {
 	m_csAuthor = "";
@@ -25,11 +26,13 @@ CMultiLanguage::CMultiLanguage()
 	m_bOnlyGetHeader = false;
 }
 
+//##ModelId=474D305901D6
 CMultiLanguage::~CMultiLanguage()
 {
 	ClearArrays();
 }
 
+//##ModelId=474D305B00DB
 void CMultiLanguage::ClearArrays()
 {
 	m_csAuthor = "";
@@ -53,6 +56,7 @@ void CMultiLanguage::ClearArrays()
 	ClearMap(m_StringMap);
 }
 
+//##ModelId=474D305B00EB
 void CMultiLanguage::ClearArray(LANGUAGE_ARRAY &Array)
 {
 	int nSize = Array.GetSize();
@@ -66,6 +70,7 @@ void CMultiLanguage::ClearArray(LANGUAGE_ARRAY &Array)
 	Array.RemoveAll();
 }
 
+//##ModelId=474D305B00FB
 void CMultiLanguage::ClearMap(LANGUAGE_MAP &Map)
 {
 	POSITION pos = Map.GetStartPosition();
@@ -87,6 +92,7 @@ void CMultiLanguage::ClearMap(LANGUAGE_MAP &Map)
 	Map.RemoveAll();
 }
 
+//##ModelId=474D3059032E
 CString CMultiLanguage::GetString(CString csID, CString csDefault)
 {
 	CLangItem *pItem;
@@ -103,71 +109,85 @@ CString CMultiLanguage::GetString(CString csID, CString csDefault)
 	return "";
 }
 
+//##ModelId=474D30590224
 bool CMultiLanguage::UpdateRightClickMenu(CMenu *pMenu)
 {
 	return UpdateMenuToLanguage(pMenu, m_RightClickMenu);
 }
 
+//##ModelId=474D30590243
 bool CMultiLanguage::UpdateTrayIconRightClickMenu(CMenu *pMenu)
 {
 	return UpdateMenuToLanguage(pMenu, m_TrayIconRightClickMenu);
 }
 
+//##ModelId=474D30590262
 bool CMultiLanguage::UpdateClipProperties(CWnd *pParent)
 {
 	return UpdateWindowToLanguage(pParent, m_ClipProperties);
 }
 
+//##ModelId=474D30590272
 bool CMultiLanguage::UpdateOptionGeneral(CWnd *pParent)
 {
 	return UpdateWindowToLanguage(pParent, m_OptionsGeneral);
 }
 
+//##ModelId=474D30590282
 bool CMultiLanguage::UpdateOptionSupportedTypes(CWnd *pParent)
 {
 	return UpdateWindowToLanguage(pParent, m_OptionsSupportedTypes);
 }
 
+//##ModelId=474D30590292
 bool CMultiLanguage::UpdateOptionShortcuts(CWnd *pParent)
 {
 	return UpdateWindowToLanguage(pParent, m_OptionsShortcuts);
 }
 
+//##ModelId=474D305902A1
 bool CMultiLanguage::UpdateOptionQuickPaste(CWnd *pParent)
 {
 	return UpdateWindowToLanguage(pParent, m_OptionsQuickPaste);
 }
 
+//##ModelId=474D305902CF
 bool CMultiLanguage::UpdateOptionFriends(CWnd *pParent)
 {
 	return UpdateWindowToLanguage(pParent, m_OptionsFriends);
 }
 
+//##ModelId=474D305902E0
 bool CMultiLanguage::UpdateOptionFriendsDetail(CWnd *pParent)
 {
 	return UpdateWindowToLanguage(pParent, m_OptionsFriendsDetail);
 }
 
+//##ModelId=474D305902F0
 bool CMultiLanguage::UpdateOptionStats(CWnd *pParent)
 {
 	return UpdateWindowToLanguage(pParent, m_OptionsStats);
 }
 
+//##ModelId=474D305902FF
 bool CMultiLanguage::UpdateOptionSupportedTypesAdd(CWnd *pParent)
 {
 	return UpdateWindowToLanguage(pParent, m_OptionsSupportedTypesAdd);
 }
 
+//##ModelId=474D3059030F
 bool CMultiLanguage::UpdateMoveToGroups(CWnd *pParent)
 {
 	return UpdateWindowToLanguage(pParent, m_MoveToGroups);
 }
 
+//##ModelId=474D3059031F
 bool CMultiLanguage::UpdateOptionsSheet(CWnd *pParent)
 {
 	return UpdateWindowToLanguage(pParent, m_OptionsSheet);
 }
 
+//##ModelId=474D305B0020
 bool CMultiLanguage::UpdateMenuToLanguage(CMenu *pMenu, LANGUAGE_ARRAY &Array)
 {
 	int nSize = Array.GetSize();
@@ -198,6 +218,7 @@ bool CMultiLanguage::UpdateMenuToLanguage(CMenu *pMenu, LANGUAGE_ARRAY &Array)
 	return true;
 }
 
+//##ModelId=474D305B007E
 bool CMultiLanguage::UpdateWindowToLanguage(CWnd *pParent, LANGUAGE_ARRAY &Array)
 {
 	int nSize = Array.GetSize();
@@ -227,6 +248,7 @@ bool CMultiLanguage::UpdateWindowToLanguage(CWnd *pParent, LANGUAGE_ARRAY &Array
 }
 
 
+//##ModelId=474D3059039B
 CMenu * CMultiLanguage::GetMenuPos(CMenu *pMenu, const CString &csLookingForMenuText, int &nMenuPos)
 {
 	CMenu *pSubMenu;
@@ -255,6 +277,7 @@ CMenu * CMultiLanguage::GetMenuPos(CMenu *pMenu, const CString &csLookingForMenu
 	return NULL;
 }
 
+//##ModelId=474D30590204
 bool CMultiLanguage::LoadLanguageFile(CString csFile)
 {
 	m_csLastError = "";
@@ -318,6 +341,7 @@ bool CMultiLanguage::LoadLanguageFile(CString csFile)
 	return true;
 }
 
+//##ModelId=474D305A034C
 bool CMultiLanguage::LoadSection(TiXmlNode &doc, LANGUAGE_ARRAY &Array, CString csSection)
 {
 	CStringA csSectionA = CTextConvert::ConvertToChar(csSection);
@@ -367,6 +391,7 @@ bool CMultiLanguage::LoadSection(TiXmlNode &doc, LANGUAGE_ARRAY &Array, CString 
 	return true;
 }
 
+//##ModelId=474D305A03C9
 bool CMultiLanguage::LoadStringTableSection(TiXmlNode &doc, LANGUAGE_MAP &Map, CString csSection)
 {
 	CStringA csSectionA = CTextConvert::ConvertToChar(csSection);

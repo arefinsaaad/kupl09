@@ -12,17 +12,20 @@
 /////////////////////////////////////////////////////////////////////////////
 // CWebBrowser2 wrapper class
 
+//##ModelId=474D301D0014
 class CWebBrowser2 : public CWnd
 {
 protected:
 	DECLARE_DYNCREATE(CWebBrowser2)
 public:
+	//##ModelId=474D301D003F
 	CLSID const& GetClsid()
 	{
 		static CLSID const clsid
 			= { 0x8856f961, 0x340a, 0x11d0, { 0xa9, 0x6b, 0x0, 0xc0, 0x4f, 0xd7, 0x5, 0xa2 } };
 		return clsid;
 	}
+	//##ModelId=474D301D004F
 	virtual BOOL Create(LPCTSTR lpszClassName,
 		LPCTSTR lpszWindowName, DWORD dwStyle,
 		const RECT& rect,
@@ -30,6 +33,7 @@ public:
 		CCreateContext* pContext = NULL)
 	{ return CreateControl(GetClsid(), lpszWindowName, dwStyle, rect, pParentWnd, nID); }
 
+	//##ModelId=474D301D008D
     BOOL Create(LPCTSTR lpszWindowName, DWORD dwStyle,
 		const RECT& rect, CWnd* pParentWnd, UINT nID,
 		CFile* pPersist = NULL, BOOL bStorage = FALSE,
@@ -42,69 +46,133 @@ public:
 
 // Operations
 public:
+	//##ModelId=474D301D00BE
 	void GoBack();
+	//##ModelId=474D301D00CC
 	void GoForward();
+	//##ModelId=474D301D00DB
 	void GoHome();
+	//##ModelId=474D301D00DC
 	void GoSearch();
+	//##ModelId=474D301D00EB
 	void Navigate(LPCTSTR URL, VARIANT* Flags, VARIANT* TargetFrameName, VARIANT* PostData, VARIANT* Headers);
+	//##ModelId=474D301D011A
 	void Refresh();
+	//##ModelId=474D301D012A
 	void Refresh2(VARIANT* Level);
+	//##ModelId=474D301D0139
 	void Stop();
+	//##ModelId=474D301D0149
 	LPDISPATCH GetApplication();
+	//##ModelId=474D301D0158
 	LPDISPATCH GetParent();
+	//##ModelId=474D301D0168
 	LPDISPATCH GetContainer();
+	//##ModelId=474D301D0178
 	LPDISPATCH GetDocument();
+	//##ModelId=474D301D0187
 	BOOL GetTopLevelContainer();
+	//##ModelId=474D301D0197
 	CString GetType();
+	//##ModelId=474D301D01A7
 	long GetLeft();
+	//##ModelId=474D301D01B6
 	void SetLeft(long nNewValue);
+	//##ModelId=474D301D01C6
 	long GetTop();
+	//##ModelId=474D301D01D5
 	void SetTop(long nNewValue);
+	//##ModelId=474D301D01E5
 	long GetWidth();
+	//##ModelId=474D301D01E6
 	void SetWidth(long nNewValue);
+	//##ModelId=474D301D01F5
 	long GetHeight();
+	//##ModelId=474D301D01F6
 	void SetHeight(long nNewValue);
+	//##ModelId=474D301D0205
 	CString GetLocationName();
+	//##ModelId=474D301D0214
 	CString GetLocationURL();
+	//##ModelId=474D301D0215
 	BOOL GetBusy();
+	//##ModelId=474D301D0224
 	void Quit();
+	//##ModelId=474D301D0225
 	void ClientToWindow(long* pcx, long* pcy);
+	//##ModelId=474D301D0235
 	void PutProperty(LPCTSTR Property_, const VARIANT& vtValue);
+	//##ModelId=474D301D0245
 	VARIANT GetProperty_(LPCTSTR Property_);
+	//##ModelId=474D301D0253
 	CString GetName();
+	//##ModelId=474D301D0262
 	long GetHwnd();
+	//##ModelId=474D301D0263
 	CString GetFullName();
+	//##ModelId=474D301D0272
 	CString GetPath();
+	//##ModelId=474D301D0273
 	BOOL GetVisible();
+	//##ModelId=474D301D0281
 	void SetVisible(BOOL bNewValue);
+	//##ModelId=474D301D0283
 	BOOL GetStatusBar();
+	//##ModelId=474D301D0291
 	void SetStatusBar(BOOL bNewValue);
+	//##ModelId=474D301D02A1
 	CString GetStatusText();
+	//##ModelId=474D301D02A2
 	void SetStatusText(LPCTSTR lpszNewValue);
+	//##ModelId=474D301D02B1
 	long GetToolBar();
+	//##ModelId=474D301D02C0
 	void SetToolBar(long nNewValue);
+	//##ModelId=474D301D02CF
 	BOOL GetMenuBar();
+	//##ModelId=474D301D02D0
 	void SetMenuBar(BOOL bNewValue);
+	//##ModelId=474D301D02DF
 	BOOL GetFullScreen();
+	//##ModelId=474D301D02E0
 	void SetFullScreen(BOOL bNewValue);
+	//##ModelId=474D301D02F0
 	void Navigate2(VARIANT* URL, VARIANT* Flags, VARIANT* TargetFrameName, VARIANT* PostData, VARIANT* Headers);
+	//##ModelId=474D301D0310
 	long QueryStatusWB(long cmdID);
+	//##ModelId=474D301D031F
 	void ExecWB(long cmdID, long cmdexecopt, VARIANT* pvaIn, VARIANT* pvaOut);
+	//##ModelId=474D301D034C
 	void ShowBrowserBar(VARIANT* pvaClsid, VARIANT* pvarShow, VARIANT* pvarSize);
+	//##ModelId=474D301D036D
 	long GetReadyState();
+	//##ModelId=474D301D037B
 	BOOL GetOffline();
+	//##ModelId=474D301D038B
 	void SetOffline(BOOL bNewValue);
+	//##ModelId=474D301D039C
 	BOOL GetSilent();
+	//##ModelId=474D301D03AA
 	void SetSilent(BOOL bNewValue);
+	//##ModelId=474D301D03BB
 	BOOL GetRegisterAsBrowser();
+	//##ModelId=474D301D03C9
 	void SetRegisterAsBrowser(BOOL bNewValue);
+	//##ModelId=474D301D03D9
 	BOOL GetRegisterAsDropTarget();
+	//##ModelId=474D301E0001
 	void SetRegisterAsDropTarget(BOOL bNewValue);
+	//##ModelId=474D301E0003
 	BOOL GetTheaterMode();
+	//##ModelId=474D301E0010
 	void SetTheaterMode(BOOL bNewValue);
+	//##ModelId=474D301E0020
 	BOOL GetAddressBar();
+	//##ModelId=474D301E0021
 	void SetAddressBar(BOOL bNewValue);
+	//##ModelId=474D301E0030
 	BOOL GetResizable();
+	//##ModelId=474D301E0031
 	void SetResizable(BOOL bNewValue);
 };
 

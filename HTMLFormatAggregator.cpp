@@ -2,6 +2,7 @@
 #include ".\htmlformataggregator.h"
 #include "Misc.h"
 
+//##ModelId=474D306303D9
 CHTMLFormatAggregator::CHTMLFormatAggregator(CStringA csSepator) :
 	m_csSeparator(csSepator)
 {
@@ -15,10 +16,12 @@ CHTMLFormatAggregator::CHTMLFormatAggregator(CStringA csSepator) :
 	m_csSeparator.Replace("\r\n", "<br>");
 }
 
+//##ModelId=474D30640001
 CHTMLFormatAggregator::~CHTMLFormatAggregator(void)
 {
 }
 
+//##ModelId=474D30640010
 bool CHTMLFormatAggregator::AddClip(LPVOID lpData, int nDataSize, int nPos, int nCount)
 {
 	LPSTR pText = (LPSTR)lpData;
@@ -52,6 +55,7 @@ bool CHTMLFormatAggregator::AddClip(LPVOID lpData, int nDataSize, int nPos, int 
 	return true;
 }
 
+//##ModelId=474D3064004F
 HGLOBAL CHTMLFormatAggregator::GetHGlobal()
 {
 	CHTMFormatStruct HtmlData;
@@ -69,6 +73,7 @@ HGLOBAL CHTMLFormatAggregator::GetHGlobal()
 	return hGlobal;
 }
 
+//##ModelId=474D3064011B
 bool CHTMFormatStruct::GetData(LPCSTR HTML)
 {
 	CTokenizer Tokenizer(HTML, "\r\n");
@@ -125,6 +130,7 @@ bool CHTMFormatStruct::GetData(LPCSTR HTML)
 	return true;
 }
 
+//##ModelId=474D3064012B
 bool CHTMFormatStruct::Serialize(CStringA &csHTMLFormat)
 {
 	//Build a structure just like this

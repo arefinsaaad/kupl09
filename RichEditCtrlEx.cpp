@@ -39,10 +39,12 @@ BOOL PASCAL AfxInitRichEditEx()
 }
 
 
+//##ModelId=474D308100AE
 CRichEditCtrlEx::CRichEditCtrlEx()
 {
 }
 
+//##ModelId=474D308200EB
 CRichEditCtrlEx::~CRichEditCtrlEx()
 {
 }
@@ -57,6 +59,7 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CRichEditCtrlEx message handlers
 
+//##ModelId=474D30820040
 CString CRichEditCtrlEx::GetRTF()
 {
 	// Return the RTF string of the text in the control.
@@ -77,6 +80,7 @@ CString CRichEditCtrlEx::GetRTF()
 
 }
 
+//##ModelId=474D30820020
 void CRichEditCtrlEx::SetRTF(const char *pRTF)
 {
 	// Put the RTF string sRTF into the rich edit control.
@@ -104,6 +108,7 @@ void CRichEditCtrlEx::SetRTF(const char *pRTF)
 
 }
 
+//##ModelId=474D308103AA
 void CRichEditCtrlEx::SetRTF(CStringA sRTF)
 {
 	// Put the RTF string sRTF into the rich edit control.
@@ -131,6 +136,7 @@ void CRichEditCtrlEx::SetRTF(CStringA sRTF)
 
 }
 
+//##ModelId=474D308200DB
 CString CRichEditCtrlEx::GetText()
 {
 	CString sText;
@@ -166,6 +172,7 @@ CString CRichEditCtrlEx::GetText()
 	return sText;
 }
 
+//##ModelId=474D308200BC
 void CRichEditCtrlEx::SetText(CString sText)
 {
 	// Put the RTF string sRTF into the rich edit control.
@@ -194,6 +201,7 @@ void CRichEditCtrlEx::SetText(CString sText)
 /*
 	Callback function to stream an RTF string into the rich edit control.
 */
+//##ModelId=474D308201A7
 DWORD CALLBACK CRichEditCtrlEx::CBStreamIn(DWORD dwCookie, LPBYTE pbBuff, LONG cb, LONG *pcb)
 {
 	// We insert the rich text here.
@@ -226,6 +234,7 @@ DWORD CALLBACK CRichEditCtrlEx::CBStreamIn(DWORD dwCookie, LPBYTE pbBuff, LONG c
 /*
 	Callback function to stream the RTF string out of the rich edit control.
 */
+//##ModelId=474D308201F6
 DWORD CALLBACK CRichEditCtrlEx::CBStreamOut(DWORD dwCookie, LPBYTE pbBuff, LONG cb, LONG *pcb)
 {
 	// Address of our string var is in psEntry
@@ -241,6 +250,7 @@ DWORD CALLBACK CRichEditCtrlEx::CBStreamOut(DWORD dwCookie, LPBYTE pbBuff, LONG 
 	return 0;
 }
 
+//##ModelId=474D308102B0
 bool CRichEditCtrlEx::SelectionIsBold()
 {
 	CHARFORMAT cf = GetCharFormat();	
@@ -251,6 +261,7 @@ bool CRichEditCtrlEx::SelectionIsBold()
 		return false;
 }
 
+//##ModelId=474D308102EF
 bool CRichEditCtrlEx::SelectionIsItalic()
 {
 	CHARFORMAT cf = GetCharFormat();	
@@ -261,6 +272,7 @@ bool CRichEditCtrlEx::SelectionIsItalic()
 		return false;
 }
 
+//##ModelId=474D3081031E
 bool CRichEditCtrlEx::SelectionIsUnderlined()
 {
 	CHARFORMAT cf = GetCharFormat();	
@@ -271,6 +283,7 @@ bool CRichEditCtrlEx::SelectionIsUnderlined()
 		return false;
 }
 
+//##ModelId=474D30810281
 CHARFORMAT CRichEditCtrlEx::GetCharFormat(DWORD dwMask)
 {
 	CHARFORMAT cf;
@@ -283,6 +296,7 @@ CHARFORMAT CRichEditCtrlEx::GetCharFormat(DWORD dwMask)
 	return cf;
 }
 
+//##ModelId=474D3082012B
 void CRichEditCtrlEx::SetCharStyle(int MASK, int STYLE, int nStart, int nEnd)
 {
 	CHARFORMAT cf;
@@ -306,6 +320,7 @@ void CRichEditCtrlEx::SetCharStyle(int MASK, int STYLE, int nStart, int nEnd)
 
 }
 
+//##ModelId=474D3081033D
 void CRichEditCtrlEx::SetSelectionBold()
 {
 	long start=0, end=0;
@@ -314,6 +329,7 @@ void CRichEditCtrlEx::SetSelectionBold()
 	SetCharStyle(CFM_BOLD, CFE_BOLD, start, end);	// Make it bold
 }
 
+//##ModelId=474D3081036C
 void CRichEditCtrlEx::SetSelectionItalic()
 {
 	long start=0, end=0;
@@ -322,6 +338,7 @@ void CRichEditCtrlEx::SetSelectionItalic()
 	SetCharStyle(CFM_ITALIC, CFE_ITALIC, start, end);
 }
 
+//##ModelId=474D3081038B
 void CRichEditCtrlEx::SetSelectionUnderlined()
 {
 	long start=0, end=0;
@@ -330,6 +347,7 @@ void CRichEditCtrlEx::SetSelectionUnderlined()
 	SetCharStyle(CFM_UNDERLINE, CFE_UNDERLINE, start, end);
 }
 
+//##ModelId=474D30810262
 void CRichEditCtrlEx::SetParagraphCenter()
 {
 	PARAFORMAT paraFormat;    
@@ -340,6 +358,7 @@ void CRichEditCtrlEx::SetParagraphCenter()
 	SetParaFormat(paraFormat);	// Set the paragraph.
 }
 
+//##ModelId=474D30810243
 void CRichEditCtrlEx::SetParagraphLeft()
 {
 	PARAFORMAT paraFormat;
@@ -350,6 +369,7 @@ void CRichEditCtrlEx::SetParagraphLeft()
 	SetParaFormat(paraFormat);
 }
 
+//##ModelId=474D30810224
 void CRichEditCtrlEx::SetParagraphRight()
 {
 	PARAFORMAT paraFormat;
@@ -360,6 +380,7 @@ void CRichEditCtrlEx::SetParagraphRight()
 	SetParaFormat(paraFormat);
 }
 
+//##ModelId=474D30810204
 bool CRichEditCtrlEx::ParagraphIsCentered()
 {
 	PARAFORMAT pf = GetParagraphFormat();
@@ -370,6 +391,7 @@ bool CRichEditCtrlEx::ParagraphIsCentered()
 		return false;
 }
 
+//##ModelId=474D308101F5
 bool CRichEditCtrlEx::ParagraphIsLeft()
 {
 	PARAFORMAT pf = GetParagraphFormat();
@@ -380,6 +402,7 @@ bool CRichEditCtrlEx::ParagraphIsLeft()
 		return false;
 }
 
+//##ModelId=474D308101E5
 bool CRichEditCtrlEx::ParagraphIsRight()
 {
 	PARAFORMAT pf = GetParagraphFormat();
@@ -390,6 +413,7 @@ bool CRichEditCtrlEx::ParagraphIsRight()
 		return false;
 }
 
+//##ModelId=474D308101D5
 PARAFORMAT CRichEditCtrlEx::GetParagraphFormat()
 {
 	PARAFORMAT pf;
@@ -402,6 +426,7 @@ PARAFORMAT CRichEditCtrlEx::GetParagraphFormat()
 	return pf;
 }
 
+//##ModelId=474D308101B7
 void CRichEditCtrlEx::SetParagraphBulleted()
 {
 	PARAFORMAT paraformat = GetParagraphFormat();
@@ -428,6 +453,7 @@ void CRichEditCtrlEx::SetParagraphBulleted()
 
 }
 
+//##ModelId=474D308101B6
 bool CRichEditCtrlEx::ParagraphIsBulleted()
 {
 	PARAFORMAT pf = GetParagraphFormat();
@@ -438,6 +464,7 @@ bool CRichEditCtrlEx::ParagraphIsBulleted()
 		return false;
 }
 
+//##ModelId=474D30810197
 void CRichEditCtrlEx::SelectColor()
 {
 	CColorDialog dlg;
@@ -457,6 +484,7 @@ void CRichEditCtrlEx::SelectColor()
 	SetSelectionCharFormat(cf);
 }
 
+//##ModelId=474D30810159
 void CRichEditCtrlEx::SetFontName(CString sFontName)
 {
 	CHARFORMAT cf = GetCharFormat();
@@ -471,6 +499,7 @@ void CRichEditCtrlEx::SetFontName(CString sFontName)
 	SetSelectionCharFormat(cf);
 }
 
+//##ModelId=474D3081014A
 void CRichEditCtrlEx::SetFontSize(int nPointSize)
 {
 	CHARFORMAT cf = GetCharFormat();
@@ -483,6 +512,7 @@ void CRichEditCtrlEx::SetFontSize(int nPointSize)
 	SetSelectionCharFormat(cf);
 }
 
+//##ModelId=474D30810139
 void CRichEditCtrlEx::GetSystemFonts(CStringArray &saFontList)
 {
 	CDC *pDC = GetDC ();
@@ -491,6 +521,7 @@ void CRichEditCtrlEx::GetSystemFonts(CStringArray &saFontList)
 
 }
 
+//##ModelId=474D30820244
 BOOL CALLBACK CRichEditCtrlEx::CBEnumFonts(LPLOGFONT lplf, LPTEXTMETRIC lptm, DWORD dwType, LPARAM lpData)
 {
 	// This function was written with the help of CCustComboBox, by Girish Bharadwaj.
@@ -504,6 +535,7 @@ BOOL CALLBACK CRichEditCtrlEx::CBEnumFonts(LPLOGFONT lplf, LPTEXTMETRIC lptm, DW
 	return true;
 }
 
+//##ModelId=474D3081010B
 CString CRichEditCtrlEx::GetSelectionFontName()
 {
 	CHARFORMAT cf = GetCharFormat();
@@ -513,6 +545,7 @@ CString CRichEditCtrlEx::GetSelectionFontName()
 	return sName;
 }
 
+//##ModelId=474D3081010A
 long CRichEditCtrlEx::GetSelectionFontSize()
 {
 	CHARFORMAT cf = GetCharFormat();
@@ -522,6 +555,7 @@ long CRichEditCtrlEx::GetSelectionFontSize()
 	return nSize;
 }
 
+//##ModelId=474D3082010A
 int CRichEditCtrlEx::OnCreate(LPCREATESTRUCT lpCreateStruct) 
 {
 	if (CRichEditCtrl::OnCreate(lpCreateStruct) == -1)
@@ -532,6 +566,7 @@ int CRichEditCtrlEx::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	return 0;
 }
 
+//##ModelId=474D308100BC
 BOOL CRichEditCtrlEx::Create(LPCTSTR lpszClassName, LPCTSTR lpszWindowName, DWORD dwStyle, const RECT& rect, CWnd* pParentWnd, UINT nID, CCreateContext* pContext) 
 {
 #ifdef _UNICODE

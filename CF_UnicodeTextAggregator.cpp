@@ -2,15 +2,18 @@
 #include ".\cf_unicodetextaggregator.h"
 #include "Misc.h"
 
+//##ModelId=474D3079003F
 CCF_UnicodeTextAggregator::CCF_UnicodeTextAggregator(CStringW csSeparator) :
 	m_csSeparator(csSeparator)
 {
 }
 
+//##ModelId=474D30790041
 CCF_UnicodeTextAggregator::~CCF_UnicodeTextAggregator(void)
 {
 }
 
+//##ModelId=474D3079007E
 bool CCF_UnicodeTextAggregator::AddClip(LPVOID lpData, int nDataSize, int nPos, int nCount)
 {
 	LPCWSTR pText = (LPCWSTR)lpData;
@@ -41,6 +44,7 @@ bool CCF_UnicodeTextAggregator::AddClip(LPVOID lpData, int nDataSize, int nPos, 
 	return true;
 }
 
+//##ModelId=474D30790090
 HGLOBAL CCF_UnicodeTextAggregator::GetHGlobal()
 {
 	long lLen = m_csNewText.GetLength() * sizeof(wchar_t);

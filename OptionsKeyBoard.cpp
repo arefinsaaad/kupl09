@@ -16,6 +16,7 @@ static char THIS_FILE[] = __FILE__;
 
 IMPLEMENT_DYNCREATE(COptionsKeyBoard, CPropertyPage)
 
+//##ModelId=474D303E0281
 COptionsKeyBoard::COptionsKeyBoard() : CPropertyPage(COptionsKeyBoard::IDD)
 {
 	m_csTitle = theApp.m_Language.GetString("KeyboardShortcutsTitle", "Keyboard Shortcuts");
@@ -26,10 +27,12 @@ COptionsKeyBoard::COptionsKeyBoard() : CPropertyPage(COptionsKeyBoard::IDD)
 	//}}AFX_DATA_INIT
 }
 
+//##ModelId=474D303E0282
 COptionsKeyBoard::~COptionsKeyBoard()
 {
 }
 
+//##ModelId=474D303F0040
 void COptionsKeyBoard::DoDataExchange(CDataExchange* pDX)
 {
 	CPropertyPage::DoDataExchange(pDX);
@@ -60,6 +63,7 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // COptionsKeyBoard message handlers
 
+//##ModelId=474D303F009D
 BOOL COptionsKeyBoard::OnInitDialog() 
 {
 	CPropertyPage::OnInitDialog();
@@ -116,16 +120,19 @@ BOOL COptionsKeyBoard::OnInitDialog()
 	return FALSE;
 }
 
+//##ModelId=474D303F0020
 LRESULT COptionsKeyBoard::OnWizardNext() 
 {
 	return CPropertyPage::OnWizardNext();
 }
 
+//##ModelId=474D303F0022
 BOOL COptionsKeyBoard::OnWizardFinish() 
 {
 	return CPropertyPage::OnWizardFinish();
 }
 
+//##ModelId=474D303F0031
 BOOL COptionsKeyBoard::OnApply()
 {
 	CGetSetOptions::SetSendPasteOnFirstTenHotKeys(m_btSendPaste.GetCheck());
@@ -192,6 +199,7 @@ BOOL COptionsKeyBoard::ValidateHotKey(WORD wHotKey)
 }
 */
 
+//##ModelId=474D303F0033
 void COptionsKeyBoard::OnCancel() 
 {
 	g_HotKeys.RegisterAll( true );

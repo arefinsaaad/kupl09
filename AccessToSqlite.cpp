@@ -5,6 +5,7 @@
 #include "TextConvert.h"
 
 
+//##ModelId=474D307B00AD
 BOOL CAccessToSqlite::ConvertDatabase(const TCHAR *pNewDatabase, const TCHAR *pOldDatabase)
 {
 	BOOL bRet = FALSE;
@@ -41,10 +42,12 @@ BOOL CAccessToSqlite::ConvertDatabase(const TCHAR *pNewDatabase, const TCHAR *pO
 	return bRet;
 }
 
+//##ModelId=474D307B009D
 CAccessToSqlite::CAccessToSqlite(void)
 {
 }
 
+//##ModelId=474D307B00EB
 CAccessToSqlite::~CAccessToSqlite(void)
 {
 }

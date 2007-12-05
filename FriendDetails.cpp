@@ -15,6 +15,7 @@ static char THIS_FILE[] = __FILE__;
 // CFriendDetails dialog
 
 
+//##ModelId=474D30660149
 CFriendDetails::CFriendDetails(CWnd* pParent /*=NULL*/)
 	: CDialog(CFriendDetails::IDD, pParent)
 {
@@ -26,6 +27,7 @@ CFriendDetails::CFriendDetails(CWnd* pParent /*=NULL*/)
 }
 
 
+//##ModelId=474D30660169
 void CFriendDetails::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -46,6 +48,7 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CFriendDetails message handlers
 
+//##ModelId=474D30660187
 BOOL CFriendDetails::OnInitDialog() 
 {
 	CDialog::OnInitDialog();
@@ -58,6 +61,7 @@ BOOL CFriendDetails::OnInitDialog()
 	              // EXCEPTION: OCX Property Pages should return FALSE
 }
 
+//##ModelId=474D30660197
 void CFriendDetails::OnOK() 
 {
 	UpdateData();

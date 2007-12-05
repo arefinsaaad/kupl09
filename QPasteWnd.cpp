@@ -45,6 +45,7 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // CQPasteWnd
 
+//##ModelId=474D302A02C0
 CQPasteWnd::CQPasteWnd()
 {	
 	m_Title = QPASTE_TITLE;
@@ -55,6 +56,7 @@ CQPasteWnd::CQPasteWnd()
 	m_lItemsPerPage = 0;
 }
 
+//##ModelId=474D302B00FB
 CQPasteWnd::~CQPasteWnd()
 {
 	CloseHandle(m_Events[0]);
@@ -189,12 +191,15 @@ BEGIN_MESSAGE_MAP(CQPasteWnd, CWndEx)
 	ON_COMMAND(ID_MENU_NEWCLIP, OnMenuNewclip)
 	ON_UPDATE_COMMAND_UI(ID_MENU_EDITITEM, OnUpdateMenuEdititem)
 	ON_UPDATE_COMMAND_UI(ID_MENU_NEWCLIP, OnUpdateMenuNewclip)
+	ON_COMMAND(32874, OnSaveAsTXTFile)
+	ON_COMMAND(32875, OnSaveAsPDFFile)
 	END_MESSAGE_MAP()
 
 
 /////////////////////////////////////////////////////////////////////////////
 // CQPasteWnd message handlers
 
+//##ModelId=474D302A039B
 BOOL CQPasteWnd::Create(const POINT& ptStart, CWnd* pParentWnd) 
 {
 	// Get the previous size of the QPaste window
@@ -216,6 +221,7 @@ UINT  StartThread(LPVOID pParam)
 	return TRUE;
 }
 
+//##ModelId=474D302E037C
 int CQPasteWnd::OnCreate(LPCREATESTRUCT lpCreateStruct) 
 {
 	if (CWndEx::OnCreate(lpCreateStruct) == -1)
@@ -301,6 +307,7 @@ int CQPasteWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	return 0;
 }
 
+//##ModelId=474D302F004F
 void CQPasteWnd::OnSize(UINT nType, int cx, int cy) 
 {
 	CWndEx::OnSize(nType, cx, cy);
@@ -311,6 +318,7 @@ void CQPasteWnd::OnSize(UINT nType, int cx, int cy)
 	MoveControls();
 }
 
+//##ModelId=474D302D0020
 void CQPasteWnd::MoveControls()
 {
 	CRect crRect;
@@ -361,6 +369,7 @@ void CQPasteWnd::MoveControls()
 	//m_lstHeader.SetColumnWidth(0, cx);
 }
 
+//##ModelId=474D302F0187
 void CQPasteWnd::OnSetFocus(CWnd* pOldWnd)
 {
 	CWndEx::OnSetFocus(pOldWnd);
@@ -372,6 +381,7 @@ void CQPasteWnd::OnSetFocus(CWnd* pOldWnd)
 		m_lstHeader.SetFocus();
 }
 
+//##ModelId=474D302F0252
 void CQPasteWnd::OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinimized) 
 {
 	CWndEx::OnActivate(nState, pWndOther, bMinimized);
@@ -404,6 +414,7 @@ void CQPasteWnd::OnActivate(UINT nState, CWnd* pWndOther, BOOL bMinimized)
 	}
 }
 
+//##ModelId=474D302C02C0
 BOOL CQPasteWnd::HideQPasteWindow()
 {
 	if(!theApp.m_bShowingQuickPaste) 
@@ -457,6 +468,7 @@ BOOL CQPasteWnd::HideQPasteWindow()
 	return TRUE;
 }
 
+//##ModelId=474D302C033D
 BOOL CQPasteWnd::ShowQPasteWindow(BOOL bFillList)
 {
 	//Set the flag so we can't open this up again
@@ -511,6 +523,7 @@ BOOL CQPasteWnd::ShowQPasteWindow(BOOL bFillList)
 	return TRUE;
 }
 
+//##ModelId=474D302B006E
 bool CQPasteWnd::Add(const CString &csHeader, const CString &csText, int nID)
 {
 	int nNewIndex;
@@ -532,6 +545,7 @@ bool CQPasteWnd::Add(const CString &csHeader, const CString &csText, int nID)
 	return true;
 }
 
+//##ModelId=474D302D0139
 BOOL CQPasteWnd::OpenID(long lID, bool bOnlyLoad_CF_TEXT, bool bPasteHTMLAs_CF_TEXT)
 {
 	if( theApp.EnterGroupID(lID) )
@@ -562,6 +576,7 @@ BOOL CQPasteWnd::OpenID(long lID, bool bOnlyLoad_CF_TEXT, bool bPasteHTMLAs_CF_T
 	return TRUE;
 }
 
+//##ModelId=474D302D01F5
 BOOL CQPasteWnd::OpenSelection(bool bOnlyLoad_CF_TEXT, bool bPasteHTMLAs_CF_TEXT)
 {
 	ARRAY IDs;
@@ -599,11 +614,13 @@ BOOL CQPasteWnd::OpenSelection(bool bOnlyLoad_CF_TEXT, bool bPasteHTMLAs_CF_TEXT
 	return TRUE;
 }
 
+//##ModelId=474D302D0281
 BOOL CQPasteWnd::OpenIndex( long nItem )
 {
 	return OpenID( m_lstHeader.GetItemData(nItem) );
 }
 
+//##ModelId=474D302D02FE
 BOOL CQPasteWnd::NewGroup( bool bGroupSelection )
 {	
 	//Get the selected ids
@@ -644,6 +661,7 @@ BOOL CQPasteWnd::NewGroup( bool bGroupSelection )
 	return TRUE;
 }
 
+//##ModelId=474D302D039B
 long CQPasteWnd::SetListID(long lID)
 {
 	long lRet = -1;
@@ -669,12 +687,14 @@ long CQPasteWnd::SetListID(long lID)
 }
 
 
+//##ModelId=474D30350030
 LRESULT CQPasteWnd::OnListSelect_DB_ID(WPARAM wParam, LPARAM lParam)
 {
 	OpenID(wParam);
 	return TRUE;
 }
 
+//##ModelId=474D303500BC
 LRESULT CQPasteWnd::OnListSelect_Index(WPARAM wParam, LPARAM lParam)
 {
 	if((int)wParam >= m_lstHeader.GetItemCount())
@@ -685,6 +705,7 @@ LRESULT CQPasteWnd::OnListSelect_Index(WPARAM wParam, LPARAM lParam)
 	return TRUE;
 }
 
+//##ModelId=474D3034017A
 LRESULT CQPasteWnd::OnListSelect(WPARAM wParam, LPARAM lParam)
 {
 	int nCount = (int) wParam;
@@ -695,12 +716,14 @@ LRESULT CQPasteWnd::OnListSelect(WPARAM wParam, LPARAM lParam)
 	return TRUE;
 }
 
+//##ModelId=474D30340233
 LRESULT CQPasteWnd::OnListEnd(WPARAM wParam, LPARAM lParam)
 {
 	HideQPasteWindow();
 	return 0;
 }
 
+//##ModelId=474D30350149
 LRESULT CQPasteWnd::OnRefreshView(WPARAM wParam, LPARAM lParam)
 {
 	MSG msg;
@@ -730,6 +753,7 @@ LRESULT CQPasteWnd::OnRefreshView(WPARAM wParam, LPARAM lParam)
 	return TRUE;
 }
 
+//##ModelId=474D302C012A
 void CQPasteWnd::RefreshNc(bool bRepaintImmediately)
 {
 	if(!theApp.m_bShowingQuickPaste)
@@ -741,6 +765,7 @@ void CQPasteWnd::RefreshNc(bool bRepaintImmediately)
 		InvalidateNc();
 }
 
+//##ModelId=474D302C01A7
 void CQPasteWnd::UpdateStatus(bool bRepaintImmediately)
 {
 	CString title = m_Title;
@@ -783,6 +808,7 @@ void CQPasteWnd::UpdateStatus(bool bRepaintImmediately)
 	}
 }
 
+//##ModelId=474D302C0252
 BOOL CQPasteWnd::FillList(CString csSQLSearch/*=""*/)
 {
 	KillTimer(TIMER_DO_SEARCH);
@@ -873,6 +899,7 @@ BOOL CQPasteWnd::FillList(CString csSQLSearch/*=""*/)
 }
 
 
+//##ModelId=474D3030031E
 void CQPasteWnd::OnRclickQuickPaste(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	POINT pp;
@@ -907,6 +934,7 @@ void CQPasteWnd::OnRclickQuickPaste(NMHDR* pNMHDR, LRESULT* pResult)
 	*pResult = 0;
 }
 
+//##ModelId=474D302E01C6
 void CQPasteWnd::SetMenuChecks(CMenu *pMenu)
 {
 	//Set the transparency Check
@@ -1095,6 +1123,7 @@ void CQPasteWnd::SetMenuChecks(CMenu *pMenu)
 	pMenu->DeleteMenu(ID_MENU_SENTTO_PROMPTFORIP, MF_BYCOMMAND);
 }
 
+//##ModelId=474D302E0224
 void CQPasteWnd::SetSendToMenu(CMenu *pMenu, int nMenuID, int nArrayPos)
 {
 	if(g_Opt.m_SendClients[nArrayPos].csIP.GetLength() > 0)
@@ -1109,6 +1138,7 @@ void CQPasteWnd::SetSendToMenu(CMenu *pMenu, int nMenuID, int nArrayPos)
 	}
 }
 
+//##ModelId=474D303402DF
 LRESULT CQPasteWnd::OnSearch(WPARAM wParam, LPARAM lParam)
 {
 	m_lstHeader.HidePopup();
@@ -1138,11 +1168,17 @@ LRESULT CQPasteWnd::OnSearch(WPARAM wParam, LPARAM lParam)
 ///////////////////////////////////////////////////////////////////////
 //Menu Stuff
 ///////////////////////////////////////////////////////////////////////
+//##ModelId=474D302F02FE
 void CQPasteWnd::OnMenuLinesperrow1()	{ SetLinesPerRow(1);	}
+//##ModelId=474D302F034C
 void CQPasteWnd::OnMenuLinesperrow2()	{ SetLinesPerRow(2);	}
+//##ModelId=474D302F039B
 void CQPasteWnd::OnMenuLinesperrow3()	{ SetLinesPerRow(3);	}
+//##ModelId=474D302F03D9
 void CQPasteWnd::OnMenuLinesperrow4()	{ SetLinesPerRow(4);	}
+//##ModelId=474D3030003F
 void CQPasteWnd::OnMenuLinesperrow5()	{ SetLinesPerRow(5);	}
+//##ModelId=474D302E00BC
 void CQPasteWnd::SetLinesPerRow(long lLines)
 {
 	CGetSetOptions::SetLinesPerRow(lLines);
@@ -1150,15 +1186,24 @@ void CQPasteWnd::SetLinesPerRow(long lLines)
 	
 	FillList();
 }
+//##ModelId=474D303002CF
 void CQPasteWnd::OnMenuTransparencyNone()	{ SetTransparency(0);	}
+//##ModelId=474D30300291
 void CQPasteWnd::OnMenuTransparency5()		{ SetTransparency(5);	}
+//##ModelId=474D303000AD
 void CQPasteWnd::OnMenuTransparency10()		{ SetTransparency(10);	}
+//##ModelId=474D303000FB
 void CQPasteWnd::OnMenuTransparency15()		{ SetTransparency(15);	}
+//##ModelId=474D30300158
 void CQPasteWnd::OnMenuTransparency20()		{ SetTransparency(20);	}
+//##ModelId=474D303001A7
 void CQPasteWnd::OnMenuTransparency25()		{ SetTransparency(25);	}
+//##ModelId=474D30300204
 void CQPasteWnd::OnMenuTransparency30()		{ SetTransparency(25);	}
+//##ModelId=474D30300252
 void CQPasteWnd::OnMenuTransparency40()		{ SetTransparency(40);	}
 
+//##ModelId=474D302E010A
 void CQPasteWnd::SetTransparency(long lPercent)
 {
 #ifdef AFTER_98
@@ -1181,36 +1226,43 @@ void CQPasteWnd::SetTransparency(long lPercent)
 #endif
 }
 
+//##ModelId=474D303003AA
 void CQPasteWnd::OnMenuDelete() 
 {
 	DeleteSelectedRows();
 }
 
+//##ModelId=474D30310010
 void CQPasteWnd::OnMenuPositioningAtcaret() 
 {
 	CGetSetOptions::SetQuickPastePosition(POS_AT_CARET);
 }
 
+//##ModelId=474D3031005E
 void CQPasteWnd::OnMenuPositioningAtcursor() 
 {
 	CGetSetOptions::SetQuickPastePosition(POS_AT_CURSOR);
 }
 
+//##ModelId=474D303100BC
 void CQPasteWnd::OnMenuPositioningAtpreviousposition() 
 {
 	CGetSetOptions::SetQuickPastePosition(POS_AT_PREVIOUS);
 }
 
+//##ModelId=474D3031010A
 void CQPasteWnd::OnMenuOptions() 
 {
 	theApp.ShowOptionsDlg();
 }
 
+//##ModelId=474D30310178
 void CQPasteWnd::OnMenuExitprogram() 
 {
 	::SendMessage(theApp.m_MainhWnd, WM_CLOSE, 0, 0);
 }
 
+//##ModelId=474D303101C6
 void CQPasteWnd::OnMenuToggleConnectCV() 
 {
 	theApp.ToggleConnectCV();
@@ -1218,6 +1270,7 @@ void CQPasteWnd::OnMenuToggleConnectCV()
 
 #include "client.h"
 
+//##ModelId=474D30310204
 void CQPasteWnd::OnMenuProperties() 
 {	
 	m_bHideWnd = false;
@@ -1278,6 +1331,7 @@ void CQPasteWnd::OnMenuProperties()
 	m_bHideWnd = true;
 }
 
+//##ModelId=474D302B01A7
 void CQPasteWnd::UpdateFont()
 {
 	LOGFONT lf;
@@ -1285,12 +1339,14 @@ void CQPasteWnd::UpdateFont()
 	m_lstHeader.SetLogFont(lf);
 }	
 
+//##ModelId=474D3031035C
 void CQPasteWnd::OnMenuFirsttenhotkeysUsectrlnum() 
 {	
 	CGetSetOptions::SetUseCtrlNumForFirstTenHotKeys(!CGetSetOptions::GetUseCtrlNumForFirstTenHotKeys());
 	m_lstHeader.RefreshVisibleRows();
 }
 
+//##ModelId=474D3031039B
 void CQPasteWnd::OnMenuFirsttenhotkeysShowhotkeytext() 
 {
 	CGetSetOptions::SetShowTextForFirstTenHotKeys(!CGetSetOptions::GetShowTextForFirstTenHotKeys());
@@ -1300,30 +1356,35 @@ void CQPasteWnd::OnMenuFirsttenhotkeysShowhotkeytext()
 	m_lstHeader.RefreshVisibleRows();
 }
 
+//##ModelId=474D3035030E
 void CQPasteWnd::OnViewcaptionbaronRight()
 {
 	SetCaptionOn(CAPTION_RIGHT);
 	CGetSetOptions::SetCaptionPos(CAPTION_RIGHT);
 }
 
+//##ModelId=474D3035034C
 void CQPasteWnd::OnViewcaptionbaronBottom()
 {
 	SetCaptionOn(CAPTION_BOTTOM);
 	CGetSetOptions::SetCaptionPos(CAPTION_BOTTOM);
 }
 
+//##ModelId=474D3035039B
 void CQPasteWnd::OnViewcaptionbaronLeft()
 {
 	SetCaptionOn(CAPTION_LEFT);
 	CGetSetOptions::SetCaptionPos(CAPTION_LEFT);
 }
 
+//##ModelId=474D303503D9
 void CQPasteWnd::OnViewcaptionbaronTop()
 {
 	SetCaptionOn(CAPTION_TOP);
 	CGetSetOptions::SetCaptionPos(CAPTION_TOP);
 }
 
+//##ModelId=474D30360020
 void CQPasteWnd::OnMenuAutohide()
 {
 	bool bAutoHide = !CGetSetOptions::GetAutoHide();
@@ -1331,71 +1392,84 @@ void CQPasteWnd::OnMenuAutohide()
 	SetAutoHide(bAutoHide);
 }
 
+//##ModelId=474D3036005E
 void CQPasteWnd::OnMenuViewfulldescription()
 {
 	m_lstHeader.ShowFullDescription();	
 }
 
+//##ModelId=474D3036009D
 void CQPasteWnd::OnMenuAllwaysontop()
 {
 	theApp.ShowPersistent( !g_Opt.m_bShowPersistent );
 }
 
+//##ModelId=474D303600EB
 void CQPasteWnd::OnSortAscending()
 {
 	g_Opt.SetHistoryStartTop(TRUE);
 	FillList();
 }
 
+//##ModelId=474D3036012A
 void CQPasteWnd::OnSortDescending()
 {
 	g_Opt.SetHistoryStartTop(FALSE);
 	FillList();
 }
 
+//##ModelId=474D30360168
 void CQPasteWnd::OnMenuNewGroup()
 {
 	NewGroup( false );
 }
 
+//##ModelId=474D303601A7
 void CQPasteWnd::OnMenuNewGroupSelection()
 {
 	NewGroup( true );
 }
 
+//##ModelId=474D303103D9
 void CQPasteWnd::OnMenuQuickoptionsAllwaysshowdescription() 
 {
 	CGetSetOptions::SetAllwaysShowDescription(!g_Opt.m_bAllwaysShowDescription);
 	
 }
 
+//##ModelId=474D30320030
 void CQPasteWnd::OnMenuQuickoptionsDoubleclickingoncaptionTogglesalwaysontop() 
 {
 	CGetSetOptions::SetDoubleClickingOnCaptionDoes(TOGGLES_ALLWAYS_ON_TOP);
 	
 }
 
+//##ModelId=474D3032006E
 void CQPasteWnd::OnMenuQuickoptionsDoubleclickingoncaptionRollupwindow() 
 {
 	CGetSetOptions::SetDoubleClickingOnCaptionDoes(ROLLES_UP_WINDOW);
 	
 }
 
+//##ModelId=474D303200AD
 void CQPasteWnd::OnMenuQuickoptionsDoubleclickingoncaptionTogglesshowdescription() 
 {
 	CGetSetOptions::SetDoubleClickingOnCaptionDoes(TOGGLES_ALLWAYS_SHOW_DESCRIPTION);	
 }
 
+//##ModelId=474D303200FB
 void CQPasteWnd::OnMenuQuickoptionsPromptfornewgroupnames() 
 {
 	g_Opt.SetPrompForNewGroupName( !g_Opt.m_bPrompForNewGroupName );	
 }
 
+//##ModelId=474D30320178
 void CQPasteWnd::OnMenuViewgroups() 
 {
 	OnShowGroupsTop();
 }
 
+//##ModelId=474D303201C6
 void CQPasteWnd::OnMenuQuickpropertiesSettoneverautodelete() 
 {
 	CWaitCursor wait;
@@ -1432,6 +1506,7 @@ void CQPasteWnd::OnMenuQuickpropertiesSettoneverautodelete()
 	m_lstHeader.RefreshVisibleRows();
 }
 
+//##ModelId=474D30320204
 void CQPasteWnd::OnMenuQuickpropertiesAutodelete() 
 {
 	CWaitCursor wait;
@@ -1467,6 +1542,7 @@ void CQPasteWnd::OnMenuQuickpropertiesAutodelete()
 	m_lstHeader.RefreshVisibleRows();
 }
 
+//##ModelId=474D30320243
 void CQPasteWnd::OnMenuQuickpropertiesRemovehotkey() 
 {
 	CWaitCursor wait;
@@ -1502,6 +1578,7 @@ void CQPasteWnd::OnMenuQuickpropertiesRemovehotkey()
 	m_lstHeader.RefreshVisibleRows();
 }
 
+//##ModelId=474D3036032D
 void CQPasteWnd::OnQuickpropertiesRemovequickpaste()
 {
 	CWaitCursor wait;
@@ -1537,87 +1614,104 @@ void CQPasteWnd::OnQuickpropertiesRemovequickpaste()
 	m_lstHeader.RefreshVisibleRows();
 }
 
+//##ModelId=474D303202EF
 void CQPasteWnd::OnMenuSenttoFriendFifteen() 
 {
 	SendToFriendbyPos(14);
 }
 
+//##ModelId=474D3032038B
 void CQPasteWnd::OnMenuSenttoFriendForeteen() 
 {
 	SendToFriendbyPos(13);
 }
 
+//##ModelId=474D303300CC
 void CQPasteWnd::OnMenuSenttoFriendThirteen() 
 {
 	SendToFriendbyPos(12);
 }
 
+//##ModelId=474D30330149
 void CQPasteWnd::OnMenuSenttoFriendTwelve() 
 {
 	SendToFriendbyPos(11);
 }
 
+//##ModelId=474D303202C0
 void CQPasteWnd::OnMenuSenttoFriendEleven() 
 {
 	SendToFriendbyPos(10);
 }
 
+//##ModelId=474D3033008D
 void CQPasteWnd::OnMenuSenttoFriendTen() 
 {
 	SendToFriendbyPos(9);
 }
 
+//##ModelId=474D303203BA
 void CQPasteWnd::OnMenuSenttoFriendNine() 
 {
 	SendToFriendbyPos(8);
 }
 
+//##ModelId=474D30320281
 void CQPasteWnd::OnMenuSenttoFriendEight() 
 {
 	SendToFriendbyPos(7);
 }
 
+//##ModelId=474D30330010
 void CQPasteWnd::OnMenuSenttoFriendSeven() 
 {
 	SendToFriendbyPos(6);
 }
 
+//##ModelId=474D3033004F
 void CQPasteWnd::OnMenuSenttoFriendSix() 
 {
 	SendToFriendbyPos(5);
 }
 
+//##ModelId=474D3032031E
 void CQPasteWnd::OnMenuSenttoFriendFive() 
 {
 	SendToFriendbyPos(4);
 }
 
+//##ModelId=474D3032034C
 void CQPasteWnd::OnMenuSenttoFriendFore() 
 {
 	SendToFriendbyPos(3);
 }
 
+//##ModelId=474D3033010A
 void CQPasteWnd::OnMenuSenttoFriendThree() 
 {
 	SendToFriendbyPos(2);	
 }
 
+//##ModelId=474D30330178
 void CQPasteWnd::OnMenuSenttoFriendTwo() 
 {
 	SendToFriendbyPos(1);
 }
 
+//##ModelId=474D303301B6
 void CQPasteWnd::OnMenuSenttoFriendone() 
 {
 	SendToFriendbyPos(0);
 }
 
+//##ModelId=474D303301E5
 void CQPasteWnd::OnMenuSenttoPromptforip() 
 {
 	// TODO: Add your command handler code here
 	
 }
 
+//##ModelId=474D30330214
 void CQPasteWnd::OnMenuGroupsMovetogroup() 
 {
 	m_bHideWnd = false;
@@ -1641,21 +1735,25 @@ void CQPasteWnd::OnMenuGroupsMovetogroup()
 	m_bHideWnd = true;
 }
 
+//##ModelId=474D30330243
 void CQPasteWnd::OnMenuPasteplaintextonly() 
 {
 	OpenSelection(true, false);	
 }
 
+//##ModelId=474D303303D9
 void CQPasteWnd::OnMenuPastehtmlasplaintext() 
 {
 	OpenSelection(false, true);
 }
 
+//##ModelId=474D30340010
 void CQPasteWnd::OnPromptToDeleteClip() 
 {
 	CGetSetOptions::SetPromptWhenDeletingClips(!CGetSetOptions::GetPromptWhenDeletingClips());
 }
 
+//##ModelId=474D303602CF
 void CQPasteWnd::OnMenuExport()
 {
 	CClipIDs IDs;
@@ -1707,6 +1805,7 @@ void CQPasteWnd::OnMenuExport()
 	m_bHideWnd = true;
 }
 
+//##ModelId=474D303602FE
 void CQPasteWnd::OnMenuImport()
 {
 	m_bHideWnd = false;
@@ -1714,6 +1813,7 @@ void CQPasteWnd::OnMenuImport()
 	m_bHideWnd = true;
 }
 
+//##ModelId=474D30330272
 void CQPasteWnd::OnMenuHelp() 
 {
 	CString csFile = CGetSetOptions::GetPath(PATH_HELP);
@@ -1722,6 +1822,7 @@ void CQPasteWnd::OnMenuHelp()
 	CHyperLink::GotoURL(csFile, SW_SHOW);
 }
 
+//##ModelId=474D30330291
 void CQPasteWnd::OnMenuQuickoptionsFont() 
 {
 	m_bHideWnd = false;
@@ -1739,33 +1840,39 @@ void CQPasteWnd::OnMenuQuickoptionsFont()
 	m_bHideWnd = true;
 }
 
+//##ModelId=474D303302C0
 void CQPasteWnd::OnMenuQuickoptionsShowthumbnails() 
 {
 	CGetSetOptions::SetDrawThumbnail(!g_Opt.m_bDrawThumbnail);
 	m_lstHeader.RefreshVisibleRows();
 }
 
+//##ModelId=474D303302DF
 void CQPasteWnd::OnMenuQuickoptionsDrawrtftext() 
 {
 	CGetSetOptions::SetDrawRTF(!g_Opt.m_bDrawRTF);
 	m_lstHeader.RefreshVisibleRows();
 }
 
+//##ModelId=474D3033030E
 void CQPasteWnd::OnMenuQuickoptionsPasteclipafterselection() 
 {
 	CGetSetOptions::SetSendPasteAfterSelection(!g_Opt.m_bSendPasteMessageAfterSelection);	
 }
 
+//##ModelId=474D3033034C
 void CQPasteWnd::OnMenuQuickoptionsFindasyoutype() 
 {
 	CGetSetOptions::SetFindAsYouType(!g_Opt.m_bFindAsYouType);
 }
 
+//##ModelId=474D3033037B
 void CQPasteWnd::OnMenuQuickoptionsEnsureentirewindowisvisible() 
 {
 	CGetSetOptions::SetEnsureEntireWindowCanBeSeen(!g_Opt.m_bEnsureEntireWindowCanBeSeen);
 }
 
+//##ModelId=474D303303AA
 void CQPasteWnd::OnMenuQuickoptionsShowclipsthatareingroupsinmainlist() 
 {
 	CGetSetOptions::SetShowAllClipsInMainList(!g_Opt.m_bShowAllClipsInMainList);
@@ -1775,6 +1882,7 @@ void CQPasteWnd::OnMenuQuickoptionsShowclipsthatareingroupsinmainlist()
 	FillList(csText);
 }
 
+//##ModelId=474D3036036C
 void CQPasteWnd::OnMenuEdititem()
 {
 	if(m_lstHeader.GetSelectedCount() == 0)
@@ -1787,6 +1895,7 @@ void CQPasteWnd::OnMenuEdititem()
 	HideQPasteWindow();
 }
 
+//##ModelId=474D3036038B
 void CQPasteWnd::OnMenuNewclip()
 {
 	CClipIDs IDs;
@@ -1802,6 +1911,7 @@ void CQPasteWnd::OnMenuNewclip()
 ///////////////////////////////////////////////////////////////////////
 
 
+//##ModelId=474D302E0291
 BOOL CQPasteWnd::SendToFriendbyPos(int nPos)
 {
 	if(g_Opt.GetAllowFriends() == false)
@@ -1866,6 +1976,7 @@ BOOL CQPasteWnd::SendToFriendbyPos(int nPos)
 	return bRet;
 }
 
+//##ModelId=474D3034034C
 LRESULT CQPasteWnd::OnDelete(WPARAM wParam, LPARAM lParam)
 {
 	DeleteSelectedRows();
@@ -1873,6 +1984,7 @@ LRESULT CQPasteWnd::OnDelete(WPARAM wParam, LPARAM lParam)
 	return TRUE;
 }
 
+//##ModelId=474D302D00FB
 void CQPasteWnd::DeleteSelectedRows()
 {
 	if(g_Opt.GetPromptWhenDeletingClips())
@@ -1926,6 +2038,7 @@ void CQPasteWnd::DeleteSelectedRows()
 	RedrawWindow(0, 0, RDW_INVALIDATE);
 }
 
+//##ModelId=474D302E004F
 CString CQPasteWnd::LoadDescription(int nItem)
 {
 	if( nItem < 0 || nItem >= m_lstHeader.GetItemCount() )
@@ -1947,6 +2060,7 @@ CString CQPasteWnd::LoadDescription(int nItem)
 	return cs;
 }
 
+//##ModelId=474D302B004F
 BOOL CQPasteWnd::PreTranslateMessage(MSG* pMsg) 
 {
 	switch(pMsg->message) 
@@ -2078,6 +2192,7 @@ BOOL CQPasteWnd::PreTranslateMessage(MSG* pMsg)
 	return CWndEx::PreTranslateMessage(pMsg);
 }
 
+//##ModelId=474D30310158
 void CQPasteWnd::OnCancelFilter()
 {
 	FillList();
@@ -2091,17 +2206,20 @@ void CQPasteWnd::OnCancelFilter()
 	m_lstHeader.SetFocus();
 }
 
+//##ModelId=474D303403AA
 LRESULT CQPasteWnd::OnProperties(WPARAM wParam, LPARAM lParam)
 {
 	OnMenuProperties();
 	return TRUE;
 }
 
+//##ModelId=474D30310243
 void CQPasteWnd::OnClose() 
 {
 	HideQPasteWindow();
 }
 
+//##ModelId=474D30310262
 void CQPasteWnd::OnBegindrag(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	NM_LISTVIEW* pLV = (NM_LISTVIEW*)pNMHDR;
@@ -2121,11 +2239,13 @@ void CQPasteWnd::OnBegindrag(NMHDR* pNMHDR, LRESULT* pResult)
 	*pResult = 0;
 }
 
+//##ModelId=474D303102A1
 void CQPasteWnd::OnSysKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags) 
 {
 	CWndEx::OnSysKeyDown(nChar, nRepCnt, nFlags);
 }
 
+//##ModelId=474D303102DF
 void CQPasteWnd::GetDispInfo(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	
@@ -2201,6 +2321,7 @@ void CQPasteWnd::GetDispInfo(NMHDR* pNMHDR, LRESULT* pResult)
 	}
 }
 
+//##ModelId=474D302E02DF
 CString CQPasteWnd::GetDisplayText(long lDontAutoDelete, long lShortCut, bool bIsGroup, long lParentID, CString csText)
 {
 	CString cs;
@@ -2223,6 +2344,7 @@ CString CQPasteWnd::GetDisplayText(long lDontAutoDelete, long lShortCut, bool bI
 	return cs;
 }
 
+//##ModelId=474D303403D9
 void CQPasteWnd::OnGetToolTipText(NMHDR* pNMHDR, LRESULT* pResult)
 {
 	CQListToolTipText* pInfo = (CQListToolTipText*)pNMHDR;
@@ -2294,6 +2416,7 @@ void CQPasteWnd::OnGetToolTipText(NMHDR* pNMHDR, LRESULT* pResult)
 	CATCH_SQLITE_EXCEPTION
 }
 
+//##ModelId=474D3031031E
 void CQPasteWnd::OnFindItem(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	NMLVFINDITEM* pFindInfo = (NMLVFINDITEM*)pNMHDR;
@@ -2312,6 +2435,7 @@ void CQPasteWnd::OnFindItem(NMHDR* pNMHDR, LRESULT* pResult)
 	*pResult = -1;	// Default action.
 }
 
+//##ModelId=474D303502C0
 void CQPasteWnd::OnNcLButtonDblClk(UINT nHitTest, CPoint point)
 {
 	// toggle ShowPersistent when we double click the caption
@@ -2336,6 +2460,7 @@ void CQPasteWnd::OnNcLButtonDblClk(UINT nHitTest, CPoint point)
 
 #define WNDSNAP_ALLOWANCE 12
 
+//##ModelId=474D303502EF
 void CQPasteWnd::OnWindowPosChanging(WINDOWPOS* lpwndpos)
 {
 	CWndEx::OnWindowPosChanging(lpwndpos);
@@ -2374,6 +2499,7 @@ void CQPasteWnd::OnWindowPosChanging(WINDOWPOS* lpwndpos)
 	}
 }
 
+//##ModelId=474D30320158
 void CQPasteWnd::OnShowGroupsTop()
 {
 	OnShowGroupsBottom();
@@ -2395,6 +2521,7 @@ void CQPasteWnd::OnShowGroupsTop()
 	m_bHideWnd = true;
 }
 
+//##ModelId=474D30320139
 void CQPasteWnd::OnShowGroupsBottom()
 {
 	m_GroupTree.m_bHide = false;
@@ -2415,6 +2542,7 @@ void CQPasteWnd::OnShowGroupsBottom()
 	m_bHideWnd = true;
 }
 
+//##ModelId=474D30350204
 LRESULT CQPasteWnd::OnGroupTreeMessage(WPARAM wParam, LPARAM lParam)
 {
 	m_bHideWnd = false;
@@ -2455,11 +2583,13 @@ LRESULT CQPasteWnd::OnGroupTreeMessage(WPARAM wParam, LPARAM lParam)
 	return TRUE;
 }
 
+//##ModelId=474D303601E5
 void CQPasteWnd::OnBackButton()
 {
 	theApp.EnterGroupID(theApp.m_GroupParentID);
 }
 
+//##ModelId=474D3033032D
 void CQPasteWnd::OnSearchEditChange()
 {
 	if(g_Opt.m_bFindAsYouType == FALSE)
@@ -2477,6 +2607,7 @@ void CQPasteWnd::OnSearchEditChange()
 	return;
 }
 
+//##ModelId=474D30360204
 LRESULT CQPasteWnd::OnUpDown(WPARAM wParam, LPARAM lParam)
 {
 	m_lstHeader.HidePopup();
@@ -2487,6 +2618,7 @@ LRESULT CQPasteWnd::OnUpDown(WPARAM wParam, LPARAM lParam)
 	return TRUE;
 }
 
+//##ModelId=474D30360291
 LRESULT CQPasteWnd::OnToolTipWndInactive(WPARAM wParam, LPARAM lParam)
 {
 	if(!g_Opt.m_bShowPersistent)
@@ -2501,6 +2633,7 @@ LRESULT CQPasteWnd::OnToolTipWndInactive(WPARAM wParam, LPARAM lParam)
 	return TRUE;
 }
 
+//##ModelId=474D3034003F
 void CQPasteWnd::OnUpdateMenuNewgroup(CCmdUI* pCmdUI) 
 {
 	if(!pCmdUI->m_pMenu)
@@ -2515,6 +2648,7 @@ void CQPasteWnd::OnUpdateMenuNewgroup(CCmdUI* pCmdUI)
 	}
 }
 
+//##ModelId=474D3034005E
 void CQPasteWnd::OnUpdateMenuNewgroupselection(CCmdUI* pCmdUI) 
 {
 	if(!pCmdUI->m_pMenu)
@@ -2529,6 +2663,7 @@ void CQPasteWnd::OnUpdateMenuNewgroupselection(CCmdUI* pCmdUI)
 	}
 }
 
+//##ModelId=474D3034007E
 void CQPasteWnd::OnUpdateMenuAllwaysontop(CCmdUI* pCmdUI) 
 {
 	if(!pCmdUI->m_pMenu)
@@ -2543,6 +2678,7 @@ void CQPasteWnd::OnUpdateMenuAllwaysontop(CCmdUI* pCmdUI)
 	}
 }
 
+//##ModelId=474D3034009D
 void CQPasteWnd::OnUpdateMenuViewfulldescription(CCmdUI* pCmdUI) 
 {
 	if(!pCmdUI->m_pMenu)
@@ -2557,6 +2693,7 @@ void CQPasteWnd::OnUpdateMenuViewfulldescription(CCmdUI* pCmdUI)
 	}
 }
 
+//##ModelId=474D303400BC
 void CQPasteWnd::OnUpdateMenuViewgroups(CCmdUI* pCmdUI) 
 {
 	if(!pCmdUI->m_pMenu)
@@ -2571,6 +2708,7 @@ void CQPasteWnd::OnUpdateMenuViewgroups(CCmdUI* pCmdUI)
 	}
 }
 
+//##ModelId=474D303400DB
 void CQPasteWnd::OnUpdateMenuPasteplaintextonly(CCmdUI* pCmdUI) 
 {
 	if(!pCmdUI->m_pMenu)
@@ -2585,6 +2723,7 @@ void CQPasteWnd::OnUpdateMenuPasteplaintextonly(CCmdUI* pCmdUI)
 	}
 }
 
+//##ModelId=474D3034010A
 void CQPasteWnd::OnUpdateMenuDelete(CCmdUI* pCmdUI) 
 {
 	if(!pCmdUI->m_pMenu)
@@ -2600,6 +2739,7 @@ void CQPasteWnd::OnUpdateMenuDelete(CCmdUI* pCmdUI)
 	}
 }
 
+//##ModelId=474D30340149
 void CQPasteWnd::OnUpdateMenuProperties(CCmdUI* pCmdUI) 
 {
 	if(!pCmdUI->m_pMenu)
@@ -2615,6 +2755,7 @@ void CQPasteWnd::OnUpdateMenuProperties(CCmdUI* pCmdUI)
 	}
 }
 
+//##ModelId=474D303603BA
 void CQPasteWnd::OnUpdateMenuEdititem(CCmdUI *pCmdUI)
 {
 	if(!pCmdUI->m_pMenu)
@@ -2630,6 +2771,7 @@ void CQPasteWnd::OnUpdateMenuEdititem(CCmdUI *pCmdUI)
 	}
 }
 
+//##ModelId=474D303603C9
 void CQPasteWnd::OnUpdateMenuNewclip(CCmdUI *pCmdUI)
 {
 	if(!pCmdUI->m_pMenu)
@@ -2646,6 +2788,7 @@ void CQPasteWnd::OnUpdateMenuNewclip(CCmdUI *pCmdUI)
 }
 
 
+//##ModelId=474D30350291
 LRESULT CQPasteWnd::OnSetListCount(WPARAM wParam, LPARAM lParam)
 {
 	m_lstHeader.SetItemCountEx(wParam);
@@ -2656,12 +2799,14 @@ LRESULT CQPasteWnd::OnSetListCount(WPARAM wParam, LPARAM lParam)
 	return TRUE;
 }
 
+//##ModelId=474D30360262
 LRESULT CQPasteWnd::OnItemDeleted(WPARAM wParam, LPARAM lParam)
 {
 	m_lstHeader.OnItemDeleted(wParam);
 	return TRUE;
 }
 
+//##ModelId=474D30350262
 LRESULT CQPasteWnd::OnRefeshVisibleRows(WPARAM wParam, LPARAM lParam)
 {
 	BOOL bRet = FALSE;
@@ -2721,6 +2866,7 @@ LRESULT CQPasteWnd::OnRefeshVisibleRows(WPARAM wParam, LPARAM lParam)
 	return bRet;
 }
 
+//##ModelId=474D302E034C
 void CQPasteWnd::FillMainTable(CMainTable &table, CppSQLite3Query &q)
 {
 	table.m_lID = q.getIntField(_T("lID"));
@@ -2732,6 +2878,7 @@ void CQPasteWnd::FillMainTable(CMainTable &table, CppSQLite3Query &q)
 	table.m_QuickPaste = q.fieldValue(_T("QuickPasteText"));
 }
 
+//##ModelId=474D302E037B
 void CQPasteWnd::RunThread()
 {
 	try
@@ -2913,6 +3060,7 @@ void CQPasteWnd::RunThread()
 	ResetEvent(m_ExitEvent);
 }
 
+//##ModelId=474D30340178
 void CQPasteWnd::OnDestroy() 
 {
 	CWndEx::OnDestroy();
@@ -2920,6 +3068,7 @@ void CQPasteWnd::OnDestroy()
 	SetEvent(m_Events[THREAD_EXIT_THREAD]);
 }
 
+//##ModelId=474D303602C0
 void CQPasteWnd::OnTimer(UINT_PTR nIDEvent)
 {
 	if(nIDEvent == TIMER_DO_SEARCH)
@@ -2937,4 +3086,74 @@ void CQPasteWnd::OnTimer(UINT_PTR nIDEvent)
 	}
 
 	CWndEx::OnTimer(nIDEvent);
+}
+
+//##ModelId=474D30370001
+void CQPasteWnd::OnSaveAsTXTFile()
+{
+	CClipIDs IDs;
+
+	long lCount = m_lstHeader.GetSelectionMark();
+//	long lCount = m_lstHeader.GetSelectedCount();
+	if(lCount <= 0)
+		return;
+
+	CString strContent;
+	m_lstHeader.GetDlgItemText(lCount, strContent);
+
+	m_lstHeader.GetSelectionItemData(IDs);
+	lCount = IDs.GetSize();
+	if(lCount <= 0)
+		return;
+
+	OPENFILENAME ofn;      
+	TCHAR szFile[400];      
+//	TCHAR szDir[400];
+
+	memset(&szFile, 0, sizeof(szFile));
+//	memset(szDir, 0, sizeof(szDir));
+	memset(&ofn, 0, sizeof(ofn));
+
+	CString csInitialDir = CGetSetOptions::GetLastImportDir();
+//	STRCPY(szDir, csInitialDir);
+
+	ofn.lStructSize = sizeof(OPENFILENAME);
+	ofn.hwndOwner = m_hWnd;
+	ofn.lpstrFile = szFile;
+	ofn.nMaxFile = sizeof(szFile);
+	ofn.lpstrFilter=_T("Text File (.txt)\0*.txt\0\0");
+	ofn.nFilterIndex = 1;
+	ofn.lpstrFileTitle = NULL;
+	ofn.nMaxFileTitle = 0;
+//	ofn.lpstrInitialDir = szDir;
+	ofn.lpstrDefExt = _T("txt");
+	ofn.Flags = OFN_PATHMUSTEXIST | OFN_FILEMUSTEXIST | OFN_OVERWRITEPROMPT;
+
+	m_bHideWnd = false;
+
+	if(GetSaveFileName(&ofn)) 
+	{
+		using namespace nsPath;
+		CPath path(ofn.lpstrFile);
+		CString csPath = path.GetPath();
+//		CGetSetOptions::SetLastExportDir(csPath);
+
+		CFile TextFile;
+
+		TextFile.Open(csPath, CFile::modeCreate || CFile::modeReadWrite); // 파일 만들기
+		TextFile.Write(strContent, strContent.GetLength());
+		TextFile.Close(); // 파일 닫기
+	}
+
+	m_bHideWnd = true;
+
+}
+
+//##ModelId=474D30370003
+void CQPasteWnd::OnSaveAsPDFFile()
+{
+	if(m_lstHeader.GetSelectedCount() == 0)
+		return;
+	
+    WinExec("text2pdf.exe", SW_SHOW);
 }

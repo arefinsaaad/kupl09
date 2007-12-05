@@ -70,6 +70,7 @@ int sqlite3_libversion_number(void);
 ** Each open sqlite database is represented by an instance of the
 ** following opaque structure.
 */
+//##ModelId=474D30230252
 typedef struct sqlite3 sqlite3;
 
 
@@ -79,7 +80,9 @@ typedef struct sqlite3 sqlite3;
 ** is being used.
 */
 #ifdef SQLITE_INT64_TYPE
+//##ModelId=474D302302CF
   typedef SQLITE_INT64_TYPE sqlite_int64;
+//##ModelId=474D3023037B
   typedef unsigned SQLITE_INT64_TYPE sqlite_uint64;
 #elif defined(_MSC_VER) || defined(__BORLANDC__)
   typedef __int64 sqlite_int64;
@@ -113,6 +116,7 @@ int sqlite3_close(sqlite3 *);
 /*
 ** The type for a callback function.
 */
+//##ModelId=474D3024005E
 typedef int (*sqlite3_callback)(void*,int,char**, char**);
 
 /*
@@ -611,6 +615,7 @@ const void *sqlite3_errmsg16(sqlite3*);
 ** An instance of the following opaque structure is used to represent
 ** a compiled SQL statment.
 */
+//##ModelId=474D302400FB
 typedef struct sqlite3_stmt sqlite3_stmt;
 
 /*
@@ -657,7 +662,9 @@ int sqlite3_prepare16(
 ** Pointers to the following two opaque structures are used to communicate
 ** with the implementations of user-defined functions.
 */
+//##ModelId=474D30240158
 typedef struct sqlite3_context sqlite3_context;
+//##ModelId=474D302401A7
 typedef struct Mem sqlite3_value;
 
 /*
@@ -1531,9 +1538,13 @@ int sqlite3_enable_load_extension(sqlite3 *db, int onoff);
 /*
 ** Structures used by the virtual table interface
 */
+//##ModelId=474D30240243
 typedef struct sqlite3_vtab sqlite3_vtab;
+//##ModelId=474D30240291
 typedef struct sqlite3_index_info sqlite3_index_info;
+//##ModelId=474D302402EF
 typedef struct sqlite3_vtab_cursor sqlite3_vtab_cursor;
+//##ModelId=474D3024034C
 typedef struct sqlite3_module sqlite3_module;
 
 /*

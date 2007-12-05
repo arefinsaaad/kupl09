@@ -14,6 +14,7 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // CClipboardViewer
 
+//##ModelId=474D3075037C
 CClipboardViewer::CClipboardViewer(CCopyThread* pHandler) :
 	m_hNextClipboardViewer(0),
 	m_bCalling_SetClipboardViewer(false),
@@ -27,6 +28,7 @@ CClipboardViewer::CClipboardViewer(CCopyThread* pHandler) :
 
 }
 
+//##ModelId=474D3075038C
 CClipboardViewer::~CClipboardViewer()
 {
 }
@@ -46,6 +48,7 @@ END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // CClipboardViewer message handlers
+//##ModelId=474D3075039C
 void CClipboardViewer::Create()
 {
 	CString strParentClass = AfxRegisterWndClass(0);
@@ -55,6 +58,7 @@ void CClipboardViewer::Create()
 }
 
 // connects as a clipboard viewer
+//##ModelId=474D3076007E
 void CClipboardViewer::Connect()
 {
 	Log(_T("Connect to Clipboard"));
@@ -70,12 +74,14 @@ void CClipboardViewer::Connect()
 	SetEnsureConnectedTimer();
 }
 
+//##ModelId=474D3076009F
 void CClipboardViewer::SetEnsureConnectedTimer()
 {
 	SetTimer(TIMER_ENSURE_VIEWER_IN_CHAIN, ONE_MINUTE*5, NULL);
 }
 
 // disconnects as a clipboard viewer
+//##ModelId=474D3076007F
 void CClipboardViewer::Disconnect(bool bSendPing)
 {
 	Log(_T("Disconnect From Clipboard"));
@@ -100,6 +106,7 @@ void CClipboardViewer::Disconnect(bool bSendPing)
 		SendPing();
 }
 
+//##ModelId=474D3076008D
 void CClipboardViewer::SendPing()
 {
 	if(g_Opt.m_bEnsureConnectToClipboard)
@@ -116,6 +123,7 @@ void CClipboardViewer::SendPing()
 	}
 }
 
+//##ModelId=474D3076009D
 void CClipboardViewer::SetConnect(bool bConnect)
 {
 	m_bConnect = bConnect;
@@ -139,6 +147,7 @@ void CClipboardViewer::SetConnect(bool bConnect)
 /////////////////////////////////////////////////////////////////////////////
 // CClipboardViewer message handlers
 
+//##ModelId=474D307600CC
 int CClipboardViewer::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
 	if(CWnd::OnCreate(lpCreateStruct) == -1)
@@ -150,12 +159,14 @@ int CClipboardViewer::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	return 0;
 }
 
+//##ModelId=474D3076010A
 void CClipboardViewer::OnDestroy()
 {
 	Disconnect();
 	CWnd::OnDestroy();
 }
 
+//##ModelId=474D3076011A
 void CClipboardViewer::OnChangeCbChain(HWND hWndRemove, HWND hWndAfter) 
 {
 	Log(_T("OnChangeCbChain"));
@@ -180,6 +191,7 @@ void CClipboardViewer::OnChangeCbChain(HWND hWndRemove, HWND hWndAfter)
 }
 
 //Message that the clipboard data has changed
+//##ModelId=474D3076012C
 void CClipboardViewer::OnDrawClipboard() 
 {
 	if(::IsClipboardFormatAvailable(theApp.m_PingFormat))
@@ -221,6 +233,7 @@ void CClipboardViewer::OnDrawClipboard()
 	}
 }
 
+//##ModelId=474D3076013A
 void CClipboardViewer::OnTimer(UINT nIDEvent) 
 {
 	switch(nIDEvent)
@@ -290,6 +303,7 @@ void CClipboardViewer::OnTimer(UINT nIDEvent)
 	CWnd::OnTimer(nIDEvent);
 }
 
+//##ModelId=474D30760188
 LRESULT CClipboardViewer::OnSetConnect(WPARAM wParam, LPARAM lParam)
 {
 	bool bConnect = wParam == TRUE;

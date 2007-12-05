@@ -24,6 +24,7 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // CQListCtrl
 
+//##ModelId=474D3083009E
 CQListCtrl::CQListCtrl()
 {
 	m_pchTip = NULL;
@@ -54,6 +55,7 @@ CQListCtrl::CQListCtrl()
 	m_pFormatter = NULL;
 }
 
+//##ModelId=474D30830158
 CQListCtrl::~CQListCtrl()
 {
 	if(m_pchTip != NULL)
@@ -75,6 +77,7 @@ CQListCtrl::~CQListCtrl()
 }
 
 // returns the position 1-10 if the index is in the FirstTen block else -1
+//##ModelId=474D30830197
 int CQListCtrl::GetFirstTenNum( int index )
 {
 	// set firstTenNum to the first ten number (1-10) corresponding to the given index
@@ -98,6 +101,7 @@ int CQListCtrl::GetFirstTenNum( int index )
 
 // returns the list index corresponding to the given FirstTen position number.
 // (ret < 0) means that "num" is not in the FirstTen block
+//##ModelId=474D308301D5
 int CQListCtrl::GetFirstTenIndex( int num )
 {
 	if( num <= 0 || num > 10 )
@@ -134,6 +138,7 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CQListCtrl message handlers
 
+//##ModelId=474D3084034C
 void CQListCtrl::OnKeydown(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	LV_KEYDOWN* pLVKeyDown = (LV_KEYDOWN*)pNMHDR;
@@ -171,6 +176,7 @@ void CQListCtrl::OnKeydown(NMHDR* pNMHDR, LRESULT* pResult)
 	*pResult = 0;
 }
 
+//##ModelId=474D30850001
 void CQListCtrl::OnDblclk(NMHDR* pNMHDR, LRESULT* pResult) 
 {
 	LPNMITEMACTIVATE lpnmItem = (LPNMITEMACTIVATE) pNMHDR;
@@ -186,16 +192,19 @@ void CQListCtrl::OnDblclk(NMHDR* pNMHDR, LRESULT* pResult)
 	*pResult = 0;
 }
 
+//##ModelId=474D308400FB
 void CQListCtrl::SendSelection(int nItem)
 {
 	GetParent()->SendMessage(NM_SELECT, 1, (LPARAM) &nItem);
 }
 
+//##ModelId=474D30840158
 void CQListCtrl::SendSelection(ARRAY &arrItems)
 {
 	GetParent()->SendMessage(NM_SELECT, arrItems.GetSize(), (LPARAM) arrItems.GetData());
 }
 
+//##ModelId=474D30830224
 void CQListCtrl::GetSelectionIndexes(ARRAY &arr)
 {
 	arr.RemoveAll();
@@ -207,6 +216,7 @@ void CQListCtrl::GetSelectionIndexes(ARRAY &arr)
 	}
 }
 
+//##ModelId=474D308303AA
 bool CQListCtrl::PutSelectedItemOnDittoCopyBuffer(long lBuffer)
 {
 	bool bRet = false;
@@ -222,6 +232,7 @@ bool CQListCtrl::PutSelectedItemOnDittoCopyBuffer(long lBuffer)
 	return bRet;
 }
 
+//##ModelId=474D30830243
 void CQListCtrl::GetSelectionItemData(ARRAY &arr)
 {
 	DWORD dwData;
@@ -236,6 +247,7 @@ void CQListCtrl::GetSelectionItemData(ARRAY &arr)
 	}
 }
 
+//##ModelId=474D30830281
 void CQListCtrl::RemoveAllSelection()
 {
 	POSITION pos = GetFirstSelectedItemPosition();
@@ -245,6 +257,7 @@ void CQListCtrl::RemoveAllSelection()
 	}
 }
 
+//##ModelId=474D30830291
 BOOL CQListCtrl::SetSelection(int nRow, BOOL bSelect)
 {
 	if(bSelect)
@@ -253,11 +266,13 @@ BOOL CQListCtrl::SetSelection(int nRow, BOOL bSelect)
 		return SetItemState(nRow, ~LVIS_SELECTED, LVIS_SELECTED);
 }
 
+//##ModelId=474D308302CF
 BOOL CQListCtrl::SetText(int nRow, int nCol, CString cs)
 {
 	return SetItemText(nRow, nCol, cs);
 }
 
+//##ModelId=474D3083033D
 BOOL CQListCtrl::SetCaret(int nRow, BOOL bFocus)	
 {
 	if(bFocus)
@@ -266,12 +281,14 @@ BOOL CQListCtrl::SetCaret(int nRow, BOOL bFocus)
 		return SetItemState(nRow, ~LVIS_FOCUSED, LVIS_FOCUSED);
 }
 
+//##ModelId=474D3083036C
 long CQListCtrl::GetCaret()
 {
 	return GetNextItem(-1, LVNI_FOCUSED);
 }
 
 // moves the caret to the given index, selects it, and ensures it is visible.
+//##ModelId=474D3083038B
 BOOL CQListCtrl::SetListPos( int index )
 {
 	if( index < 0 || index >= GetItemCount() )
@@ -304,6 +321,7 @@ BOOL CQListCtrl::SetListPos( int index )
 	return TRUE;
 }
 
+//##ModelId=474D308302FE
 BOOL CQListCtrl::SetFormattedText(int nRow, int nCol, LPCTSTR lpszFormat,...)
 {
 	CString csText;
@@ -317,6 +335,7 @@ BOOL CQListCtrl::SetFormattedText(int nRow, int nCol, LPCTSTR lpszFormat,...)
 	return SetText(nRow,nCol,csText);
 }
 
+//##ModelId=474D30830204
 void CQListCtrl::SetNumberOfLinesPerRow(int nLines)
 {
 	CDC *pDC = GetDC();
@@ -341,6 +360,7 @@ void CQListCtrl::SetNumberOfLinesPerRow(int nLines)
 	ReleaseDC(pDC);
 }
 
+//##ModelId=474D3085006E
 void CQListCtrl::OnCustomdrawList(NMHDR* pNMHDR, LRESULT* pResult)
 {
 	NMLVCUSTOMDRAW* pLVCD = reinterpret_cast<NMLVCUSTOMDRAW*>( pNMHDR );
@@ -535,6 +555,7 @@ void CQListCtrl::OnCustomdrawList(NMHDR* pNMHDR, LRESULT* pResult)
 	}
 }
 
+//##ModelId=474D308401F5
 BOOL CQListCtrl::DrawText(int nItem, CRect &crRect, CDC *pDC)
 {
 	if(g_Opt.m_bDrawRTF == FALSE)
@@ -592,6 +613,7 @@ BOOL CQListCtrl::DrawText(int nItem, CRect &crRect, CDC *pDC)
 // DrawBitMap loads a DIB from the DB, draws a crRect thumbnail of the image
 //  to pDC and caches that thumbnail as a DIB in m_ThumbNails[ ItemID ].
 // ALL items are cached in m_ThumbNails (those without images are cached with NULL m_hgData)
+//##ModelId=474D308401B6
 BOOL CQListCtrl::DrawBitMap(int nItem, CRect &crRect, CDC *pDC)
 {
 	if(g_Opt.m_bDrawThumbnail == FALSE)
@@ -650,6 +672,7 @@ BOOL CQListCtrl::DrawBitMap(int nItem, CRect &crRect, CDC *pDC)
 	return TRUE;
 }
 
+//##ModelId=474D30830272
 void CQListCtrl::RefreshVisibleRows()
 {
 	int nTopIndex = GetTopIndex();
@@ -658,6 +681,7 @@ void CQListCtrl::RefreshVisibleRows()
 	::UpdateWindow(m_hWnd);
 }
 
+//##ModelId=474D308500CC
 void CQListCtrl::OnSysKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags) 
 {
 	if(GetKeyState(VK_RETURN) & 0x800)
@@ -666,6 +690,7 @@ void CQListCtrl::OnSysKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 		CListCtrl::OnSysKeyDown(nChar, nRepCnt, nFlags);
 }
 
+//##ModelId=474D3085011A
 BOOL CQListCtrl::OnEraseBkgnd(CDC* pDC) 
 {
 
@@ -685,6 +710,7 @@ BOOL CQListCtrl::OnEraseBkgnd(CDC* pDC)
 	return CListCtrl::OnEraseBkgnd(pDC);
 }
 
+//##ModelId=474D30850263
 BOOL CQListCtrl::OnToolTipText( UINT id, NMHDR * pNMHDR, LRESULT * pResult )
 {
 	// need to handle both ANSI and UNICODE versions of the message
@@ -756,6 +782,7 @@ BOOL CQListCtrl::OnToolTipText( UINT id, NMHDR * pNMHDR, LRESULT * pResult )
 	return TRUE;    // message was handled
 }
 
+//##ModelId=474D308300BC
 int CQListCtrl::OnToolHitTest(CPoint point, TOOLINFO * pTI) const
 {
 	CRect rect;
@@ -785,6 +812,7 @@ int CQListCtrl::OnToolHitTest(CPoint point, TOOLINFO * pTI) const
 	return -1;
 }
 
+//##ModelId=474D30850139
 int CQListCtrl::OnCreate(LPCREATESTRUCT lpCreateStruct) 
 {
 	if (CListCtrl::OnCreate(lpCreateStruct) == -1)
@@ -800,6 +828,7 @@ int CQListCtrl::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	return 0;
 }
 
+//##ModelId=474D308300EB
 BOOL CQListCtrl::PreTranslateMessage(MSG* pMsg) 
 {
 	DWORD dID;
@@ -845,6 +874,7 @@ BOOL CQListCtrl::PreTranslateMessage(MSG* pMsg)
 	return CListCtrl::PreTranslateMessage(pMsg);
 }
 
+//##ModelId=474D308400AF
 BOOL CQListCtrl::HandleKeyDown(WPARAM wParam, LPARAM lParam)
 {
 	if(m_pToolTip)
@@ -955,6 +985,7 @@ BOOL CQListCtrl::HandleKeyDown(WPARAM wParam, LPARAM lParam)
 	return FALSE;
 }
 
+//##ModelId=474D30840139
 void CQListCtrl::LoadCopyOrCutToClipboard()
 {
 	ARRAY arr;
@@ -982,6 +1013,7 @@ void CQListCtrl::LoadCopyOrCutToClipboard()
 	g_Opt.m_bUpdateTimeOnPaste = bItWas;
 }
 
+//##ModelId=474D3084004F
 void CQListCtrl::ShowFullDescription(bool bFromAuto)
 {
 	int nItem = GetCaret();
@@ -1103,6 +1135,7 @@ void CQListCtrl::ShowFullDescription(bool bFromAuto)
 	}
 }
 
+//##ModelId=474D30840002
 void CQListCtrl::GetToolTipText(int nItem, CString &csText)
 {
 	CWnd* pParent=GetParent();
@@ -1124,11 +1157,13 @@ void CQListCtrl::GetToolTipText(int nItem, CString &csText)
 	}
 }
 
+//##ModelId=474D30840197
 BOOL CQListCtrl::GetClipData(int nItem, CClipFormat &Clip)
 {
 	return theApp.GetClipData(GetItemData(nItem), Clip);
 }
 
+//##ModelId=474D308303D9
 DWORD CQListCtrl::GetItemData(int nItem)
 {
 	if((GetStyle() & LVS_OWNERDATA))
@@ -1155,11 +1190,13 @@ DWORD CQListCtrl::GetItemData(int nItem)
 	return CListCtrl::GetItemData(nItem);
 }
 
+//##ModelId=474D30850158
 void CQListCtrl::OnHScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar) 
 {	
 	CListCtrl::OnHScroll(nSBCode, nPos, pScrollBar);
 }
 
+//##ModelId=474D3084003F
 void CQListCtrl::DestroyAndCreateAccelerator(BOOL bCreate, CppSQLite3DB &db)
 {
 	m_Accels.m_Map.RemoveAll();
@@ -1172,6 +1209,7 @@ void CQListCtrl::DestroyAndCreateAccelerator(BOOL bCreate, CppSQLite3DB &db)
 	}
 }
 
+//##ModelId=474D308401E5
 void CQListCtrl::LoadDittoCopyBufferHotkeys()
 {
 	CCopyBufferItem Item;
@@ -1202,6 +1240,7 @@ void CQListCtrl::LoadDittoCopyBufferHotkeys()
 	}
 }
 
+//##ModelId=474D308502CF
 void CQListCtrl::OnKillFocus(CWnd* pNewWnd)
 {
 	CListCtrl::OnKillFocus(pNewWnd);
@@ -1210,11 +1249,13 @@ void CQListCtrl::OnKillFocus(CWnd* pNewWnd)
 //		m_pToolTip->Hide();
 }
 
+//##ModelId=474D308400AE
 HWND CQListCtrl::GetToolTipHWnd()
 {
 	return m_pToolTip->GetSafeHwnd();
 }
 
+//##ModelId=474D30840051
 BOOL CQListCtrl::SetItemCountEx(int iCount, DWORD dwFlags /* = LVSICF_NOINVALIDATEALL */)
 {
 	theApp.SetStatus(NULL, TRUE);
@@ -1223,6 +1264,7 @@ BOOL CQListCtrl::SetItemCountEx(int iCount, DWORD dwFlags /* = LVSICF_NOINVALIDA
 
 #define TIMER_SHOW_PROPERTIES	1
 
+//##ModelId=474D308501E5
 void CQListCtrl::OnSelectionChange(NMHDR* pNMHDR, LRESULT* pResult)
 {
 	NMLISTVIEW *pnmv = (NMLISTVIEW *) pNMHDR;
@@ -1240,6 +1282,7 @@ void CQListCtrl::OnSelectionChange(NMHDR* pNMHDR, LRESULT* pResult)
 	}
 }
 
+//##ModelId=474D308501C6
 void CQListCtrl::OnTimer(UINT nIDEvent) 
 {
 	if(nIDEvent == TIMER_SHOW_PROPERTIES)
@@ -1252,6 +1295,7 @@ void CQListCtrl::OnTimer(UINT nIDEvent)
 	CListCtrl::OnTimer(nIDEvent);
 }
 
+//##ModelId=474D3084009E
 void CQListCtrl::SetLogFont(LOGFONT &font)
 {
 	m_Font.DeleteObject();
@@ -1261,16 +1305,19 @@ void CQListCtrl::SetLogFont(LOGFONT &font)
 	SetFont(&m_Font);
 }
 
+//##ModelId=474D30850205
 void CQListCtrl::OnVScroll(UINT nSBCode, UINT nPos, CScrollBar* pScrollBar) 
 {
 	CListCtrl::OnVScroll(nSBCode, nPos, pScrollBar);
 }
 
+//##ModelId=474D30850233
 BOOL CQListCtrl::OnMouseWheel(UINT nFlags, short zDelta, CPoint pt) 
 {
 	return CListCtrl::OnMouseWheel(nFlags, zDelta, pt);
 }
 
+//##ModelId=474D3083011A
 BOOL CQListCtrl::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESULT* pLResult) 
 {
 	NMLVCACHEHINT* pcachehint = NULL;
@@ -1292,6 +1339,7 @@ BOOL CQListCtrl::OnChildNotify(UINT message, WPARAM wParam, LPARAM lParam, LRESU
 	return CListCtrl::OnChildNotify(message, wParam, lParam, pLResult);
 }
 
+//##ModelId=474D308400CC
 BOOL CQListCtrl::OnItemDeleted(long lID)
 {
 	BOOL bRet = m_ThumbNails.RemoveKey(lID);

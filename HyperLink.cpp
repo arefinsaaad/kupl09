@@ -31,6 +31,7 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // CHyperLink
 
+//##ModelId=474D30620158
 CHyperLink::CHyperLink()
 {
     m_hLinkCursor       = NULL;                 // No cursor as yet
@@ -44,6 +45,7 @@ CHyperLink::CHyperLink()
     m_strURL.Empty();
 }
 
+//##ModelId=474D30620168
 CHyperLink::~CHyperLink()
 {
     m_Font.DeleteObject();
@@ -61,12 +63,14 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CHyperLink message handlers
 
+//##ModelId=474D306202EF
 BOOL CHyperLink::PreTranslateMessage(MSG* pMsg) 
 {
     m_ToolTip.RelayEvent(pMsg);
     return CStatic::PreTranslateMessage(pMsg);
 }
 
+//##ModelId=474D306302CF
 void CHyperLink::OnClicked()
 {
     int result = (int)GotoURL(m_strURL, SW_SHOW);
@@ -78,6 +82,7 @@ void CHyperLink::OnClicked()
         SetVisited();                        // Repaint to show visited colour
 }
 
+//##ModelId=474D306301C6
 HBRUSH CHyperLink::CtlColor(CDC* pDC, UINT nCtlColor) 
 {
     ASSERT(nCtlColor == CTLCOLOR_STATIC);
@@ -94,6 +99,7 @@ HBRUSH CHyperLink::CtlColor(CDC* pDC, UINT nCtlColor)
     return (HBRUSH)GetStockObject(NULL_BRUSH);
 }
 
+//##ModelId=474D30630281
 void CHyperLink::OnMouseMove(UINT nFlags, CPoint point) 
 {
     CStatic::OnMouseMove(nFlags, point);
@@ -119,6 +125,7 @@ void CHyperLink::OnMouseMove(UINT nFlags, CPoint point)
     }
 }
 
+//##ModelId=474D30630214
 BOOL CHyperLink::OnSetCursor(CWnd* /*pWnd*/, UINT /*nHitTest*/, UINT /*message*/) 
 {
     if (m_hLinkCursor)
@@ -129,6 +136,7 @@ BOOL CHyperLink::OnSetCursor(CWnd* /*pWnd*/, UINT /*nHitTest*/, UINT /*message*/
     return FALSE;
 }
 
+//##ModelId=474D306202FE
 void CHyperLink::PreSubclassWindow() 
 {
     // We want to get mouse clicks via STN_CLICKED
@@ -169,6 +177,7 @@ void CHyperLink::PreSubclassWindow()
 /////////////////////////////////////////////////////////////////////////////
 // CHyperLink operations
 
+//##ModelId=474D3062016A
 void CHyperLink::SetURL(CString strURL)
 {
     m_strURL = strURL;
@@ -179,11 +188,13 @@ void CHyperLink::SetURL(CString strURL)
     }
 }
 
+//##ModelId=474D30620179
 CString CHyperLink::GetURL() const
 { 
     return m_strURL;   
 }
 
+//##ModelId=474D30620187
 void CHyperLink::SetColours(COLORREF crLinkColour, COLORREF crVisitedColour,
                             COLORREF crHoverColour /* = -1 */) 
 { 
@@ -199,21 +210,25 @@ void CHyperLink::SetColours(COLORREF crLinkColour, COLORREF crVisitedColour,
         Invalidate(); 
 }
 
+//##ModelId=474D306201B7
 COLORREF CHyperLink::GetLinkColour() const
 { 
     return m_crLinkColour; 
 }
 
+//##ModelId=474D306201C7
 COLORREF CHyperLink::GetVisitedColour() const
 {
     return m_crVisitedColour; 
 }
 
+//##ModelId=474D306201D5
 COLORREF CHyperLink::GetHoverColour() const
 {
     return m_crHoverColour;
 }
 
+//##ModelId=474D306201E6
 void CHyperLink::SetVisited(BOOL bVisited /* = TRUE */) 
 { 
     m_bVisited = bVisited; 
@@ -222,11 +237,13 @@ void CHyperLink::SetVisited(BOOL bVisited /* = TRUE */)
         Invalidate(); 
 }
 
+//##ModelId=474D306201F6
 BOOL CHyperLink::GetVisited() const
 { 
     return m_bVisited; 
 }
 
+//##ModelId=474D30620204
 void CHyperLink::SetLinkCursor(HCURSOR hCursor)
 { 
     m_hLinkCursor = hCursor;
@@ -234,11 +251,13 @@ void CHyperLink::SetLinkCursor(HCURSOR hCursor)
         SetDefaultCursor();
 }
 
+//##ModelId=474D30620214
 HCURSOR CHyperLink::GetLinkCursor() const
 {
     return m_hLinkCursor;
 }
 
+//##ModelId=474D30620216
 void CHyperLink::SetUnderline(BOOL bUnderline /* = TRUE */)
 {
     m_bUnderline = bUnderline;
@@ -257,11 +276,13 @@ void CHyperLink::SetUnderline(BOOL bUnderline /* = TRUE */)
     }
 }
 
+//##ModelId=474D30620252
 BOOL CHyperLink::GetUnderline() const
 { 
     return m_bUnderline; 
 }
 
+//##ModelId=474D30620272
 void CHyperLink::SetAutoSize(BOOL bAutoSize /* = TRUE */)
 {
     m_bAdjustToFit = bAutoSize;
@@ -270,6 +291,7 @@ void CHyperLink::SetAutoSize(BOOL bAutoSize /* = TRUE */)
         PositionWindow();
 }
 
+//##ModelId=474D306202A1
 BOOL CHyperLink::GetAutoSize() const
 { 
     return m_bAdjustToFit; 
@@ -284,6 +306,7 @@ BOOL CHyperLink::GetAutoSize() const
 //
 // Suggested by Pål K. Tønder 
 
+//##ModelId=474D306203C9
 void CHyperLink::PositionWindow()
 {
     if (!::IsWindow(GetSafeHwnd()) || !m_bAdjustToFit) 
@@ -332,6 +355,7 @@ void CHyperLink::PositionWindow()
 
 // The following appeared in Paul DiLascia's Jan 1998 MSJ articles.
 // It loads a "hand" cursor from the winhlp32.exe module
+//##ModelId=474D30630001
 void CHyperLink::SetDefaultCursor()
 {
     if (m_hLinkCursor == NULL)                // No cursor handle - load our own
@@ -353,6 +377,7 @@ void CHyperLink::SetDefaultCursor()
     }
 }
 
+//##ModelId=474D3062031F
 LONG CHyperLink::GetRegKey(HKEY key, LPCTSTR subkey, LPTSTR retdata)
 {
     HKEY hkey;
@@ -369,6 +394,7 @@ LONG CHyperLink::GetRegKey(HKEY key, LPCTSTR subkey, LPTSTR retdata)
     return retval;
 }
 
+//##ModelId=474D3062030E
 void CHyperLink::ReportError(int nError)
 {
     CString str;
@@ -392,6 +418,7 @@ void CHyperLink::ReportError(int nError)
     AfxMessageBox(str, MB_ICONEXCLAMATION | MB_OK);
 }
 
+//##ModelId=474D306202C0
 HINSTANCE CHyperLink::GotoURL(LPCTSTR url, int showcmd)
 {
     TCHAR key[MAX_PATH + MAX_PATH];

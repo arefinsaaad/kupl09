@@ -150,15 +150,20 @@ namespace nsDetail
 // \todo: consider moving to common utility 
 // \todo: additional debug verification on release
 //
+//##ModelId=474D308B0291
 class CStringLock
 {
 public:
+	//##ModelId=474D308B032D
     CString * m_string;
+	//##ModelId=474D308B038B
     LPTSTR    m_buffer;
 
+	//##ModelId=474D308C0010
     static LPTSTR NullBuffer;
 
 public:
+	//##ModelId=474D308C011A
     CStringLock(CString & s) : m_string(&s)
     {
         m_buffer = m_string->GetBuffer(0);
@@ -167,6 +172,7 @@ public:
             m_buffer = NullBuffer; 
     }
 
+	//##ModelId=474D308C0197
     CStringLock(CString & s, int minChars) : m_string(&s)
     {
         m_buffer = m_string->GetBuffer(minChars);
@@ -177,8 +183,10 @@ public:
 
     }
 
+	//##ModelId=474D308C0272
     operator LPTSTR() { return m_buffer; }
 
+	//##ModelId=474D308C030E
     void Release(int newLen = -1)
     {
         if (m_string)
@@ -189,6 +197,7 @@ public:
         }
     }
 
+	//##ModelId=474D308C037B
     ~CStringLock()  { Release(); }
 
 };
@@ -202,25 +211,34 @@ public:
 /// (which is in my understanding implicitely allowed the way I read the MSDN docs)
 /// Solution: we return a pointer to another buffer
 TCHAR NullBufferData[1] = { 0 };
+//##ModelId=474D308C0010
 LPTSTR CStringLock::NullBuffer = NullBufferData;
 
 
 // Helper class for Close-On-Return HKEY
 // \todo migrate template class 
+//##ModelId=474D308D004F
 class CAutoHKEY
 {
 private:
+	//##ModelId=474D308D00DB
     CAutoHKEY const & operator =(CAutoHKEY const & ); // not implemented
+	//##ModelId=474D308D0168
     CAutoHKEY(CAutoHKEY const &);   // not implemented
 
 protected:
+	//##ModelId=474D308D0214
     HKEY    key;
 
 public:
+	//##ModelId=474D308D02C0
     CAutoHKEY() : key(0) {}
+	//##ModelId=474D308D035C
     CAutoHKEY(HKEY key_) : key(key_) {}
+	//##ModelId=474D308E0010
    ~CAutoHKEY()          { Close(); }
 
+	//##ModelId=474D308E007E
     void Close()
     {
         if (key) 
@@ -230,12 +248,14 @@ public:
         }
     }
 
+	//##ModelId=474D308E00CC
    HKEY * OutArg()
    {
        Close();
        return &key;
    }
 
+	//##ModelId=474D308E0158
    operator HKEY() const { return key; }
 
 }; // CAutoHKEY
@@ -482,6 +502,7 @@ ERootType GetRootType(LPCTSTR path, int * pLen, bool greedy)
 /// 
 /// removes leading and trailing spaces.
 // 
+//##ModelId=474D303C009D
 CPath &  CPath::Trim()
 {
     nsPath::Trim(m_path);
@@ -494,6 +515,7 @@ CPath &  CPath::Trim()
 /// 
 /// removes (double) quotes from around the string
 // 
+//##ModelId=474D303C00EB
 CPath & CPath::Unquote()
 {
     if (GetFirstChar(m_path) == '"' && GetLastChar(m_path) == '"')
@@ -517,6 +539,7 @@ CPath & CPath::Unquote()
 /// \c PathCanonicalize does turn an empty path into a single backspace.
 /// CPath::Canonicalize does not modify an empty path.
 // 
+//##ModelId=474D303C012A
 CPath & CPath::Canonicalize()
 {
     if (!m_path.GetLength())  // PathCanonicalize turns an empty path into "\\" - I don't want this..
@@ -543,6 +566,7 @@ CPath & CPath::Canonicalize()
 /// Unicode API allows pathes longer than MAX_PATH, if they start with "\\\\?\\". This function
 /// removes such a specification if present. See also MSDN: "File Name Conventions".
 // 
+//##ModelId=474D303C0168
 CPath & CPath::ShrinkXXLPath()
 {
     if (m_path.GetLength() >= 6 &&   // at least 6 chars for [\\?\C:]
@@ -583,6 +607,7 @@ CPath & CPath::ShrinkXXLPath()
 /// 
 /// see CPath::Clean for a description of the cleanup options
 // 
+//##ModelId=474D303B0187
 CPath & CPath::Assign(CString const & str, DWORD cleanup)
 {
     m_path = str;
@@ -599,6 +624,7 @@ CPath & CPath::Assign(CString const & str, DWORD cleanup)
 /// character is not modified.
 /// (This is Microsoft#s idea of prettyfying a path. I don't know what to say)
 /// 
+//##ModelId=474D303C01A7
 CPath & CPath::MakePretty()
 {
     CStringLock buffer(m_path);
@@ -639,6 +665,7 @@ CPath & CPath::MakePretty()
 /// 
 /// 
 //
+//##ModelId=474D303C01E5
 CPath & CPath::Clean(DWORD cleanup)
 {
     if (cleanup & epcRemoveArgs)
@@ -684,6 +711,7 @@ CPath & CPath::Clean(DWORD cleanup)
 
 
 // Extractors
+//##ModelId=474D303C0233
 CString CPath::GetStr(DWORD packing) const
 {
     CString str = m_path;
@@ -700,6 +728,7 @@ CString CPath::GetStr(DWORD packing) const
 }
 
 
+//##ModelId=474D303C0291
 _bstr_t CPath::GetBStr(DWORD packing) const
 {
     return _bstr_t( GetStr(packing).operator LPCTSTR());
@@ -711,24 +740,29 @@ _bstr_t CPath::GetBStr(DWORD packing) const
 //  Constructors 
 // ------------------------------------------------------------------
 // 
+//##ModelId=474D303B008F
 CPath::CPath(LPCSTR path) : m_path(path)    
 { 
     Clean();
 }
 
+//##ModelId=474D303B00BC
 CPath::CPath(LPCWSTR path) : m_path(path)
 {
     Clean();
 }
 
+//##ModelId=474D303B00FB
 CPath::CPath(CString const & path) : m_path(path)
 {
     Clean();
 }
 
+//##ModelId=474D303B012A
 CPath::CPath(CPath const & path) : m_path(path.m_path) {}  // we assume it is already cleaned
 
 
+//##ModelId=474D303B0158
 CPath::CPath(CString const & path,DWORD cleanup) : m_path(path)
 {
     Clean(cleanup);
@@ -790,6 +824,7 @@ CPath & CPath::operator=(CPath const & rhs)
 /// appends a path segment, making sure it is separated by exactly one backslash
 /// \returns reference to the modified \c CPath instance.
 // 
+//##ModelId=474D303B01D8
 CPath & CPath::operator &=(LPCTSTR rhs)
 {
     return CPath::Append(rhs);
@@ -804,6 +839,7 @@ CPath & CPath::operator &=(LPCTSTR rhs)
 /// \returns [CPath &]: reference to the modified path
 /// see also: \c PathAddBackslash Shell Lightweight Utility API
 // 
+//##ModelId=474D303B0233
 CPath & CPath::AddBackslash()
 {
     if (GetLastChar(m_path) != Backslash)
@@ -821,6 +857,7 @@ CPath & CPath::AddBackslash()
 /// If the path ends with a backslash, it is removed.
 /// \returns [CPath &]: a reference to the modified path.
 // 
+//##ModelId=474D303B0262
 CPath & CPath::RemoveBackslash()
 {
     if (GetLastChar(m_path) == Backslash)
@@ -843,6 +880,7 @@ CPath & CPath::RemoveBackslash()
 /// \param rhs [LPCTSTR]: the path component to append
 /// \returns [CPath &]: reference to \c *this
 // 
+//##ModelId=474D303B0204
 CPath & CPath::Append(LPCTSTR rhs)
 {
     if (rhs == NULL || *rhs == '\0')
@@ -875,6 +913,7 @@ CPath & CPath::Append(LPCTSTR rhs)
 /// 
 /// \returns [CString]: the rot part of the string
 /// 
+//##ModelId=474D303B0281
 CString CPath::ShellGetRoot() const
 {
     LPCTSTR path = m_path;
@@ -895,6 +934,7 @@ CString CPath::ShellGetRoot() const
 /// For supported tpyes, see \ref nsPath::ERootType "ERootType".
 /// see also \ref nsPath::GetRootType
 /// 
+//##ModelId=474D303B033D
 ERootType CPath::GetRootType(int * len, bool greedy) const
 {
    return nsPath::GetRootType(m_path, len, greedy);
@@ -910,6 +950,7 @@ ERootType CPath::GetRootType(int * len, bool greedy) const
 /// For details which root types are supported, and how the length is calculated, see
 /// \ref nsPath::ERootType "ERootType" and \ref nsPath::GetRootType
 /// 
+//##ModelId=474D303B039B
 CString CPath::GetRoot(ERootType * rt, bool greedy) const
 {
    int len = 0;
@@ -932,6 +973,7 @@ CString CPath::GetRoot(ERootType * rt, bool greedy) const
 /// \returns [CString]: the root element of the original path
 /// \par Side Effects: root element removed from contained path
 /// 
+//##ModelId=474D303B03C9
 CString CPath::SplitRoot(ERootType * rt)
 {
     CString head;
@@ -991,6 +1033,7 @@ CString CPath::SplitRoot(ERootType * rt)
 ///     - when Extending \c CPath::GetRoot, this function should be adjusted as well
 /// 
 // 
+//##ModelId=474D303B02B0
 CPath CPath::GetPath(bool includeRoot ) const
 {
     LPCTSTR path = m_path;
@@ -1017,6 +1060,7 @@ CPath CPath::GetPath(bool includeRoot ) const
 /// \c GetName treats such a string as not containing a file name\n
 /// \b Example: for "c:\\temp\\", \c PathFindFileName finds "temp\\" as file name. \c GetName returns
 /// an empty string.
+//##ModelId=474D303B02CF
 CString CPath::GetName() const
 {
     // fix treating final path segments as file name
@@ -1037,6 +1081,7 @@ CString CPath::GetName() const
 ///
 /// \returns [CString]: the file title, without path or extension
 // 
+//##ModelId=474D303B02EF
 CString CPath::GetTitle() const
 {
     LPCTSTR path = m_path;
@@ -1062,6 +1107,7 @@ CString CPath::GetTitle() const
 /// \par Differences to \c PathFindExtension
 /// Unlike \c PathFindExtension, the period is not included in the extension string
 // 
+//##ModelId=474D303B030E
 CString CPath::GetExtension() const
 {
     LPCTSTR path = m_path;
@@ -1094,6 +1140,7 @@ CString CPath::GetExtension() const
 ///     \c len characters. 
 /// \returns [CPath &]: reference to the modified Path object
 // 
+//##ModelId=474D303C0030
 CPath & CPath::AddExtension(LPCTSTR extension, int len)
 {
     if (!extension)
@@ -1122,6 +1169,7 @@ CPath & CPath::AddExtension(LPCTSTR extension, int len)
 /// Removes the extension of the path, if it has any.
 /// \returns [CPath &]: reference to the modified path object
 // 
+//##ModelId=474D303C004F
 CPath& CPath::RemoveExtension()
 {
     PathRemoveExtension(CStringLock(m_path));
@@ -1140,6 +1188,7 @@ CPath& CPath::RemoveExtension()
 /// \param newExt [LPCTSTR ]: newextension
 /// \returns [CPath &]: reference to the modified path string
 // 
+//##ModelId=474D303C006E
 CPath & CPath::RenameExtension(LPCTSTR newExt)
 {
     if (newExt == NULL || *newExt != '.')
@@ -1161,6 +1210,7 @@ CPath & CPath::RenameExtension(LPCTSTR newExt)
 /// Removes the file specification (amd extension) from the path.
 /// \returns [CPath &]: a reference to the modified path object
 // 
+//##ModelId=474D303C008D
 CPath & CPath::RemoveFileSpec()
 {
     PathRemoveFileSpec(CStringLock(m_path));
@@ -1296,6 +1346,7 @@ CPath GetCurrentDirectory()
 /// \param secondPath [LPCTSTR]: the path to compare to
 /// \returns [CPath]: a new path, containing the part that is identical
 // 
+//##ModelId=474D303C036D
 CPath CPath::GetCommonPrefix(LPCTSTR secondPath)
 {
     CString prefix;
@@ -1314,6 +1365,7 @@ CPath CPath::GetCommonPrefix(LPCTSTR secondPath)
 /// \returns [int]: the driver number (0..25 for A..Z), or -1 if the 
 ///     path does not start with a drive letter
 // 
+//##ModelId=474D303C0010
 int CPath::GetDriveNumber()
 {
     return PathGetDriveNumber(m_path);
@@ -1325,6 +1377,7 @@ int CPath::GetDriveNumber()
 ///
 /// \returns [TCHAR]: the drive letter in uppercase, or 0
 // 
+//##ModelId=474D303C0020
 TCHAR CPath::GetDriveLetter()
 {
     int driveNum = GetDriveNumber();
@@ -1347,6 +1400,7 @@ TCHAR CPath::GetDriveLetter()
 /// \param srcIsDir [bool =false]: determines whether the current path is as a directory or a file
 /// \returns [CPath]: a relative path from this to \c pathTo
 // 
+//##ModelId=474D303C037B
 CPath CPath::RelativePathTo(LPCTSTR pathTo,bool srcIsDir)
 {
     CString path;
@@ -1378,6 +1432,7 @@ CPath CPath::RelativePathTo(LPCTSTR pathTo,bool srcIsDir)
 /// 
 /// \return [bool] true if the path was modified, false otherwise.
 /// 
+//##ModelId=474D303C039B
 bool CPath::MakeRelative(CPath const & basePath)
 {
    CPath basePathBS = basePath;
@@ -1403,6 +1458,7 @@ bool CPath::MakeRelative(CPath const & basePath)
 /// 
 /// Use: as anti-MakeRelative.
 /// 
+//##ModelId=474D303C03AA
 bool CPath::MakeAbsolute(CPath const & basePath)
 {
    if (IsRelative())
@@ -1424,6 +1480,7 @@ bool CPath::MakeAbsolute(CPath const & basePath)
 /// \param spec [LPCTSTR]: File specification (like "*.txt")
 /// \returns [bool]: true if the path matches the specification
 // 
+//##ModelId=474D303C02FF
 bool CPath::MatchSpec(LPCTSTR spec)
 {
     return PathMatchSpec(m_path, spec) != 0;
@@ -1439,6 +1496,7 @@ bool CPath::MatchSpec(LPCTSTR spec)
 /// See MSDN: \c ExpandEnvironmentStrings for more information
 /// \returns [CPath &]: reference to the modified path
 // 
+//##ModelId=474D303D007F
 CPath & CPath::ExpandEnvStrings()
 {
     CString target;
@@ -1470,6 +1528,7 @@ CPath & CPath::ExpandEnvStrings()
 /// \param eppFlags [DWORD, =0]: combination of \c EPathPacking flags indicating how to prepare the path
 /// \returns [CString]: path string prepared for display
 // 
+//##ModelId=474D303C03BA
 CString CPath::GetCompactStr(HDC dc,UINT dx, DWORD eppFlags)
 {
     CString ret = GetStr(eppFlags);
@@ -1487,6 +1546,7 @@ CString CPath::GetCompactStr(HDC dc,UINT dx, DWORD eppFlags)
 /// \param flags [DWORD, =0]: reserved, must be 0
 /// \returns [CString]: path string prepared for display
 // 
+//##ModelId=474D303C03D9
 CString CPath::GetCompactStr(UINT cchMax,DWORD flags, DWORD eppFlags )
 {
     CString cleanPath = GetStr(eppFlags);
@@ -1508,6 +1568,7 @@ CString CPath::GetCompactStr(UINT cchMax,DWORD flags, DWORD eppFlags )
 /// \param eppFlags [DWORD, =0]: combination of \c EPathPacking flags indicating how to prepare the path
 /// \returns [void]:
 // 
+//##ModelId=474D303D0002
 void CPath::SetDlgItem(HWND dlg,UINT dlgCtrlID, DWORD eppFlags)
 {
     CString cleanPath = GetStr(eppFlags);
@@ -1535,6 +1596,7 @@ void CPath::SetDlgItem(HWND dlg,UINT dlgCtrlID, DWORD eppFlags)
 /// SearchAndQualify qualifies the path with the current directory in this case
 /// 
 // 
+//##ModelId=474D303D0020
 CPath & CPath::SearchAndQualify()
 {
     if (!m_path.GetLength())
@@ -1576,6 +1638,7 @@ CPath & CPath::SearchAndQualify()
 /// \par error handling:
 ///   If the function succeeds, \c GetLastError returns 0. Otherwise, \c GetLastError returns a Win32 error code.
 /// 
+//##ModelId=474D303D0030
 CPath & CPath::FindOnPath(LPCTSTR * additionalDirs)
 {
     DWORD len = m_path.GetLength() + 1 + MAX_PATH;
@@ -1594,6 +1657,7 @@ CPath & CPath::FindOnPath(LPCTSTR * additionalDirs)
 ///
 /// \returns [bool]: true if the file exists on the file system, false otherwise.
 // 
+//##ModelId=474D303D0032
 bool CPath::Exists() const
 {
     return PathFileExists(m_path) != 0;
@@ -1606,6 +1670,7 @@ bool CPath::Exists() const
 /// \returns [bool]: true if the contained path specifies a directory 
 ///                  that exists on the file system
 // 
+//##ModelId=474D303D0040
 bool CPath::IsDirectory() const
 {
     return PathIsDirectory(m_path) != 0;
@@ -1620,6 +1685,7 @@ bool CPath::IsDirectory() const
 ///                 identify a system folder
 /// \returns [bool]: true if the specified path exists and is a system folder
 // 
+//##ModelId=474D303D004F
 bool CPath::IsSystemFolder(DWORD attrib) const
 {
     return PathIsSystemFolder(m_path, attrib) != 0;
@@ -1633,6 +1699,7 @@ bool CPath::IsSystemFolder(DWORD attrib) const
 /// \par error handling:
 ///  If the function succeeds, \c GetLastError returns 0. Otherwise, \c GetLastError returns a Win32 error code.
 // 
+//##ModelId=474D303D005E
 CPath & CPath::MakeSystemFolder(bool make)
 {
    bool ok = make ? PathMakeSystemFolder(m_path) != 0 : PathUnmakeSystemFolder(m_path) != 0;
@@ -1650,6 +1717,7 @@ CPath & CPath::MakeSystemFolder(bool make)
 /// 
 /// If the path is already absolute, it is not changed.
 /// 
+//##ModelId=474D303D007E
 CPath & CPath::MakeFullPath()
 {
    if (!IsRelative())
@@ -1674,6 +1742,7 @@ CPath & CPath::MakeFullPath()
 /// \returns [DWORD]: the file attributes of the specified path or file, or -1 if it 
 ///                   does not exist.
 // 
+//##ModelId=474D303D006E
 DWORD CPath::GetAttributes()
 {
     return ::GetFileAttributes(m_path);
@@ -1690,6 +1759,7 @@ DWORD CPath::GetAttributes()
 ///     information (like size, timestamps) for the specified file
 /// \returns [bool]: true if the file is found and the query was successful, false otherwise
 // 
+//##ModelId=474D303D006F
 bool CPath::GetAttributes(WIN32_FILE_ATTRIBUTE_DATA & fad)
 {
     ZeroMemory(&fad, sizeof(fad));
@@ -1715,6 +1785,7 @@ bool CPath::GetAttributes(WIN32_FILE_ATTRIBUTE_DATA & fad)
 /// does not match the beginning of the path, the path is unmodified and the function returns 
 /// false.
 /// 
+//##ModelId=474D303D008D
 bool CPath::EnvUnexpandRoot(LPCTSTR envVar)
 {
     return nsDetail::EnvUnsubstRoot(m_path, envVar);
@@ -1734,6 +1805,7 @@ bool CPath::EnvUnexpandRoot(LPCTSTR envVar)
 /// 
 /// see EnvUnexpandRoot for details.
 /// 
+//##ModelId=474D303D009E
 bool CPath::EnvUnexpandDefaultRoots()
 {
     // note: Order is important
@@ -1850,6 +1922,7 @@ CPath FromRegistry(HKEY baseKey, LPCTSTR subkey, LPCTSTR name)
 /// 
 /// See also nsPath::FromRegistry
 /// 
+//##ModelId=474D303D00AD
 long CPath::ToRegistry(HKEY baseKey,LPCTSTR subkey,LPCTSTR name,bool replaceEnv)
 {
     CAutoHKEY key;
@@ -1879,16 +1952,19 @@ long CPath::ToRegistry(HKEY baseKey,LPCTSTR subkey,LPCTSTR name,bool replaceEnv)
 //  IsDot, IsDotDot, IsDotty
 // ------------------------------------------------------------------
 ///
+//##ModelId=474D303C02D1
 bool CPath::IsDot() const 
 { 
     return m_path.GetLength() == 1 && m_path[0] == '.';
 }
 
+//##ModelId=474D303C02E0
 bool CPath::IsDotDot() const
 {
     return m_path.GetLength() == 2 && m_path[0] == '.' && m_path[1] == '.';
 }
 
+//##ModelId=474D303C02E2
 bool CPath::IsDotty() const
 {
     return IsDot() || IsDotDot();
@@ -1908,6 +1984,7 @@ const LPCTSTR InvalidChars_Windows =
 /// 
 /// returns true if the path satisfies Windows naming conventions
 ///
+//##ModelId=474D303C02CF
 bool CPath::IsValid() const
 {
     if (!m_path.GetLength()) return false;

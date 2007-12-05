@@ -26,6 +26,7 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // CTabCtrlEx
 
+//##ModelId=474D301E0263
 CTabCtrlEx::CTabCtrlEx()
 {
 	m_nStyle = 0;
@@ -45,6 +46,7 @@ CTabCtrlEx::CTabCtrlEx()
 	m_NonSelectedColor = RGB(255, 251, 233);
 }
 
+//##ModelId=474D301E0281
 CTabCtrlEx::~CTabCtrlEx()
 {
 	if (m_pFntText)
@@ -75,6 +77,7 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CTabCtrlEx message handlers
 
+//##ModelId=474D301E0291
 BOOL CTabCtrlEx::Create(DWORD dwStyle, const RECT& rect, CWnd* pParentWnd, UINT nID)
 {
 	// Get the sheet styles alone
@@ -123,6 +126,7 @@ BOOL CTabCtrlEx::Create(DWORD dwStyle, const RECT& rect, CWnd* pParentWnd, UINT 
 	return bRet;
 }
 
+//##ModelId=474D302002DF
 int CTabCtrlEx::OnCreate(LPCREATESTRUCT lpCreateStruct) 
 {
 	if (CWnd::OnCreate(lpCreateStruct) == -1)
@@ -139,6 +143,7 @@ int CTabCtrlEx::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	return 0;
 }
 
+//##ModelId=474D301F009E
 void CTabCtrlEx::SetTabHeight(int nTabHeight)
 {
 	m_nTabHeight = nTabHeight;
@@ -168,11 +173,13 @@ void CTabCtrlEx::SetTabHeight(int nTabHeight)
 	}
 }
 
+//##ModelId=474D301E02DF
 bool CTabCtrlEx::AddItem(const CString& csTabTitle, CWnd* pTabWnd)
 {
 	return InsertItem(m_Tabs.GetSize(), csTabTitle, pTabWnd);
 }
 
+//##ModelId=474D301E02FE
 bool CTabCtrlEx::InsertItem(int nTab, const CString& csTabTitle, CWnd* pTabWnd)
 {
 	CTab tab;
@@ -192,6 +199,7 @@ bool CTabCtrlEx::InsertItem(int nTab, const CString& csTabTitle, CWnd* pTabWnd)
 	return true;
 }
 
+//##ModelId=474D301E032D
 bool CTabCtrlEx::ReplaceItem(int nTab, const CString &csTabTitle, CWnd* pTabWnd)
 {
 	if ((nTab >= 0) && (nTab < m_Tabs.GetSize()))
@@ -214,6 +222,7 @@ bool CTabCtrlEx::ReplaceItem(int nTab, const CString &csTabTitle, CWnd* pTabWnd)
 	return false;
 }
 
+//##ModelId=474D301E035C
 bool CTabCtrlEx::DeleteItem(int nTab)
 {
 	if ((nTab >= 0) && (nTab < m_Tabs.GetSize()))
@@ -238,6 +247,7 @@ bool CTabCtrlEx::DeleteItem(int nTab)
 	return false;
 }
 
+//##ModelId=474D301E039B
 bool CTabCtrlEx::DeleteAllItems()
 {
 	// Remove all the tab
@@ -252,6 +262,7 @@ bool CTabCtrlEx::DeleteAllItems()
 	return true;
 }
 
+//##ModelId=474D301F00CC
 void CTabCtrlEx::UnderlineTabTitle(int nTab, COLORREF clr)
 {
 	if ((nTab >= 0) && (nTab < m_Tabs.GetSize()))
@@ -261,6 +272,7 @@ void CTabCtrlEx::UnderlineTabTitle(int nTab, COLORREF clr)
 	}
 }
 
+//##ModelId=474D30200010
 int CTabCtrlEx::GetTextWidth(const CString& csText)
 {
 	CDC *pDC = GetDC();
@@ -282,6 +294,7 @@ int CTabCtrlEx::GetTextWidth(const CString& csText)
 	return 0;
 }
 
+//##ModelId=474D3020003F
 int CTabCtrlEx::GetDisplayWidth()
 {
 	CRect rcWnd;
@@ -294,6 +307,7 @@ int CTabCtrlEx::GetDisplayWidth()
 	return rcWnd.Width();
 }
 
+//##ModelId=474D3020006E
 int CTabCtrlEx::GetTabsWidth()
 {
 	int nWidth = 0;
@@ -307,12 +321,14 @@ int CTabCtrlEx::GetTabsWidth()
 	return nWidth;
 }
 
+//##ModelId=474D3020007E
 int CTabCtrlEx::GetSpinnerWidth()
 {
 	int nSpinWidth = m_nTabHeight-2*1;
 	return (2*nSpinWidth + SPIN_PAD);
 }
 
+//##ModelId=474D3020008D
 void CTabCtrlEx::GetFullRect(CRect& rcTab)
 {
 	// Get the area of the full sheet window
@@ -325,6 +341,7 @@ void CTabCtrlEx::GetFullRect(CRect& rcTab)
 		rcTab.top = rcTab.Height()-m_nTabHeight;
 }
 
+//##ModelId=474D302000AD
 void CTabCtrlEx::GetTabListRect(CRect& rcTab)
 {
 	// Get the full tab area
@@ -337,6 +354,7 @@ void CTabCtrlEx::GetTabListRect(CRect& rcTab)
 		rcTab.top += 1;
 }
 
+//##ModelId=474D302000DB
 void CTabCtrlEx::GetTabRect(int nTab, CRect& rcTab)
 {
 	// Get the area for the tabs
@@ -359,6 +377,7 @@ void CTabCtrlEx::GetTabRect(int nTab, CRect& rcTab)
 	}
 }
 
+//##ModelId=474D302000FB
 void CTabCtrlEx::GetSpinnerRect(CRect& rcSpin)
 {
 	// Get the area for the tabs
@@ -372,6 +391,7 @@ void CTabCtrlEx::GetSpinnerRect(CRect& rcSpin)
 		rcSpin.SetRectEmpty();
 }
 
+//##ModelId=474D3020011A
 void CTabCtrlEx::GetButtonRect(int nBtn, CRect& rcBtn)
 {
 	GetSpinnerRect(rcBtn);
@@ -386,6 +406,7 @@ void CTabCtrlEx::GetButtonRect(int nBtn, CRect& rcBtn)
 		rcBtn.SetRectEmpty();
 }
 
+//##ModelId=474D301E03BA
 CString CTabCtrlEx::GetTabTitle(int nTab)
 {
 	if ((nTab >= 0) && (nTab < m_Tabs.GetSize()))
@@ -394,6 +415,7 @@ CString CTabCtrlEx::GetTabTitle(int nTab)
 	return "";
 }
 
+//##ModelId=474D301E03D9
 bool CTabCtrlEx::SetTabTitle(int nTab, const CString& csTabTitle)
 {
 	if ((nTab >= 0) && (nTab < m_Tabs.GetSize()))
@@ -410,6 +432,7 @@ bool CTabCtrlEx::SetTabTitle(int nTab, const CString& csTabTitle)
 	return false;
 }
 
+//##ModelId=474D301F005E
 bool CTabCtrlEx::SetTabItemData(int nTab, long lItemData)
 {
 	if ((nTab >= 0) && (nTab < m_Tabs.GetSize()))
@@ -422,6 +445,7 @@ bool CTabCtrlEx::SetTabItemData(int nTab, long lItemData)
 	return false;
 }
 
+//##ModelId=474D301F007E
 long CTabCtrlEx::GetTabItemData(int nTab)
 {
 	if ((nTab >= 0) && (nTab < m_Tabs.GetSize()))
@@ -432,21 +456,25 @@ long CTabCtrlEx::GetTabItemData(int nTab)
 	return -1;
 }
 
+//##ModelId=474D301F0010
 int CTabCtrlEx::GetActiveTab()
 {
 	return m_nActiveTab;
 }
 
+//##ModelId=474D301F0030
 int CTabCtrlEx::GetTabCount()
 {
 	return m_Tabs.GetSize();
 }
 
+//##ModelId=474D301F003F
 void CTabCtrlEx::SetActiveTab(int nTab, bool bNotify)
 {
 	ActivateTab(nTab, bNotify);
 }
 
+//##ModelId=474D30200262
 void CTabCtrlEx::ActivateTab(int nTab, bool bNotify, bool bOnSize)
 {
 	if ((nTab >= 0) && (nTab < m_Tabs.GetSize()))
@@ -469,6 +497,7 @@ void CTabCtrlEx::ActivateTab(int nTab, bool bNotify, bool bOnSize)
 	}
 }
 
+//##ModelId=474D30200291
 void CTabCtrlEx::ResizeTabWindow(int nOldTab, int nNewTab, bool bNotify, bool bOnSize)
 {
 	long lOldItemData = -1;
@@ -542,6 +571,7 @@ void CTabCtrlEx::ResizeTabWindow(int nOldTab, int nNewTab, bool bNotify, bool bO
 	}
 }
 
+//##ModelId=474D301F008D
 void CTabCtrlEx::MakeTabVisible(int nTab)
 {
 	CRect rcTab;
@@ -565,6 +595,7 @@ void CTabCtrlEx::MakeTabVisible(int nTab)
 	}
 }
 
+//##ModelId=474D302002CF
 void CTabCtrlEx::OnPaint() 
 {
 	CPaintDC dc(this); // device context for painting
@@ -584,6 +615,7 @@ void CTabCtrlEx::OnPaint()
 	DrawTabs(&dc);
 }
 
+//##ModelId=474D30200139
 void CTabCtrlEx::EnableSpinners()
 {
 	int nDispWidth = GetDisplayWidth();
@@ -603,6 +635,7 @@ void CTabCtrlEx::EnableSpinners()
 	}
 }
 
+//##ModelId=474D30200149
 void CTabCtrlEx::DrawTabs(CDC *pDC)
 {
 	// Draw the bar
@@ -630,6 +663,7 @@ void CTabCtrlEx::DrawTabs(CDC *pDC)
 	DrawSpinner(pDC);
 }
 
+//##ModelId=474D30200168
 void CTabCtrlEx::DrawBar(CDC* pDC)
 {
 	CRect rcBar;
@@ -654,6 +688,7 @@ void CTabCtrlEx::DrawBar(CDC* pDC)
 	}
 }
 
+//##ModelId=474D30200178
 void CTabCtrlEx::DrawTab(int nTab, CDC *pDC, CRect& rcTab)
 {
 	if(nTab < 0)
@@ -720,6 +755,7 @@ void CTabCtrlEx::DrawTab(int nTab, CDC *pDC, CRect& rcTab)
 	}
 }
 
+//##ModelId=474D30200198
 void CTabCtrlEx::DrawTabEx(int nTab, CDC *pDC, CRect& rcTab)
 {
 	if(nTab < 0)
@@ -770,6 +806,7 @@ void CTabCtrlEx::DrawTabEx(int nTab, CDC *pDC, CRect& rcTab)
 	pDC->SelectObject(pPrevFont);
 }
 
+//##ModelId=474D302001F5
 void CTabCtrlEx::DrawSpinner(CDC *pDC)
 {
 	CRect rcSpin;
@@ -793,6 +830,7 @@ void CTabCtrlEx::DrawSpinner(CDC *pDC)
 	DrawButton(pDC, rcBtn, m_btnState[1], ArrowRight, m_bBtnEnabled[1]);
 }
 
+//##ModelId=474D30200214
 void CTabCtrlEx::DrawButton(CDC *pDC, CRect& rcBtn, ButtonState btnState,
 	ButtonStyle btnStyle, bool bEnable)
 {
@@ -837,6 +875,7 @@ void CTabCtrlEx::DrawButton(CDC *pDC, CRect& rcBtn, ButtonState btnState,
 		pDC->Draw3dRect(rcBtn, COLOR_DARKGRAY, COLOR_WHITE);
 }
 
+//##ModelId=474D3020030E
 void CTabCtrlEx::OnLButtonDown(UINT nFlags, CPoint point) 
 {
 	CRect rcBtn;
@@ -866,6 +905,7 @@ void CTabCtrlEx::OnLButtonDown(UINT nFlags, CPoint point)
 	CWnd::OnLButtonDown(nFlags, point);
 }
 
+//##ModelId=474D3020033D
 void CTabCtrlEx::OnTimer(UINT nIDEvent) 
 {
 	if (nIDEvent == ID_SCROLL_TIMER)
@@ -882,6 +922,7 @@ void CTabCtrlEx::OnTimer(UINT nIDEvent)
 	CWnd::OnTimer(nIDEvent);
 }
 
+//##ModelId=474D3020034C
 void CTabCtrlEx::OnMouseMove(UINT nFlags, CPoint point) 
 {
 	/*
@@ -924,6 +965,7 @@ void CTabCtrlEx::OnMouseMove(UINT nFlags, CPoint point)
 	CWnd::OnMouseMove(nFlags, point);
 }
 
+//##ModelId=474D3020036C
 void CTabCtrlEx::OnLButtonUp(UINT nFlags, CPoint point)
 {
 	// Release the mouse capture
@@ -945,6 +987,7 @@ void CTabCtrlEx::OnLButtonUp(UINT nFlags, CPoint point)
 	CWnd::OnLButtonUp(nFlags, point);
 }
 
+//##ModelId=474D30200252
 void CTabCtrlEx::ScrollTab(CPoint point)
 {
 	CRect rcBtn;
@@ -999,6 +1042,7 @@ void CTabCtrlEx::ScrollTab(CPoint point)
 	}
 }
 
+//##ModelId=474D3020038C
 void CTabCtrlEx::OnSize(UINT nType, int cx, int cy) 
 {
 	CWnd::OnSize(nType, cx, cy);
@@ -1020,6 +1064,7 @@ void CTabCtrlEx::OnSize(UINT nType, int cx, int cy)
 	m_nPrevWidth = cx;
 }
 
+//##ModelId=474D301F00BC
 BOOL CTabCtrlEx::PreTranslateMessage(MSG* pMsg) 
 {
 	switch (pMsg->message)
@@ -1045,6 +1090,7 @@ BOOL CTabCtrlEx::PreTranslateMessage(MSG* pMsg)
 	return FALSE;
 }
 
+//##ModelId=474D302002C0
 void CTabCtrlEx::SwitchTabs(bool bNext)
 {
 	int nNewTab = GetActiveTab();
@@ -1062,6 +1108,7 @@ void CTabCtrlEx::SwitchTabs(bool bNext)
 	ActivateTab(nNewTab, true);
 }
 
+//##ModelId=474D302003BA
 void CTabCtrlEx::OnShowWindow(BOOL bShow, UINT nStatus)
 {
 	if (bShow)

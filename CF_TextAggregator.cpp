@@ -2,15 +2,18 @@
 #include ".\cf_textaggregator.h"
 #include "Misc.h"
 
+//##ModelId=474D30790149
 CCF_TextAggregator::CCF_TextAggregator(CStringA csSepator) :
 	m_csSeparator(csSepator)
 {
 }
 
+//##ModelId=474D30790158
 CCF_TextAggregator::~CCF_TextAggregator(void)
 {
 }
 
+//##ModelId=474D30790168
 bool CCF_TextAggregator::AddClip(LPVOID lpData, int nDataSize, int nPos, int nCount)
 {
 	LPCSTR pText = (LPCSTR)lpData;
@@ -41,6 +44,7 @@ bool CCF_TextAggregator::AddClip(LPVOID lpData, int nDataSize, int nPos, int nCo
 	return true;
 }
 
+//##ModelId=474D307901B6
 HGLOBAL CCF_TextAggregator::GetHGlobal()
 {
 	long lLen = m_csNewText.GetLength();

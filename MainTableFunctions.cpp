@@ -16,16 +16,19 @@ static char THIS_FILE[]=__FILE__;
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
+//##ModelId=474D305E03BA
 CMainTableFunctions::CMainTableFunctions()
 {
 
 }
 
+//##ModelId=474D305E03C9
 CMainTableFunctions::~CMainTableFunctions()
 {
 
 }
 
+//##ModelId=474D305E03CB
 void CMainTableFunctions::LoadAcceleratorKeys(CAccels& accels, CppSQLite3DB &db)
 {
 	try
@@ -46,6 +49,7 @@ void CMainTableFunctions::LoadAcceleratorKeys(CAccels& accels, CppSQLite3DB &db)
 	CATCH_SQLITE_EXCEPTION
 }
 
+//##ModelId=474D305E03DC
 CString CMainTableFunctions::GetDisplayText(int nMaxLines, const CString &OrigText)
 {
 	CString text = OrigText;

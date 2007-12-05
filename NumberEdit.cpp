@@ -14,11 +14,13 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // CNumberEdit
 
+//##ModelId=474D3085033D
 CNumberEdit::CNumberEdit()
 {
 	m_dMax = LONG_MAX;
 }
 
+//##ModelId=474D30860010
 CNumberEdit::~CNumberEdit()
 {
 }
@@ -33,6 +35,7 @@ END_MESSAGE_MAP()
 /////////////////////////////////////////////////////////////////////////////
 // CNumberEdit message handlers
 
+//##ModelId=474D30860012
 void CNumberEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags) 
 {
 	//Only allow the number 0 - 9 and a the backspace to go through
@@ -57,6 +60,7 @@ void CNumberEdit::OnChar(UINT nChar, UINT nRepCnt, UINT nFlags)
 	}
 }
 
+//##ModelId=474D308503D9
 BOOL CNumberEdit::ValidateNumber(double dNumber)
 {
 	if(dNumber > m_dMax)
@@ -65,6 +69,7 @@ BOOL CNumberEdit::ValidateNumber(double dNumber)
 	return TRUE;
 }
 
+//##ModelId=474D3085034C
 long CNumberEdit::GetNumber()
 {
 	CString csText;
@@ -73,6 +78,7 @@ long CNumberEdit::GetNumber()
 	return ATOL(csText);
 }
 
+//##ModelId=474D3085033E
 double CNumberEdit::GetNumberD()
 {
 	CString csText;
@@ -88,6 +94,7 @@ double CNumberEdit::GetNumberD()
 	return d;
 }
 
+//##ModelId=474D3085037B
 BOOL CNumberEdit::SetNumber(long lNumber)
 {
 	//Check if its a good number

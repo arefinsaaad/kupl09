@@ -11,6 +11,7 @@
 #include "htmlformataggregator.h"
 
 // allocate an HGLOBAL of the given Format Type representing these Clip IDs.
+//##ModelId=474D30750245
 HGLOBAL CClipIDs::Render(UINT cfType)
 {
 	int count = GetSize();
@@ -71,6 +72,7 @@ HGLOBAL CClipIDs::Render(UINT cfType)
 	return NULL;
 }
 
+//##ModelId=474D30750253
 void CClipIDs::GetTypes(CClipTypes& types)
 {
 	int IDCount = GetSize();
@@ -123,6 +125,7 @@ void CClipIDs::GetTypes(CClipTypes& types)
 	}
 }
 
+//##ModelId=474D30750272
 bool CClipIDs::AggregateData(IClipAggregator &Aggregator, UINT cfType, BOOL bReverse)
 {
 	CString csSQL;
@@ -182,6 +185,7 @@ bool CClipIDs::AggregateData(IClipAggregator &Aggregator, UINT cfType, BOOL bRev
 //----------------------------------------------
 
 // returns the address of the given id in this array or NULL.
+//##ModelId=474D30750282
 long* CClipIDs::FindID(long lID)
 {
 	int count = GetSize();
@@ -199,6 +203,7 @@ long* CClipIDs::FindID(long lID)
 }
 
 // Blindly Moves IDs into the lParentID Group sequentially with the given order
+//##ModelId=474D30750292
 BOOL CClipIDs::MoveTo(long lParentID, double dFirst, double dIncrement)
 {
 	try
@@ -220,6 +225,7 @@ BOOL CClipIDs::MoveTo(long lParentID, double dFirst, double dIncrement)
 }
 
 // Empties this array and fills it with the elements of the given group ID
+//##ModelId=474D307502DF
 BOOL CClipIDs::LoadElementsOf(long lGroupID)
 {
 	SetSize(0);
@@ -247,6 +253,7 @@ BOOL CClipIDs::LoadElementsOf(long lGroupID)
 //   an alternative design would be to have one CMainTable per level deep,
 //   but I thought that might be too costly, so I implemented it this way.
 
+//##ModelId=474D307502E1
 BOOL CClipIDs::CopyTo(long lParentID)
 {
 	int count = GetSize();
@@ -288,6 +295,7 @@ BOOL CClipIDs::CopyTo(long lParentID)
 	return TRUE;
 }
 
+//##ModelId=474D307502F0
 BOOL CClipIDs::DeleteIDs()
 {
 	CPopup status(0, 0, ::GetForegroundWindow());
@@ -324,6 +332,7 @@ BOOL CClipIDs::DeleteIDs()
 	return bRet;
 }
 
+//##ModelId=474D30750300
 BOOL CClipIDs::CreateExportSqliteDB(CppSQLite3DB &db)
 {
 	BOOL bRet = FALSE;
@@ -356,6 +365,7 @@ BOOL CClipIDs::CreateExportSqliteDB(CppSQLite3DB &db)
 	return bRet;
 }
 
+//##ModelId=474D307502FE
 BOOL CClipIDs::Export(CString csFilePath)
 {    
 	int count = GetSize();

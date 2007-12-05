@@ -21,16 +21,19 @@ static char THIS_FILE[]=__FILE__;
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
+//##ModelId=474D3061037B
 CInternetUpdate::CInternetUpdate()
 {
 
 }
 
+//##ModelId=474D3061037C
 CInternetUpdate::~CInternetUpdate()
 {
 
 }
 
+//##ModelId=474D3061038C
 BOOL CInternetUpdate::CheckForUpdate(HWND hParent, BOOL bCheckForPrevUpdate, BOOL bShowNoUpdatesDlg)
 {
 	m_bShowMessages = bShowNoUpdatesDlg;
@@ -99,6 +102,7 @@ BOOL CInternetUpdate::CheckForUpdate(HWND hParent, BOOL bCheckForPrevUpdate, BOO
 	return bRet;
 }
 
+//##ModelId=474D3062007E
 BOOL CInternetUpdate::RemoveOldUpdateFile()
 {
 	CString csFile = CGetSetOptions::GetPath(PATH_UPDATE_FILE);
@@ -113,6 +117,7 @@ BOOL CInternetUpdate::RemoveOldUpdateFile()
 	return bRet;
 }
 
+//##ModelId=474D306103C9
 CString CInternetUpdate::GetVersionString(long lVersion)
 {
 	CString csLine;
@@ -125,6 +130,7 @@ CString CInternetUpdate::GetVersionString(long lVersion)
 	return csLine;
 }
 
+//##ModelId=474D306103BA
 long CInternetUpdate::GetRunningVersion()
 {
 	CString csFileName = CGetSetOptions::GetExeFileName();
@@ -163,6 +169,7 @@ long CInternetUpdate::GetRunningVersion()
     return(0);
 }
 
+//##ModelId=474D306103BB
 long CInternetUpdate::GetUpdateVersion()
 {
 	char httpbuff[HTTPBUFLEN];
@@ -271,6 +278,7 @@ long CInternetUpdate::GetUpdateVersion()
 	return lReturn;
 }
 
+//##ModelId=474D30620001
 CString CInternetUpdate::DownloadUpdate()
 {
 	char httpbuff[HTTPBUFLEN];
